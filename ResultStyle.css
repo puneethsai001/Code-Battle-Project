@@ -5,8 +5,9 @@ img{
 }
 
 body {
+    min-height: 100vh;
     font-family: 'Arial', sans-serif;
-    background-color: #272727;
+    background-image: url('Background.png');
     color: #F73634;
 }
 
@@ -17,6 +18,7 @@ image{
 table {
     width: 50%;
     border-collapse: collapse;
+    background-color: #272727;
     margin-left: auto;
     margin-right: auto;
 }
@@ -29,10 +31,12 @@ th, td {
 }
 
 footer {
-    background-color: #333333;
+    background-color: #272727;
     color: #ffffff; 
     padding: 5px;
     text-align: center;
+    position: sticky;
+    top: 100%;
 }
 
 h1{
