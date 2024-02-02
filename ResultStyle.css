@@ -22,9 +22,17 @@ table {
 }
 
 th, td {
-    border: 1px solid;
-    border-color: azure;
+    font-size: medium;
+    border: 2px solid;
+    border-color: #878a8a;
     padding: 8px;
+}
+
+footer {
+    background-color: #333333;
+    color: #ffffff; 
+    padding: 5px;
+    text-align: center;
 }
 
 h1{
