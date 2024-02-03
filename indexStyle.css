@@ -13,12 +13,11 @@ body {
 	width: 768px;
 	margin: auto;
 	min-height: 450px;
-        border-style: outset;
 }
 
 .form-container {
-	postion:absolute;
-    	left: 0;
+	position:absolute;
+  left: 0;
 	width : 50%;
 	text-align: center;
 }
