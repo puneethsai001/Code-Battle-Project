@@ -7,7 +7,7 @@ img{
 body {
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
-    background-image: url('Background.png');
+    background-image: url("Images/Background.png");
     color: #F73634;
 }
 

@@ -1,13 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-    background-color: #272727;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background-color: #272727;
 }
 
 .container {
-
 	position: relative;
 	overflow: visible;
 	width: 768px;
@@ -16,17 +16,10 @@ body {
 }
 
 .form-container {
-	position:absolute;
-  left: 0;
+  margin-left: auto;
+  margin-right: auto;
 	width : 50%;
 	text-align: center;
-}
-
-
-.image-container {
-  position: absolute;
-	right: 0;
-	top: 0;
 }
 
 .radio-container {
@@ -100,4 +93,13 @@ body {
 
 .form-container button:hover {
     background-color: #6E1E00;
+}
+
+footer {
+  background-color: #000000;
+  color: #ffffff; 
+  padding: 5px;
+  text-align: center;
+  position: sticky;
+  top: 100%;
 }
