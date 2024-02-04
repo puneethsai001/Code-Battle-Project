@@ -1,13 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-    background-color: #272727;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background-color: #272727;
 }
 
 .container {
-
 	position: relative;
 	overflow: visible;
 	width: 768px;
@@ -16,18 +16,11 @@ body {
 }
 
 .form-container {
-	position:absolute;
-  left: 0;
+  margin-left: auto;
+  margin-right: auto;
 	width : 50%;
 	text-align: center;
   margin: auto;
-}
-
-
-.image-container {
-  position: absolute;
-	right: 0;
-	top: 0;
 }
 
 .radio-container {
@@ -104,12 +97,17 @@ body {
 }
 
 footer {
+<<<<<<< HEAD
   background-color: #272727;
+=======
+  background-color: #000000;
+>>>>>>> 385c50eba00d2f8d8441eb61de8804e97e54d7c4
   color: #ffffff; 
   padding: 5px;
   text-align: center;
   position: sticky;
   top: 100%;
+<<<<<<< HEAD
 }
 
 @media(max-width: 768px){
@@ -123,3 +121,6 @@ footer {
     width: 90%;
   }
  }
+=======
+}
+>>>>>>> 385c50eba00d2f8d8441eb61de8804e97e54d7c4
