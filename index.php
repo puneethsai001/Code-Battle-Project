@@ -27,5 +27,9 @@
                 </div>
             </div>
     </body>
+    <footer>
+        <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+        <p>Contact us at: info@codebattle.com</p>
+    </footer>
 </html> 
 

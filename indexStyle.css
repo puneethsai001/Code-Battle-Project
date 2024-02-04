@@ -20,6 +20,7 @@ body {
   left: 0;
 	width : 50%;
 	text-align: center;
+  margin: auto;
 }
 
 
@@ -101,3 +102,24 @@ body {
 .form-container button:hover {
     background-color: #6E1E00;
 }
+
+footer {
+  background-color: #272727;
+  color: #ffffff; 
+  padding: 5px;
+  text-align: center;
+  position: sticky;
+  top: 100%;
+}
+
+@media(max-width: 768px){
+ .form-container{
+   width: 90%;
+ }
+}
+
+@media(max-width: 576px){
+  .form-container{
+    width: 90%;
+  }
+ }
