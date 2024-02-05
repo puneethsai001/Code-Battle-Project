@@ -26,28 +26,23 @@ h2{
     color: #ffffff;
 }
 
-button{
-    background-color: #F73634;
-    border: none;
-    border-radius: 1rem;
-    color: #fff;
-    font-size: 1rem;
-    cursor: pointer;
-}
 
 th{
     color: #fff;
 }
 
-.table-buttons{
-    padding: 5px 10px;
+.button-container{
+    text-align: center;
 }
 
-#createButton{
-    display: block;
+button{
+    background-color: #F73634;
+    border: none;
+    border-radius: 1rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline;
     margin-top: 3rem;
-    margin-left: auto;
-    margin-right: auto;
     font-size: large;
     padding: 5px 15px;
 }
