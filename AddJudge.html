@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Battle - Add Judge</title>
+
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background-color: #1b222c;
+            color: #f5f6f7;
+            font-family: Tahoma;
+            font-size: 16px;
+        }
+
+        #instruction{
+            margin-top: 10rem;
+            font-size: large;
+        }
+
+        h1, p {
+            margin: 1em auto;
+            text-align: center;
+        }
+
+        form {
+            width: 60vw;
+            max-width: 500px;
+            min-width: 300px;
+            margin: 1rem auto;
+            border-radius: 25px;
+            padding: 0 3rem 3rem 3rem ;
+        }
+
+        label {
+            margin-bottom: 25px;
+        }
+
+        input,
+        textarea,
+        select {
+            display: block;
+            margin: 10px 0 0 0;
+            width: 100%;
+            min-height: 2em;
+        }
+
+        input{
+        background-color: #380000;
+        border: 1px solid #0a0a23;
+        color: #ffffff;
+        border-radius: 25px ;
+        }
+
+        button {
+            display: block;
+            width: 60%;
+            margin: 1em auto;
+            height: 2em;
+            font-size: 1.1rem;
+            background-color: #3b3b4f;
+            border-color: white;
+            color: white;
+            min-width: 300px;
+            border-radius:0;
+        }
+
+        select{
+            width: 25%;
+            background-color: #661b1c;
+            font-size: medium;
+            color: white;
+            padding: 7px;
+            border-radius: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .select-container{
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        function generateTextFields() {
+            var selectedValue = document.getElementById("judges").value;
+
+            var container = document.getElementById("text-field-container");
+
+            container.innerHTML = "";
+            var judgeName, judgeEmail, judgeUsername, judgePass;
+            var nameLabel, emailLabel, userLabel, passLabel, temp;
+
+            document.getElementById("formid").style.backgroundColor = "#661b1c";
+
+            container.appendChild(document.createElement("br")); 
+
+            for (var i = 0; i < selectedValue; i++) {
+
+                judgeName = document.createElement("input");
+                judgeName.type = "text";
+                judgeName.placeholder = "Name";
+                judgeName.id = "JName_"+(i+1)
+                container.appendChild(judgeName);
+
+                nameLabel = document.createElement("Label");
+                temp = document.createTextNode("Judge Name");
+                nameLabel.appendChild(temp);
+                document.getElementById("text-field-container").insertBefore(nameLabel,document.getElementById("JName_"+(i+1)));
+
+                container.appendChild(document.createElement("br")); 
+
+                judgeEmail = document.createElement("input");
+                judgeEmail.type = "email";
+                judgeEmail.placeholder = "Email";
+                judgeEmail.id = "JEmail_"+(i+1)
+                container.appendChild(judgeEmail);
+
+                emailLabel = document.createElement("Label");
+                temp = document.createTextNode("Judge Email");
+                emailLabel.appendChild(temp);
+                document.getElementById("text-field-container").insertBefore(emailLabel,document.getElementById("JEmail_"+(i+1)));
+
+                container.appendChild(document.createElement("br")); 
+
+                judgeUsername = document.createElement("input");
+                judgeUsername.type = "text";
+                judgeUsername.placeholder = "Username"
+                judgeUsername.id = "Jusername_"+(i+1)
+                container.appendChild(judgeUsername);
+
+                userLabel = document.createElement("Label");
+                temp = document.createTextNode("Judge Username");
+                userLabel.appendChild(temp);
+                document.getElementById("text-field-container").insertBefore(userLabel,document.getElementById("Jusername_"+(i+1)));
+
+                container.appendChild(document.createElement("br")); 
+
+                judgePass = document.createElement("input");
+                judgePass.type = "password";
+                judgePass.placeholder = "Password";
+                judgePass.id = "JPass_"+(i+1)
+                container.appendChild(judgePass);
+
+                passLabel = document.createElement("Label");
+                temp = document.createTextNode("Judge Email");
+                passLabel.appendChild(temp);
+                document.getElementById("text-field-container").insertBefore(passLabel,document.getElementById("JPass_"+(i+1)));
+
+                container.appendChild(document.createElement("br")); 
+                container.appendChild(document.createElement("hr")); 
+                container.appendChild(document.createElement("br")); 
+            }
+
+            var x = document.createElement("BUTTON");
+            var t = document.createTextNode("Submit Form");
+            x.appendChild(t);
+            document.getElementById("text-field-container").appendChild(x);
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Add Judges</h1>
+    <div class = "select-container">
+        <label for="judges" id = "instruction">Choose No of Judges</label>
+        <select name="judges" id="judges" onchange="generateTextFields()">
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+
+    <form id = "formid">
+        <div id="text-field-container">
+        </div>
+
+    </form>
+    
+</body>
+</html>
