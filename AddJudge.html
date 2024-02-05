@@ -10,8 +10,8 @@
             width: 100%;
             height: 100vh;
             margin: 0;
-            background-color: #1b222c;
-            color: #f5f6f7;
+            background-color: #D8D8D8;
+            color: #D8D8D8;
             font-family: Tahoma;
             font-size: 16px;
         }
@@ -19,11 +19,13 @@
         #instruction{
             margin-top: 10rem;
             font-size: large;
+            color: black;
         }
 
-        h1, p {
+        h1{
             margin: 1em auto;
             text-align: center;
+            color: black;
         }
 
         form {
@@ -49,7 +51,7 @@
         }
 
         input{
-        background-color: #380000;
+        background-color: #002F72;
         border: 1px solid #0a0a23;
         color: #ffffff;
         border-radius: 25px ;
@@ -61,7 +63,7 @@
             margin: 1em auto;
             height: 2em;
             font-size: 1.1rem;
-            background-color: #3b3b4f;
+            background-color: #002F72;
             border-color: white;
             color: white;
             min-width: 300px;
@@ -70,7 +72,7 @@
 
         select{
             width: 25%;
-            background-color: #661b1c;
+            background-color: #004BB8;
             font-size: medium;
             color: white;
             padding: 7px;
@@ -93,8 +95,9 @@
             container.innerHTML = "";
             var judgeName, judgeEmail, judgeUsername, judgePass;
             var nameLabel, emailLabel, userLabel, passLabel, temp;
+            var heading;
 
-            document.getElementById("formid").style.backgroundColor = "#661b1c";
+            document.getElementById("formid").style.backgroundColor = "#004BB8";
 
             container.appendChild(document.createElement("br")); 
 
@@ -105,6 +108,11 @@
                 judgeName.placeholder = "Name";
                 judgeName.id = "JName_"+(i+1)
                 container.appendChild(judgeName);
+
+                heading = document.createElement("h2");
+                temp = document.createTextNode("Judge "+(i+1)+" Details");
+                heading.appendChild(temp);
+                document.getElementById("text-field-container").insertBefore(heading,document.getElementById("JName_"+(i+1)));
 
                 nameLabel = document.createElement("Label");
                 temp = document.createTextNode("Judge Name");
@@ -146,7 +154,7 @@
                 container.appendChild(judgePass);
 
                 passLabel = document.createElement("Label");
-                temp = document.createTextNode("Judge Email");
+                temp = document.createTextNode("Judge Password");
                 passLabel.appendChild(temp);
                 document.getElementById("text-field-container").insertBefore(passLabel,document.getElementById("JPass_"+(i+1)));
 
