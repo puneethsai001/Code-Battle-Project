@@ -9,6 +9,8 @@ body {
     font-family: 'Arial', sans-serif;
     background-image: url("Images/Background.png");
     color: #F73634;
+    margin: 0;
+    padding: 0;
 }
 
 image{
