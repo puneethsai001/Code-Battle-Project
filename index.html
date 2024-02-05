@@ -1,43 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Battle - Login</title>
-    <link rel="stylesheet" href="indexStyle.css">
+    <title>Login - CodeBattle</title>
+    <link rel="stylesheet" href="indexStyle.css"> 
 </head>
-
 <body>
-    <br><br><br><br><br>
-
     <div class="container">
         <div class="form-container">
-        <form>
-                <h1>
-                    Welcome to <font color="#F73634">Code</font>Battle
-                </h1>
-
-                <label class="radio-container">Admin<input type="radio" name="role" value="Admin"><span class="checkmark"></span></label>
-                &nbsp; &nbsp; &nbsp; &nbsp;
-                <label class="radio-container">Judge<input type="radio" name="role" value="Judge"><span class="checkmark"></span></label>
-
-                <hr>
-                <p>
-                    Please enter your Log in details to proceed.
-                </p>
-
-                <input type="text" id="username" name="username" placeholder="Username" >
-                <input type="password" id="password" name="password" placeholder="Password" >
+            <h1>Welcome Back!</h1>
+            <p>CodeBattle – where young minds transform ideas into digital masterpieces. <br>Join the journey and let your creativity unfold!</p>
+            <form action="includes/formhandler.inc.php" method="POST">
+                <h4>Please enter your login details to proceed.</h4>
+                <div class="form-group">
+                    <label for="username"></label>
+                    <input type="text" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input type="password" id="password" name="pwd" placeholder="Password">
+                </div>
+                <a href="#" class="forgot-password" >Forgot your password?</a>
                 <hr>
                 <button type="submit">Log In</button>
-
             </form>
+        </div>
+        <div class="image-container">
+            <img src="Images/hackathonpic.jpeg" alt="CodeBattle Image">
         </div>
     </div>
 </body>
-<footer>
-    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-    <p>Contact us at: info@codebattle.com</p>
-</footer>
 </html>
