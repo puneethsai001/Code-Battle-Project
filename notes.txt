@@ -1,0 +1,5 @@
+//for logout button
+<form action="includes/logout.inc.php" method="POST">
+                <button type="submit">Log Out</button>
+</form>
+
