@@ -39,7 +39,7 @@
       border-bottom: none;
     }
     
-    label {
+    label not [for = "Category"]{
       margin-bottom: 25px;
     }
     
@@ -83,6 +83,8 @@
       border-radius:0;
     }
     
+
+    
     input[type="file"] {
       padding: 1px 2px;
     }
@@ -112,19 +114,14 @@
 	<label for="C3">Criteria 3: <input id="C3" name="C3" type="C3"/></label>
       </fieldset>
       <fieldset>
-        <label for="age">Maximum Players per Team: <input id="age" type="number" name="age" min="13" max="120" /></label>
-        <label for="referrer">Age Range:
-          <select id="referrer" name="referrer">
-            <option value="">(select one)</option>
-            <option value="1">Grade 9</option>
-            <option value="2">Grade 10</option>
-            <option value="3">Grade 11</option>
-            <option value="4">Grade 12</option>
-            <option value="4">Undergraduate</option>
-          </select>
-        </label>
-        <label for="Description">Description:
-          <textarea id="Description" name="Description" rows="3" cols="30" placeholder="Optional"></textarea>
+        <label for="MacP">Maximum Players per Team: <input id="MacP" type="number" name="MacP" max="5" /></label>
+        <label for="Category">Category:
+          <input type="radio" id="jr-cadet" name="Category" value="jr-cadet">
+          <label for="jr-cadet">Jr Cadet</label>
+          <input type="radio" id="jr-captain" name="Category" value="jr-captain">
+          <label for="jr-captain">Jr Captain</label>
+          <input type="radio" id="jr-colonel" name="Category" value="jr-colonel">
+          <label for="jr-colonel">Jr Colonel</label>
         </label>
       </fieldset>
             <input type="submit" value="Submit" />
