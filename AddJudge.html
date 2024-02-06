@@ -8,10 +8,10 @@
     <style>
         body {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            background-color: #D8D8D8;
-            color: #D8D8D8;
+            background-color: #272727;
+            color: white;
             font-family: Tahoma;
             font-size: 16px;
         }
@@ -19,13 +19,11 @@
         #instruction{
             margin-top: 10rem;
             font-size: large;
-            color: black;
         }
 
         h1{
             margin: 1em auto;
             text-align: center;
-            color: black;
         }
 
         form {
@@ -51,28 +49,33 @@
         }
 
         input{
-        background-color: #002F72;
-        border: 1px solid #0a0a23;
+        background-color: #272727;
+        border: 1px;
         color: #ffffff;
         border-radius: 25px ;
         }
 
         button {
-            display: block;
-            width: 60%;
-            margin: 1em auto;
-            height: 2em;
-            font-size: 1.1rem;
-            background-color: #002F72;
-            border-color: white;
-            color: white;
-            min-width: 300px;
-            border-radius:0;
+            background-color: #272727;
+            border: 1px;
+            border-radius: 25px;
+            color: #ffffff;
+            font-size: 1rem;
+            padding: 0.5rem;
+            width: 100%;
+            max-width: none;
+            margin-top: 2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover{
+            background-color: #ffffff;
+            color: #272727;
         }
 
         select{
             width: 25%;
-            background-color: #004BB8;
+            background-color: #F73634;
             font-size: medium;
             color: white;
             padding: 7px;
@@ -83,6 +86,20 @@
 
         .select-container{
             text-align: center;
+        }
+
+        ::placeholder{
+            left: 2rem;
+            color: white;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ffffff; 
+            padding: 5px;
+            text-align: center;
+            position: sticky;
+            top: 100%;
         }
     </style>
 
@@ -97,7 +114,7 @@
             var nameLabel, emailLabel, userLabel, passLabel, temp;
             var heading;
 
-            document.getElementById("formid").style.backgroundColor = "#004BB8";
+            document.getElementById("formid").style.backgroundColor = "#F73634";
 
             container.appendChild(document.createElement("br")); 
 
@@ -105,7 +122,7 @@
 
                 judgeName = document.createElement("input");
                 judgeName.type = "text";
-                judgeName.placeholder = "Name";
+                judgeName.placeholder = " Name";
                 judgeName.id = "JName_"+(i+1)
                 container.appendChild(judgeName);
 
@@ -114,53 +131,32 @@
                 heading.appendChild(temp);
                 document.getElementById("text-field-container").insertBefore(heading,document.getElementById("JName_"+(i+1)));
 
-                nameLabel = document.createElement("Label");
-                temp = document.createTextNode("Judge Name");
-                nameLabel.appendChild(temp);
-                document.getElementById("text-field-container").insertBefore(nameLabel,document.getElementById("JName_"+(i+1)));
-
                 container.appendChild(document.createElement("br")); 
 
                 judgeEmail = document.createElement("input");
                 judgeEmail.type = "email";
-                judgeEmail.placeholder = "Email";
+                judgeEmail.placeholder = " Email";
                 judgeEmail.id = "JEmail_"+(i+1)
                 container.appendChild(judgeEmail);
-
-                emailLabel = document.createElement("Label");
-                temp = document.createTextNode("Judge Email");
-                emailLabel.appendChild(temp);
-                document.getElementById("text-field-container").insertBefore(emailLabel,document.getElementById("JEmail_"+(i+1)));
 
                 container.appendChild(document.createElement("br")); 
 
                 judgeUsername = document.createElement("input");
                 judgeUsername.type = "text";
-                judgeUsername.placeholder = "Username"
+                judgeUsername.placeholder = " Username"
                 judgeUsername.id = "Jusername_"+(i+1)
                 container.appendChild(judgeUsername);
-
-                userLabel = document.createElement("Label");
-                temp = document.createTextNode("Judge Username");
-                userLabel.appendChild(temp);
-                document.getElementById("text-field-container").insertBefore(userLabel,document.getElementById("Jusername_"+(i+1)));
 
                 container.appendChild(document.createElement("br")); 
 
                 judgePass = document.createElement("input");
                 judgePass.type = "password";
-                judgePass.placeholder = "Password";
+                judgePass.placeholder = " Password";
                 judgePass.id = "JPass_"+(i+1)
                 container.appendChild(judgePass);
 
-                passLabel = document.createElement("Label");
-                temp = document.createTextNode("Judge Password");
-                passLabel.appendChild(temp);
-                document.getElementById("text-field-container").insertBefore(passLabel,document.getElementById("JPass_"+(i+1)));
-
                 container.appendChild(document.createElement("br")); 
                 container.appendChild(document.createElement("hr")); 
-                container.appendChild(document.createElement("br")); 
             }
 
             var x = document.createElement("BUTTON");
@@ -172,7 +168,7 @@
     </script>
 </head>
 <body>
-    <h1>Add Judges</h1>
+    <h1>Add <font color = "#F73634">Judges</font></h1>
     <div class = "select-container">
         <label for="judges" id = "instruction">Choose No of Judges</label>
         <select name="judges" id="judges" onchange="generateTextFields()">
@@ -189,4 +185,9 @@
     </form>
     
 </body>
+
+<footer>
+    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+    <p>Contact us at: info@codebattle.com</p>
+</footer>
 </html>
