@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $pwd=$_POST["pwd"];
     
     try{
-        require_once 'dbh.inc.php';
+        require_once '../includes/dbh.inc.php';
         require_once 'login_model.inc.php';
         require_once 'login_contr.inc.php';
 
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             }
         }
         
-        require_once 'config_session.inc.php';
+        require_once '../includes/config_session.inc.php';
 
         if ($errors){
             $_SESSION["errors_login"]=$errors;
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $_SESSION["user_id"]=$result['user_id'];
         $_SESSION["user_username"]=htmlspecialchars($result['username']);
         
-        header("Location: ../Admin.php?login=success");
+        header("Location: ../admin/Admin.php?login=success");
         $pdo=null;
         $stmt=null;
 

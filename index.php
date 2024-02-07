@@ -1,6 +1,6 @@
 <?php
     require_once "includes/config_session.inc.php";
-    require_once "includes/login_view.inc.php";
+    require_once "login/login_view.inc.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,7 +165,7 @@
         <div class="form-container">
             <h1>Welcome <font color = "#F73634">Back!</font></h1>
             <p>CodeBattle – where young minds transform ideas into digital masterpieces. <br>Join the journey and let your creativity unfold!</p>
-            <form action="includes/login.inc.php" method="POST">
+            <form action="login/login.inc.php" method="POST">
                 <h4>Please enter your login details to proceed.</h4>
                 <div class="form-group">
                     <label for="username"></label>
@@ -193,7 +193,7 @@
         ?>
         
             <H1 style="text-align:center">YOU ARE ALREADY LOGGED IN</H1>
-            <form action="includes/logout.inc.php" method="POST">
+            <form action="login/logout.inc.php" method="POST">
                 <button type="submit">Log Out</button>
             </form>
 

@@ -11,7 +11,7 @@ function check_login_errors(){
         echo "<br>";
 
         foreach($errors as $error){
-            echo '<h2 style="color: red;">';
+            echo '<h2 style="color: #F73634;">';
                 echo $error;
             '</h2>';
         }
@@ -20,7 +20,7 @@ function check_login_errors(){
 
     }
     else if(isset($_GET["login"])&&$_GET["login"]==="success"){
-        header("Location: Admin.php");
+        header("Location: admin/Admin.php");
         die();
     }
 }

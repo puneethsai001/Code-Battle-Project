@@ -1,5 +1,5 @@
 <?php
-require_once "includes/config_session.inc.php";
+require_once "../includes/config_session.inc.php";
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,7 +113,7 @@ require_once "includes/config_session.inc.php";
         <button type="button">View Hackathon</button> &nbsp; &nbsp;
         <button type="button">Edit Hackathon</button> &nbsp; &nbsp;
         <button type="button">Create Hackathon</button> &nbsp; &nbsp;
-        <form action="includes/logout.inc.php" method="POST">
+        <form action="../login/logout.inc.php" method="POST">
             <button type="submit">Log Out</button>
         </form>
     </div>
