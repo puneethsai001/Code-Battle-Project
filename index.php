@@ -179,29 +179,29 @@
                 <hr>
                 <button type="submit">Log In</button>
             </form>
+            <?php
+            //in view
+                check_login_errors();
+            ?>
         </div>
         <div class="image-container">
             <img src="Images/Hackathon.png" alt="CodeBattle Image">
         </div>
+        <?php
+            } 
+            else{ 
+        ?>
+        
+            <H1 style="text-align:center">YOU ARE ALREADY LOGGED IN</H1>
+            <form action="includes/logout.inc.php" method="POST">
+                <button type="submit">Log Out</button>
+            </form>
+
+        <?php
+            }
+        ?>
+                    
+
     </div>
-    <?php
-        }
-        else{ 
-    ?>
-
-    <H1 style="text-align:center">ALREADY LOGGED IN</H1>
-    <form action="includes/logout.inc.php" method="POST">
-        <button type="submit">Log Out</button>
-    </form>
-    
-
-    <?php
-    }
-    ?>
-
-    <?php
-        //in view
-        check_login_errors();
-    ?>
 </body>
 </html>
