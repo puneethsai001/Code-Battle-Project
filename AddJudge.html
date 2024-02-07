@@ -22,7 +22,7 @@
         }
 
         h1{
-            margin: 1em auto;
+            margin-top: 1em auto;
             text-align: center;
         }
 
@@ -171,15 +171,15 @@
 </head>
 <body>
     <h1>Add <font color = "#F73634">Judges</font></h1>
-    <p for="judges" id = "instruction">Choose No of Judges</p>
-    <select name="judges" id="judges" onchange="generateTextFields()">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
     <div class = "select-container">
+        <p for="judges" id = "instruction">Choose No of Judges</p>
+        <select name="judges" id="judges" onchange="generateTextFields()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
     </div>
 
     <form id = "formid">
