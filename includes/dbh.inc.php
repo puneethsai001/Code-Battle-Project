@@ -1,13 +1,18 @@
-//first 
+ 
 
 <?php
-$dsn="mysql:host=localhost;dbname=login_data";
-$dbusername = "root";
-$dbpassword = "";
+$host='localhost';
+$dbname='demo';
+$dbusername = 'root';
+$dbpassword = '';
+
+$dsn="mysql:host=$host;dbname=$dbname";
+
 try{
     $pdo=new PDO($dsn,$dbusername,$dbpassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 }catch(PDOException $e){
-    echo "CONEECTION FAILED: ".$e->getMessage();
+    die( "CONEECTION FAILED: ".$e->getMessage());
+    
 }

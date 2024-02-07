@@ -1,3 +1,7 @@
+<?php
+    require_once "includes/config_session.inc.php";
+    require_once "includes/login_view.inc.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,11 +155,17 @@
     </style>
 </head>
 <body>
+    <?php
+        if(!isset($_SESSION["user_id"])){ 
+    ?>
+
+
     <div class="container">
+
         <div class="form-container">
             <h1>Welcome <font color = "#F73634">Back!</font></h1>
             <p>CodeBattle – where young minds transform ideas into digital masterpieces. <br>Join the journey and let your creativity unfold!</p>
-            <form action="includes/formhandler.inc.php" method="POST">
+            <form action="includes/login.inc.php" method="POST">
                 <h4>Please enter your login details to proceed.</h4>
                 <div class="form-group">
                     <label for="username"></label>
@@ -169,10 +179,27 @@
                 <hr>
                 <button type="submit">Log In</button>
             </form>
+        <?php
+            }
+        ?>
+
+        <?php
+            //in view
+            check_login_errors();
+            output_username();
+        ?>
+
+        <form action="includes/logout.inc.php" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
+            
+            
+
         </div>
         <div class="image-container">
             <img src="Images/Hackathon.png" alt="CodeBattle Image">
         </div>
+
     </div>
 </body>
 </html>
