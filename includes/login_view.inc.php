@@ -20,15 +20,14 @@ function check_login_errors(){
 
     }
     else if(isset($_GET["login"])&&$_GET["login"]==="success"){
-        header("Location: Admin.html");
-        echo '<h2 style="color: green;">Login success</h2>';
+        header("Location: Admin.php");
+        die();
     }
 }
-function output_username(){
+function output_success_login(){
     if(isset($_SESSION["user_id"])){
-        $r=session_id();
-        echo "session id = ".$r."<br>";
-        echo "you are logged in as ".$_SESSION["user_username"]."  ".$_SESSION["user_id"];
+        
+        echo "you are logged in as ".$_SESSION["user_username"];
     }
     else{
         // echo "you are not logged in";

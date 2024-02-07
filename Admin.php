@@ -1,3 +1,6 @@
+<?php
+require_once "includes/config_session.inc.php";
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +83,9 @@
     </style>
 </head>
 <body>
-    <h1>Welcome <font color="#FFFFFF">Admin</font>,</h1>
+    <?php
+        echo '<h1>Welcome <font color="#FFFFFF">'.$_SESSION["user_username"].'</font>,</h1>';
+    ?>
     <h2>Hackathon Details</h2>
     <table>
         <tr>
@@ -108,6 +113,9 @@
         <button type="button">View Hackathon</button> &nbsp; &nbsp;
         <button type="button">Edit Hackathon</button> &nbsp; &nbsp;
         <button type="button">Create Hackathon</button> &nbsp; &nbsp;
+        <form action="includes/logout.inc.php" method="POST">
+            <button type="submit">Log Out</button>
+        </form>
     </div>
 </body>
 <footer>
