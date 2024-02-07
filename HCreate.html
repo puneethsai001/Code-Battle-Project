@@ -72,13 +72,14 @@
       margin:1rem;
     }
     
-    input[type="submit"] {
+    button {
       display: block;
       width: 60%;
       margin: 1em auto;
       height: 2em;
       font-size: 1.1rem;
       background-color: #3b3b4f;
+      color: white;
       border-color: white;
       min-width: 300px;
       border-radius:0;
@@ -104,23 +105,28 @@
           }
 
   </style>
+
   </head>
   <body>
+
     <h1>Create a Hackathon</h1>
     <p>Please fill out the required information</p>
-    <form method="post" action='https://register-demo.freecodecamp.org'>
+
+    <form>
       <fieldset>
-        <label for="HName">Name of the Hackathon: <input id="HName" name="HName" type="text" required /></label>
-        <label for="HDate">Date: <input id="HDate" name="HDate" type="date" min="2024-03-01" required /></label>
-        <label for="HTime">Time: <input id="HTime" name="HTime" type="time" required /></label>
+        <label for="HName">Name of the Hackathon: <input id="HName" name="HName" type="text"  /></label>
+        <label for="HDate">Date: <input id="HDate" name="HDate" type="date" min="2024-03-01"  /></label>
+        <label for="HTime">Time: <input id="HTime" name="HTime" type="time"  /></label>
       <label for="age">Number of Judges: <input id="age" type="number" name="noJudges" min="1" max="5" /></label>
       </fieldset>
+
       <fieldset>
         <legend><h3>Criterias</h3></legend>
-        <label for="C1">Criteria 1: <input id="C1" name="C1" type="text" required /></label>
-	<label for="C2">Criteria 2: <input id="C2" name="C2" type="text"/></label>
-	<label for="C3">Criteria 3: <input id="C3" name="C3" type="C3"/></label>
+        <label for="C1">Criteria 1: <input id="C1" name="C1" type="text"  /></label>
+        <label for="C2">Criteria 2: <input id="C2" name="C2" type="text"/></label>
+        <label for="C3">Criteria 3: <input id="C3" name="C3" type="C3"/></label>
       </fieldset>
+
       <fieldset>
         <label for="MacP">Maximum Players per Team: <input id="MacP" type="number" name="MacP" max="5" /></label>
         <label for="Category">Category:
@@ -132,11 +138,16 @@
           <label for="jr-colonel">Jr Colonel</label>
         </label>
       </fieldset>
-            <input type="submit" value="Submit" />
+            <a href="AddJudge.html"><button id="redirectButton">Submit</button></a>
     </form>
+
   </body>
+
   <footer>
+
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
     <p>Contact us at: info@codebattle.com</p>
+
   </footer>
+
 </html>
