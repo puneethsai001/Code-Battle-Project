@@ -83,13 +83,19 @@
     <h1>Add <font color = "#F73634">Criteria</font></h1>
     <p id = "instruction">Please fill out the required information</p>
 
-    <form>
+    <form action="accept_Criteria_data.php" method="POST">
         <br>
-        <h2>Crietria Details</h2>
+        <h2>Critria Details</h2>
+        <br>
         <input id="CName1" name="CName1" type="text"  placeholder=" Criteria 1" required/>
+        <input id="CWeight1" name="CWeight1" type="text"  placeholder=" Weight of Criteria 1" required/> 
+        <br><hr><br> 
         <input id="CName2" name="CName2" type="text"  placeholder=" Criteria 2" required/>
+        <input id="CWeight2" name="CWeight2" type="text"  placeholder=" Weight of Criteria 2" required/> 
+        <br><hr><br> 
         <input id="CName3" name="CName3" type="text"  placeholder=" Criteria 3" required/>
-
+        <input id="CWeight3" name="CWeight3" type="text"  placeholder=" Weight of Criteria 3" required/>
+        <br>
         <button id="redirectButton">Submit</button>
     </form>
 </body>

@@ -139,7 +139,7 @@
             for (var i = 0; i < selectedValue; i++) {
 
                 judgeName = document.createElement("input");
-                judgeName.required
+                judgeName.required=true;
                 judgeName.type = "text";
                 judgeName.placeholder = " Name";
                 judgeName.id = "JName_"+(i+1)
@@ -154,7 +154,7 @@
                 container.appendChild(document.createElement("br")); 
 
                 judgeEmail = document.createElement("input");
-                judgeEmail.required
+                judgeEmail.required=true;
                 judgeEmail.type = "email";
                 judgeEmail.placeholder = " Email";
                 judgeEmail.id = "JEmail_"+(i+1)
@@ -164,18 +164,18 @@
                 container.appendChild(document.createElement("br")); 
 
                 judgeUsername = document.createElement("input");
-                judgeUsername.required
+                judgeUsername.required=true;
                 judgeUsername.type = "text";
                 judgeUsername.placeholder = " Username"
-                judgeUsername.id = "Jusername_"+(i+1)
-                judgeUsername.name = "Jusername_"+(i+1)
+                judgeUsername.id = "JUsername_"+(i+1)
+                judgeUsername.name = "JUsername_"+(i+1)
                 container.appendChild(judgeUsername);
 
                 container.appendChild(document.createElement("br")); 
 
                 judgePass = document.createElement("input");
-                judgePass.required
-                judgePass.type = "password";
+                judgePass.required=true;
+                judgePass.type = "text";
                 judgePass.placeholder = " Password";
                 judgePass.id = "JPass_"+(i+1)
                 judgePass.name = "JPass_"+(i+1)
@@ -197,7 +197,7 @@
 <body>
     <h1>Add <font color = "#F73634">Judges</font></h1>
 
-    <form action="Createhackathon/accept_judges_data.php" method="POST" id = "formid">
+    <form action="accept_judges_data.php" method="POST" id = "formid">
 
         <div class = "select-container">
             <p for="judges" id = "instruction">Select the number of judges</p>
