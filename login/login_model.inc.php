@@ -15,3 +15,4 @@ function get_userdata(object $pdo,string $username){
 
         //if there is a row it returns an array result if no value it returns 0 false
 }
+

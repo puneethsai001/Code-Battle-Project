@@ -1,7 +1,7 @@
 
 <?php
 $host='localhost';
-$dbname='demo';
+$dbname='code-battle-db';
 $dbusername = 'root';
 $dbpassword = '';
 

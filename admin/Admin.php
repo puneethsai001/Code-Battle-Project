@@ -1,6 +1,7 @@
 <?php
 require_once "../includes/config_session.inc.php";
-?> 
+// require_once "../login/login.inc.php";
+if ($_SESSION["user_isadmin"]==1){?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,7 +113,10 @@ require_once "../includes/config_session.inc.php";
     <div class="button-container">
         <button type="button">View Hackathon</button> &nbsp; &nbsp;
         <button type="button">Edit Hackathon</button> &nbsp; &nbsp;
-        <button type="button">Create Hackathon</button> &nbsp; &nbsp;
+        <!-- <button type="button">Create Hackathon</button> &nbsp; &nbsp; -->
+        <form action="HCreate.html" method="POST">
+            <button type="submit">Create Hackathon</button>
+        </form>
         <form action="../login/logout.inc.php" method="POST">
             <button type="submit">Log Out</button>
         </form>
@@ -123,3 +127,4 @@ require_once "../includes/config_session.inc.php";
     <p>Contact us at: info@codebattle.com</p>
 </footer>
 </html>
+<?php }?>

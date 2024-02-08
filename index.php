@@ -175,7 +175,7 @@
                     <label for="password"></label>
                     <input type="password" id="password" name="pwd" placeholder="Password">
                 </div>
-                <a href="#" class="forgot-password" >Forgot your password?</a>
+                <!-- <a href="#" class="forgot-password" >Forgot your password?</a> -->
                 <hr>
                 <button type="submit">Log In</button>
             </form>
