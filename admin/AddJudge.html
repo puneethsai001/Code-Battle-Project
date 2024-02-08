@@ -35,12 +35,7 @@
             padding: 0 3rem 3rem 3rem ;
         }
 
-        label {
-            margin-bottom: 25px;
-        }
-
         input,
-        textarea,
         select {
             display: block;
             margin: 10px 0 0 0;
@@ -63,9 +58,7 @@
             font-size: 1rem;
             padding: 0.5rem;
             width: 100%;
-            max-width: none;
             margin-top: 2rem;
-            transition: background-color 0.3s ease;
         }
 
         button:hover{
@@ -100,7 +93,30 @@
         @media screen and (max-width: 700px) {
 
             select{
-                width: 50%;
+                width: 25%;
+                font-size: 15px;
+                padding: 3px;
+            }
+
+            h1{
+                font-size: x-large;
+            }
+
+            #instruction{
+                font-size: medium;
+            }
+
+            #formid{
+                font-size: small;
+                width: 30vw;
+            }
+
+            h2{
+                font-size: medium;   
+            }
+
+            footer{
+                font-size: small;
             }
         }
     </style>
@@ -162,7 +178,7 @@
             }
 
             var x = document.createElement("BUTTON");
-            var t = document.createTextNode("Submit Form");
+            var t = document.createTextNode("Next");
             x.appendChild(t);
             document.getElementById("text-field-container").appendChild(x);
 
@@ -172,7 +188,7 @@
 <body>
     <h1>Add <font color = "#F73634">Judges</font></h1>
     <div class = "select-container">
-        <p for="judges" id = "instruction">Choose No of Judges</p>
+        <p for="judges" id = "instruction">Select the number of judges</p>
         <select name="judges" id="judges" onchange="generateTextFields()">
             <option value="1">1</option>
             <option value="2">2</option>
