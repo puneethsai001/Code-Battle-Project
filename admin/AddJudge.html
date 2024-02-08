@@ -123,7 +123,7 @@
 
     <script>
         function generateTextFields() {
-            var selectedValue = document.getElementById("judges").value;
+            var selectedValue = document.getElementById("judgescount").value;
 
             var container = document.getElementById("text-field-container");
 
@@ -142,6 +142,7 @@
                 judgeName.type = "text";
                 judgeName.placeholder = " Name";
                 judgeName.id = "JName_"+(i+1)
+                judgeName.name = "JName_"+(i+1)
                 container.appendChild(judgeName);
 
                 heading = document.createElement("h2");
@@ -155,6 +156,7 @@
                 judgeEmail.type = "email";
                 judgeEmail.placeholder = " Email";
                 judgeEmail.id = "JEmail_"+(i+1)
+                judgeEmail.name = "JEmail_"+(i+1)
                 container.appendChild(judgeEmail);
 
                 container.appendChild(document.createElement("br")); 
@@ -163,6 +165,7 @@
                 judgeUsername.type = "text";
                 judgeUsername.placeholder = " Username"
                 judgeUsername.id = "Jusername_"+(i+1)
+                judgeUsername.name = "Jusername_"+(i+1)
                 container.appendChild(judgeUsername);
 
                 container.appendChild(document.createElement("br")); 
@@ -171,6 +174,7 @@
                 judgePass.type = "password";
                 judgePass.placeholder = " Password";
                 judgePass.id = "JPass_"+(i+1)
+                judgePass.name = "JPass_"+(i+1)
                 container.appendChild(judgePass);
 
                 container.appendChild(document.createElement("br")); 
@@ -189,7 +193,7 @@
     <h1>Add <font color = "#F73634">Judges</font></h1>
     <div class = "select-container">
         <p for="judges" id = "instruction">Select the number of judges</p>
-        <select name="judges" id="judges" onchange="generateTextFields()">
+        <select name="judgescount" id="judgescount" onchange="generateTextFields()">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -197,12 +201,10 @@
             <option value="5">5</option>
         </select>
     </div>
-
-    <form id = "formid">
+    <form action="Createhackathon/accept_judges_data.php" method="POST" id = "formid">
         <div id="text-field-container">
         </div>
-
-    </form>
+    </form> 
     
 </body>
 

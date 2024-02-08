@@ -155,11 +155,6 @@
     </style>
 </head>
 <body>
-    <?php
-        if(!isset($_SESSION["user_id"])){ 
-    ?>
-
-
     <div class="container">
 
         <div class="form-container">
@@ -187,21 +182,6 @@
         <div class="image-container">
             <img src="Images/Hackathon.png" alt="CodeBattle Image">
         </div>
-        <?php
-            } 
-            else{ 
-        ?>
-        
-            <H1 style="text-align:center">YOU ARE ALREADY LOGGED IN</H1>
-            <form action="login/logout.inc.php" method="POST">
-                <button type="submit">Log Out</button>
-            </form>
-
-        <?php
-            }
-        ?>
-                    
-
     </div>
 </body>
 </html>

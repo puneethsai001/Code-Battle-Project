@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $_SESSION["user_username"]=htmlspecialchars($result['username']);
         $_SESSION["user_isadmin"]=htmlspecialchars($result['admin']);
         
-        header("Location: ../admin/Admin.php?login=success");
+        header("Location: ../admin/Admin.html?login=success");
         $pdo=null;
         $stmt=null;
 
