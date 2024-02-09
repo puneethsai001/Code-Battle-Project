@@ -5,7 +5,7 @@ require_once '../../includes/dbh.inc.php';
 require_once '../../includes/config_session.inc.php';
 
 //pdo is db objec
-
+if(!isset($_SESSION['H_created'])){
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $HName=$_POST["HName"];
         $HDate=$_POST["HDate"];
@@ -43,3 +43,7 @@ require_once '../../includes/config_session.inc.php';
         header("Location: AddJudge.html");
         
     }
+}
+else{
+    header("Location: AddJudge.html");
+}

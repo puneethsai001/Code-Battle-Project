@@ -5,7 +5,7 @@ require_once '../../includes/dbh.inc.php';
 require_once "../../includes/config_session.inc.php";
 
 //pdo is db objec
-
+if(!isset($_SESSION['H_criteria_added'])){
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
         $query2="INSERT INTO criteria_data(CName1,CWeight1,CName2,CWeight2,CName3,CWeight3,H_id) VALUES (:CName1,:CWeight1,:CName2,:CWeight2,:CName3,:CWeight3,:H_id);";
@@ -35,3 +35,7 @@ require_once "../../includes/config_session.inc.php";
         unset($_SESSION['H_criteria_added']);
         header("Location: ../admin.html");
     }
+}
+else{
+    header("Location: ../admin.html");
+}

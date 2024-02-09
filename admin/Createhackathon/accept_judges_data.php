@@ -6,7 +6,7 @@ require_once '../../includes/config_session.inc.php';
 // require_once 'accept_hackathon_data.php';
 
 //pdo is db object
-
+if(!isset($_SESSION['H_judges_added'])){
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         
         $judgescount=$_POST["judgescount"];
@@ -37,3 +37,7 @@ require_once '../../includes/config_session.inc.php';
         
         header("Location: AddCriteria.html");
     }
+}
+else{
+    header("Location: AddCriteria.html");
+}
