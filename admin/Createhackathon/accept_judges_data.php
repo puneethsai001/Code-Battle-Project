@@ -6,40 +6,34 @@ require_once '../../includes/config_session.inc.php';
 // require_once 'accept_hackathon_data.php';
 
 //pdo is db object
-$query1="SELECT(H_id) from hackathon_data where HName=:HName;";
-$stmt=$pdo->prepare($query1);
-$stmt->bindParam(":HName",$_SESSION['HName']);
-$stmt->execute();
-$H_id = $stmt->fetchColumn();
 
-if ($_SERVER["REQUEST_METHOD"]=="POST"){
-
-    
-
-    $judgescount=$_POST["judgescount"];
-
-    $query="INSERT INTO judges_data(JName,JEmail,JUsername,JPass,H_id) VALUES (:JName,:JEmail,:JUsername,:JPass,:H_id);";
-    $stmt=$pdo->prepare($query);
-    for($i=0;$i<$judgescount;$i++){
-        $JName[$i]=$_POST["JName_".($i+1)];
-        $JEmail[$i]=$_POST["JEmail_".($i+1)];
-        $JUsername[$i]=$_POST["JUsername_".($i+1)];
-        $JPass[$i]=$_POST["JPass_".($i+1)];
+    if ($_SERVER["REQUEST_METHOD"]=="POST"){
         
-        $stmt->bindParam(":JName",$JName[$i]);
-        $stmt->bindParam(":JEmail",$JEmail[$i]);
-        $stmt->bindParam(":JUsername",$JUsername[$i]);
+        $judgescount=$_POST["judgescount"];
 
-        $options = [
-            'cost' => 12
-        ];
-        $hashedPwd=password_hash($JPass[$i],PASSWORD_BCRYPT,$options);
-        $stmt->bindParam(":JPass",$hashedPwd);
-        $stmt->bindParam(":H_id",$H_id);
-        $stmt->execute();
+        $query="INSERT INTO judges_data(JName,JEmail,JUsername,JPass,H_id) VALUES (:JName,:JEmail,:JUsername,:JPass,:H_id);";
+        $stmt=$pdo->prepare($query);
+        for($i=0;$i<$judgescount;$i++){
+            $JName[$i]=$_POST["JName_".($i+1)];
+            $JEmail[$i]=$_POST["JEmail_".($i+1)];
+            $JUsername[$i]=$_POST["JUsername_".($i+1)];
+            $JPass[$i]=$_POST["JPass_".($i+1)];
+            
+            $stmt->bindParam(":JName",$JName[$i]);
+            $stmt->bindParam(":JEmail",$JEmail[$i]);
+            $stmt->bindParam(":JUsername",$JUsername[$i]);
+
+            $options = [
+                'cost' => 12
+            ];
+            $hashedPwd=password_hash($JPass[$i],PASSWORD_BCRYPT,$options);
+            $stmt->bindParam(":JPass",$hashedPwd);
+            $stmt->bindParam(":H_id",$_SESSION['H_id']);
+            $stmt->execute();
+        }
+        $_SESSION['H_judges_added']=1;
+        // $ans=isset($_SESSION['HName']);
+        // echo $ans;
+        
+        header("Location: AddCriteria.html");
     }
-    // $ans=isset($_SESSION['HName']);
-    // echo $ans;
-    
-    header("Location: AddCriteria.html");
-}

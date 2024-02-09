@@ -10,8 +10,18 @@ function logout(){
 }
 
 function open_create_hackathon(){
-    header("Location: Createhackathon/Hcreate.html");
-    die();
+    if($_SESSION['H_created']!=1){
+        header("Location: Createhackathon/Hcreate.html");
+        die();
+    }
+    if($_SESSION['H_judges_added']!=1){
+        header("Location: Createhackathon/AddJudge.html");
+        die();
+    }
+    if($_SESSION['H_criteria_added']!=1){
+        header("Location: Createhackathon/AddCriteria.html");
+        die();
+    }
 }
 
 
