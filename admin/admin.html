@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Battle - Admin</title>
     <style>
+        header{
+            display: inline-block;
+            width: 100%;
+        }
+        h1{
+            width: 50%;
+
+        }
+        .logout{
+            text-align: right;
+            width: 20%;
+            margin-left: auto;
+        }
+
         body{
             font-family: 'Arial', sans-serif;
             color: #F73634;
@@ -51,24 +65,28 @@
             
         }
 
-        .button-container{
+        .button-container {
             text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        button{
+        .button-wrapper {
+            margin: 1rem;
+        }
+
+        button {
             background-color: #F73634;
             border: none;
             border-radius: 1rem;
             color: #fff;
             cursor: pointer;
-            display: inline;
-            margin-top: 3rem;
             font-size: large;
             padding: 5px 15px;
-            
         }
 
-        button:hover{
+        button:hover {
             background-color: #000000;
             color: #ffffff;
         }
@@ -84,11 +102,21 @@
        
     </style>
 </head>
+<header>    
+    <div class="header">
+    <h1>Welcome <font color="#FFFFFF">Admin,</font></h1>
+        <div class="logout">
+            <form action="admin_functions.php" method="POST">
+            <button type="submit" id="logout" name="logout">"profile button"</button>
+            </form>
+        </div> 
+    </div> 
+</header>
 <body>
     <!-- <?php
         echo '<h1>Welcome <font color="#FFFFFF">'.$_SESSION["user_username"].'</font>,</h1>';
     ?> -->
-    <h1>Welcome <font color="#FFFFFF">Admin,</font></h1>
+
     <h2>Hackathon Details</h2>
     <div id="table">
         <script>
@@ -103,18 +131,27 @@
         </script>
     </div>
     <div class="button-container">
-        <form action="" method="POST">
-            <button type="button">View Hackathon</button> &nbsp; &nbsp;
-        </form>
-        <form action="" method="POST">
-            <button type="button">Edit Hackathon</button> &nbsp; &nbsp;
-        </form>
-        <form action="admin_functions.php" method="POST">
+        <div class="button-wrapper">
+          <form action="" method="POST">
+            <button type="button">View Hackathon</button>
+          </form>
+        </div>
+        <div class="button-wrapper">
+          <form action="" method="POST">
+            <button type="button">Edit Hackathon</button>
+          </form>
+        </div>
+        <div class="button-wrapper">
+          <form action="admin_functions.php" method="POST">
             <button type="submit" name="create_hackathon">Create Hackathon</button>
-        </form>
-        <form action="admin_functions.php" method="POST">
-            <button type="submit" name="logout">Log Out</button>
-        </form>
+          </form>
+        </div>
+        <div class="button-wrapper">
+          <form action="admin_functions.php" method="POST">
+            <button type="submit" name="logout">Discard Hackathon</button>
+          </form>
+        </div>
+     
     </div>
 </body>
 <footer>

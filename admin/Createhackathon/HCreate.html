@@ -36,11 +36,8 @@
       padding: 0 3rem 3rem 3rem ;
     }
     
-    label not [for = "Category"]{
-      margin-bottom: 25px;
-    }
     
-    input,
+    input ,
     select {
       display: block;
       margin: 10px 0 0 0;
@@ -61,6 +58,11 @@
       width:25%;
       padding-left: 2rem;
       margin:1rem;
+    }
+
+    input[type="checkbox"]{
+      display: flex;
+      width: 10%;
     }
 
     ::placeholder{
@@ -118,16 +120,23 @@
 
       <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum Players per Team" required/>
       <br>
-      <p>Category</p>
-        <input type="radio" id="jr-cadet" name="Category" value="jr-cadet">
-        <label for="jr-cadet">Jr Cadet</label>
+      <p>Category:</p>
+      <div class="Category" style="display: flex; align-items: center;">
 
-        <input type="radio" id="jr-captain" name="Category" value="jr-captain">
-        <label for="jr-captain">Jr Captain</label>
 
-        <input type="radio" id="jr-colonel" name="Category" value="jr-colonel">
-        <label for="jr-colonel">Jr Colonel</label>
+        <label for="jr-cadet" style="margin-left: 8px;">Jr Cadet</label>
+        <input type="checkbox" id="jr-cadet" name="Category" value="jr-cadet">
+    
+        
+        <label for="jr-captain" style="margin-left: 8px;">Jr Captain</label>
+        <input type="checkbox" id="jr-captain" name="Category" value="jr-captain">
+    
+        <label for="jr-colonel" style="margin-left: 8px;">Jr Colonel</label>
+        <input type="checkbox" id="jr-colonel" name="Category" value="jr-colonel">
 
+    </div>
+    </form>
+      </div>
         <button type="submit">Next</button>
     </form>
 
