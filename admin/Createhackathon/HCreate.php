@@ -1,3 +1,19 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_isadmin'])) {
+    header("Location: ../../index.php");
+    exit();
+}
+if($_SESSION['H_created']==1){
+  header("Location: AddJudge.php");
+  die();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +53,8 @@
     }
     
     
-    input ,
+    
+    input,
     select {
       display: block;
       margin: 10px 0 0 0;
@@ -59,12 +76,10 @@
       padding-left: 2rem;
       margin:1rem;
     }
-
     input[type="checkbox"]{
       display: flex;
       width: 10%;
     }
-
     ::placeholder{
       color: #272727;
     }
@@ -134,10 +149,9 @@
         <label for="jr-colonel" style="margin-left: 8px;">Jr Colonel</label>
         <input type="checkbox" id="jr-colonel" name="Category" value="jr-colonel">
 
-    </div>
-    </form>
       </div>
-        <button type="submit">Next</button>
+
+      <button type="submit">Next</button>
     </form>
 
   </body>

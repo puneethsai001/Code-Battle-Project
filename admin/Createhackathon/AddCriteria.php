@@ -1,3 +1,19 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_isadmin'])) {
+    header("Location: ../../index.php");
+    exit();
+}
+if($_SESSION['H_added_criteria']==1){
+  header("Location: admin.php");
+  die();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +78,20 @@
             background-color: #ffffff;
             color: #272727;
         }
+        .discard-button{
+            background-color: #F73634;
+            border: 1px;
+            border-radius: 25px;
+            color: #ffffff;
+            width: 25%;
+            font-weight: bold;
+            margin-top: 0em;
+        }
+
+        .button-container{
+            text-align: center;
+        }
+
 
         ::placeholder{
             color: #272727;
@@ -80,7 +110,13 @@
 
 </head>
 <body>
-    <h1>Add <font color = "#F73634">Criteria</font></h1>
+    <?php
+        echo '<h1>Add Criteria for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
+    ?>
+    
+    <div class="button-container">
+        <button type="submit" class = "discard-button" name = "discard">Discard Hackathon</button>
+    </div>
     <p id = "instruction">Please fill out the required information</p>
 
     <form action="accept_Criteria_data.php" method="POST">

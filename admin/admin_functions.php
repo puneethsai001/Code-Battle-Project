@@ -1,23 +1,42 @@
 <?php
-require_once "../includes/config_session.inc.php";
-
-function logout(){
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
+}
+if (!isset($_SESSION['user_isadmin']) || !isset($_SESSION['user_id'])) {
+    header("Location: ../index.php");
+    exit();
+}
+// else{
+//     header("Location: admin.php");
+// }
+
+function logout() {
+    $_SESSION = array();
     session_unset();
     session_destroy();
+
+    $past = time() - 3600;
+    foreach ($_COOKIE as $key => $value) {
+        setcookie($key, '', $past, '/');
+    }
+
     header("Location: ../index.php");
-    die();
+    exit(); 
 }
-
-function open_create_hackathon(){
-    header("Location: Createhackathon/Hcreate.html");
-    die();
+function open_create_hackathon() {
+    if (!isset($_SESSION['H_created'])) {
+        header("Location: Createhackathon/HCreate.php");
+        die(); 
+    } elseif (!isset($_SESSION['H_judges_added'])) {
+        header("Location: Createhackathon/AddJudge.php");
+        die(); 
+    } elseif (!isset($_SESSION['H_criteria_added'])) {
+        header("Location: Createhackathon/AddCriteria.php");
+        die(); 
+    } 
 }
-
 
 if ($_SESSION["user_isadmin"]==1){
-    echo $_SESSION["user_isadmin"];
-
     if (isset($_POST['logout'])){     
         logout();
     }

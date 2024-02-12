@@ -3,9 +3,7 @@
 declare(strict_types=1);
 require_once '../../includes/dbh.inc.php';
 require_once '../../includes/config_session.inc.php';
-// require_once 'accept_hackathon_data.php';
 
-//pdo is db object
 
     if ($_SERVER["REQUEST_METHOD"]=="POST"){
         
@@ -26,6 +24,8 @@ require_once '../../includes/config_session.inc.php';
             $_SESSION['JPass_$i']=$hashedPwd;
 
         }
-
-        header("Location: AddCriteria.html");
+        $_SESSION['H_judges_added']=1;
+        header("Location: AddCriteria.php");
     }
+
+    

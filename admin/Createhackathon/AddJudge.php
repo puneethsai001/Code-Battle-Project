@@ -1,3 +1,17 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_isadmin'])) {
+    header("Location: ../../index.php");
+    exit();
+}
+if($_SESSION['H_judges_added']==1){
+  header("Location: AddCriteria.php");
+  die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +69,19 @@
         button:hover{
             background-color: #ffffff;
             color: #272727;
+        }
+        .discard-button{
+            background-color: #F73634;
+            border: 1px;
+            border-radius: 25px;
+            color: #ffffff;
+            width: 25%;
+            font-weight: bold;
+            margin-top: 0em;
+        }
+
+        .button-container{
+            text-align: center;
         }
 
         select{
@@ -118,7 +145,6 @@
             footer{
                 font-size: small;
             }
-            
         }
     </style>
 
@@ -196,9 +222,14 @@
     </script>
 </head>
 <body>
-    <h1>Add <font color = "#F73634">Judges</font></h1>
-
+    
+    <?php
+        echo '<h1>Add Judges for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
+    ?>
     <form action="accept_judges_data.php" method="POST" id = "formid">
+    <div class="button-container">
+            <button type="submit" class = "discard-button" name = "discard">Discard Hackathon</button>
+    </div>
 
         <div class = "select-container">
             <p for="judges" id = "instruction">Select the number of judges</p>

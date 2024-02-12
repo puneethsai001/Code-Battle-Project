@@ -29,7 +29,7 @@
         $_SESSION['H_id'] = $stmt->fetchColumn();
 
         // echo "SUCCESS1"."<br>";
-        $_SESSION['H_created']=1;
+        
         // }
         // if(!isset($_SESSION['H_judges_added'])){
             $query2="INSERT INTO judges_data(JName,JEmail,JUsername,JPass,H_id) VALUES (:JName,:JEmail,:JUsername,:JPass,:H_id);";
@@ -61,8 +61,11 @@
         $stmt->bindParam(":H_id",$_SESSION['H_id']);
         $stmt->execute();
         // echo "SUCCESS3"."<br>";
-        $_SESSION['H_criteria_added']=1;
+      
+        unset($_SESSION['H_judges_added']);
+        unset($_SESSION['H_created']);
+        unset($_SESSION['H_criteria_added']);
        
-        header("Location: ../admin.html");
+        header("Location: ../admin.php");
         
 

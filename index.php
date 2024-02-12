@@ -1,6 +1,12 @@
 <?php
-    require_once "includes/config_session.inc.php";
-    require_once "login/login_view.inc.php";
+    require_once "login/login_functions.php";
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if (isset($_SESSION['user_isadmin']) || isset($_SESSION['user_id'])) {
+        header("Location: admin/admin.php");
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -175,13 +181,13 @@
                 <button type="submit">Log In</button>
             </form>
             <?php
-            //in view
                 check_login_errors();
             ?>
-        </div>
+            </div>
         <div class="image-container">
             <img src="Images/Hackathon.png" alt="CodeBattle Image">
         </div>
-    </div>
+            
+        </div>
 </body>
 </html>
