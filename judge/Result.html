@@ -33,6 +33,7 @@
             margin-left: auto;
             margin-right: auto;
             border-radius: 18px;
+            margin-bottom: 15px;
         }
 
         th{
@@ -60,6 +61,32 @@
         h1{
             text-align: center;
         }
+        .button-wrapper {
+            margin: 1rem;
+        }
+
+        button {
+            background-color: #F73634;
+            border: none;
+            border-radius: 1rem;
+            color: #fff;
+            cursor: pointer;
+            font-size: large;
+            padding: 5px 15px;
+            margin-left: 1em;
+        }
+
+        button:hover{
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .button-container {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
     </style>
 </head>
 <body>
@@ -106,7 +133,12 @@
             <td>58</td>
         </tr>
     </table>
-
+    
+    <div class="button-container">
+    <form action="JLogout.php" method="POST">
+        <button type="submit" name="logout">Log Out</button>
+    </form>
+</div>
 </body>
     <footer>
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>

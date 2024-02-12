@@ -42,6 +42,17 @@
                 $stmt->bindParam(":H_id",$_SESSION['H_id']);
                 $stmt->execute();
             }
+
+            // $query4="INSERT INTO login_data(username,pwd,admin) VALUES (:JUsername,:JPass,:Admin);";
+            // $stmt=$pdo->prepare($query4);
+            // $zero=0;
+            // for($i=0;$i<$_SESSION['judgescount'];$i++){
+            //     $stmt->bindParam(":JUsername",$_SESSION['JUsername_$i']);
+            //     $stmt->bindParam(":JPass",$_SESSION['JPass_$i']);
+            //     $stmt->bindParam(":Admin",$zero);
+            //     $stmt->execute();
+            // }
+
         // echo "SUCCESS2"."<br>";
         
         // }
