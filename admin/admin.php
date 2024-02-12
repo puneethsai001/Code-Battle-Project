@@ -57,7 +57,7 @@ require_once "../admin/admin_functions.php";
         
         
         td {
-            border-radius: 18px;
+            /* border-radius: 18px; */
             background-color: white;
             color: black;
             font-size: medium;
