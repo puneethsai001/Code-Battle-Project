@@ -8,9 +8,13 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_isadmin'])) {
     exit();
 }
 if(isset($_SESSION['H_added_criteria'])){
-  header("Location: admin.php");
-  die();
-}
+    header("Location: admin.php");
+    die();
+  }
+// if(!isset($_SESSION['H_criteria_added'])){
+//     header("Location: ../admin.php");
+//     die();
+//   }
 ?>
 
 

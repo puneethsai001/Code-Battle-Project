@@ -4,9 +4,7 @@
         require_once '../../includes/config_session.inc.php';
         // require_once '../admin_functions.php';
 
-        $_SESSION['H_created']=0;
-        $_SESSION['H_judges_added']=0;
-        $_SESSION['H_criteria_added']=0;
+        
         // echo "Welcome"."<br>";
         // echo $_SESSION['H_created']."<br>";
         // if(!isset($_SESSION['H_created'])){
@@ -45,7 +43,7 @@
                 $stmt->execute();
             }
         // echo "SUCCESS2"."<br>";
-        $_SESSION['H_judges_added']=1;
+        
         // }
         // if(!isset($_SESSION['H_criteria_added'])){
 

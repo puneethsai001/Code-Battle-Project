@@ -11,6 +11,10 @@ if(isset($_SESSION['H_created'])){
   header("Location: AddJudge.php");
   die();
 }
+// if(!isset($_SESSION['H_created'])){
+//   header("Location: ../admin.php");
+//   die();
+// }
 ?>
 
 

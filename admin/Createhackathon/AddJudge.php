@@ -9,9 +9,13 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_isadmin'])) {
 }
 //so that a person goes back to the admin page
 if(isset($_SESSION['H_judges_added'])){
-  header("Location: AddCriteria.php");
-  die();
-}
+    header("Location: AddCriteria.php");
+    die();
+  }
+// if(!isset($_SESSION['H_judges_added'])){
+//     header("Location: ../admin.php");
+//     die();
+//   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
