@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_isadmin'])) {
     header("Location: ../../index.php");
     exit();
 }
-if($_SESSION['H_added_criteria']==1){
+if(isset($_SESSION['H_added_criteria'])){
   header("Location: admin.php");
   die();
 }
