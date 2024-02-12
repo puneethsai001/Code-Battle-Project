@@ -114,7 +114,7 @@ require_once "../admin/admin_functions.php";
         echo '<h1>Welcome <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
     ?>
     <!-- <h1>Welcome <font color="#FFFFFF">Admin,</font></h1> -->
-    <h2>Hackathon Details</h2>
+    
     <div class="button-container">
         <form action="" method="POST">
             <button type="button">View Hackathon</button> &nbsp; &nbsp;
@@ -130,7 +130,26 @@ require_once "../admin/admin_functions.php";
         </form>
     </div>
     <br><br>
+    <h2>Hackathon Details</h2>
     <div id="table">
+            <!-- <table>
+                <tr>
+                    <th>Hackathon ID</th>
+                    <th>Hackathon Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    
+                </tr>
+                
+                <tr>
+                        <td>HID</td>
+                        <td>HName</td>
+                        <td>HDate</td>
+                        <td>HTime</td>
+                        
+                </tr>
+                
+            </table> -->
         <script>
             fetch('admin_n.php')
             .then(response => response.text())

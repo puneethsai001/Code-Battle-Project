@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_isadmin'])) {
     header("Location: ../../index.php");
     exit();
 }
+//so that a person goes back to the admin page
 if(isset($_SESSION['H_judges_added'])){
   header("Location: AddCriteria.php");
   die();
