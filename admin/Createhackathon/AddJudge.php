@@ -161,7 +161,9 @@ if(isset($_SESSION['H_judges_added'])){
 
             container.innerHTML = "";
             var judgeName, judgeEmail, judgeUsername, judgePass;
+            var jr_cadet, jr_colonel, jr_captain;
             var nameLabel, emailLabel, userLabel, passLabel, temp;
+            var jr_cadetLabel, jr_colonelLabel, jr_captainLabel;
             var heading;
 
             document.getElementById("text-field-container").style.backgroundColor = "#F73634";
@@ -189,7 +191,6 @@ if(isset($_SESSION['H_judges_added'])){
                 judgeEmail.required=true;
                 judgeEmail.type = "email";
                 judgeEmail.placeholder = " Email";
-                judgeEmail.id = "JEmail_"+(i+1)
                 judgeEmail.name = "JEmail_"+(i+1)
                 container.appendChild(judgeEmail);
 
@@ -199,7 +200,6 @@ if(isset($_SESSION['H_judges_added'])){
                 judgeUsername.required=true;
                 judgeUsername.type = "text";
                 judgeUsername.placeholder = " Username"
-                judgeUsername.id = "JUsername_"+(i+1)
                 judgeUsername.name = "JUsername_"+(i+1)
                 container.appendChild(judgeUsername);
 
@@ -207,14 +207,67 @@ if(isset($_SESSION['H_judges_added'])){
 
                 judgePass = document.createElement("input");
                 judgePass.required=true;
-                judgePass.type = "text";
+                judgePass.type = "password";
                 judgePass.placeholder = " Password";
-                judgePass.id = "JPass_"+(i+1)
                 judgePass.name = "JPass_"+(i+1)
                 container.appendChild(judgePass);
 
                 container.appendChild(document.createElement("br")); 
-                container.appendChild(document.createElement("hr")); 
+
+                //checkbox starts here
+
+                jr_cadet = document.createElement("input");
+                jr_cadet.required=true;
+                jr_cadet.type = "checkbox";
+                jr_cadet.id = "jrcadet_"+(i+1)
+                jr_cadet.name = "jrcadet_"+(i+1)
+
+                jr_cadetLabel = document.createElement("label");
+                temp = document.createTextNode("Jr Cadet");
+                jr_cadetLabel.appendChild(temp);
+
+                jr_captain = document.createElement("input");
+                jr_captain.required=true;
+                jr_captain.type = "checkbox";
+                jr_captain.id = "jrcaptain_"+(i+1)
+                jr_captain.name = "jrcaptain_"+(i+1)
+
+                jr_captainLabel = document.createElement("label");
+                temp = document.createTextNode("Jr Captain");
+                jr_captainLabel.appendChild(temp);
+
+                jr_colonel = document.createElement("input");
+                jr_colonel.required=true;
+                jr_colonel.type = "checkbox";
+                jr_colonel.placeholder = " Name";
+                jr_colonel.id = "jrcolonel_"+(i+1)
+                jr_colonel.name = "jrcolonel_"+(i+1)
+
+                jr_colonelLabel = document.createElement("label");
+                temp = document.createTextNode("Jr Colonel");
+                jr_colonelLabel.appendChild(temp);
+
+                const newdiv = document.createElement('div');
+                newdiv.classList.add('checkbox-container');
+                newdiv.appendChild(jr_cadetLabel);
+                newdiv.appendChild(jr_cadet);
+
+                newdiv.appendChild(jr_captainLabel);
+                newdiv.appendChild(jr_captain);
+
+                newdiv.appendChild(jr_colonelLabel);
+                newdiv.appendChild(jr_colonel);
+
+                newdiv.style.display = "flex";
+                newdiv.style.textAlign="center";
+
+                container.appendChild(newdiv);
+
+                container.appendChild(document.createElement("br")); 
+
+                if (i != selectedValue-1){
+                    container.appendChild(document.createElement("hr")); 
+                }
             }
 
             var x = document.createElement("button");
@@ -231,6 +284,7 @@ if(isset($_SESSION['H_judges_added'])){
     <?php
         echo '<h1>Add Judges for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
     ?>
+
     <form action="accept_judges_data.php" method="POST" id = "formid">
     <div class="button-container">
             <button type="submit" class = "discard-button" name = "discard">Discard Hackathon</button>

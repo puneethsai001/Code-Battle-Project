@@ -126,7 +126,6 @@ if(isset($_SESSION['H_added_criteria'])){
     <form action="accept_Criteria_data.php" method="POST">
         <br>
         <h2>Critria Details</h2>
-        <br>
         <input id="CName1" name="CName1" type="text"  placeholder=" Criteria 1" required/>
         <input id="CWeight1" name="CWeight1" type="number"  placeholder=" Weight of Criteria 1" required/> 
         <br><hr><br> 
@@ -135,6 +134,12 @@ if(isset($_SESSION['H_added_criteria'])){
         <br><hr><br> 
         <input id="CName3" name="CName3" type="text"  placeholder=" Criteria 3" required/>
         <input id="CWeight3" name="CWeight3" type="number"  placeholder=" Weight of Criteria 3" required/>
+        <br><hr><br> 
+        <input id="CName4" name="CName4" type="text"  placeholder=" Criteria 4" required/>
+        <input id="CWeight4" name="CWeight4" type="number"  placeholder=" Weight of Criteria 4" required/>
+        <br><hr><br> 
+        <input id="CName5" name="CName5" type="text"  placeholder=" Criteria 5" required/>
+        <input id="CWeight5" name="CWeight5" type="number"  placeholder=" Weight of Criteria 5" required/>
         <br>
         <button id="redirectButton">Submit</button>
     </form>

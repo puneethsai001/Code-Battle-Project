@@ -68,7 +68,7 @@ if(isset($_SESSION['H_created'])){
     
     input{
       background-color: white;
-      border: 1px solid #0a0a23;
+      border: 0px;
       color: #272727;
       border-radius: 25px ;
     }
@@ -118,6 +118,11 @@ if(isset($_SESSION['H_created'])){
       top: 100%;
     }
 
+    #MaxP{
+      margin-top: 2em;
+      display: none;
+    }
+
   </style>
 
   <script>
@@ -142,13 +147,11 @@ if(isset($_SESSION['H_created'])){
       <label for="HDate">Date: <input id="HDate" name="HDate" type="date" min="2024-03-01"  required/></label>
       <label for="HTime">Time: <input id="HTime" name="HTime" type="time" required /></label>
 
-      <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum Players per Team" required/>
       <p>Category:</p>
       <div class="Category" style="display: flex; align-items: center;">
 
         <label for="jr-cadet" style="margin-left: 2em;">Jr Cadet</label>
         <input type="checkbox" id="jr-cadet" name="Category" value="jr-cadet">
-    
         
         <label for="jr-captain" style="margin-left: 2em;">Jr Captain</label>
         <input type="checkbox" id="jr-captain" name="Category" value="jr-captain">
@@ -163,15 +166,33 @@ if(isset($_SESSION['H_created'])){
       <div class = "team-type">
 
         <label>Team Based</label>
-        <input type="radio" name="team-type" value="team">
+        <input type="radio" name="team-type" value="team" required onclick="team()">
     
         <label>Individual Based</label>
-        <input type="radio" name="team-type" value="individual">
+        <input type="radio" name="team-type" value="individual" required onclick="individual()">
 
+      </div>
+
+      <div id = "max-players">
+        <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum participants per team" required/>
       </div>
 
       <button type="submit">Next</button>
     </form>
+
+    <script>
+
+      function team(){
+          var container = document.getElementById("MaxP");
+          container.style.display = 'flex';
+      }
+
+      function individual(){
+          var container = document.getElementById("MaxP");
+          container.style.display = 'none';
+      }
+
+    </script>
 
   </body>
 
