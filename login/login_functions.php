@@ -13,7 +13,7 @@ function is_input_empty(string $username,string $pwd){
 
 
 function get_userdata(object $pdo,string $username){
-    $query="SELECT* from login_data where username= :username;";
+    $query="SELECT* from login where username= :username;";
     $stmt=$pdo->prepare($query);
     $stmt->bindParam(":username",$username);
     $stmt->execute();

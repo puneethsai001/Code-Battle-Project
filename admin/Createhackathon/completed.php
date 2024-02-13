@@ -30,28 +30,22 @@
         
         // }
         // if(!isset($_SESSION['H_judges_added'])){
-            $query2="INSERT INTO judges_data(JName,JEmail,JUsername,JPass,H_id) VALUES (:JName,:JEmail,:JUsername,:JPass,:H_id);";
+            $query2="INSERT INTO login_data(JName,JEmail,JUsername,JPass,H_id,is_admin) VALUES (:JName,:JEmail,:JUsername,:JPass,:H_id,:is_admin);";
             $stmt=$pdo->prepare($query2);
-
+            $zero=0;
             for($i=0;$i<$_SESSION['judgescount'];$i++){
                 // echo $_SESSION['JName_$i'];
-                $stmt->bindParam(":JName",$_SESSION['JName_$i']);
-                $stmt->bindParam(":JEmail",$_SESSION['JEmail_$i']);
-                $stmt->bindParam(":JUsername",$_SESSION['JUsername_$i']);
-                $stmt->bindParam(":JPass",$_SESSION['JPass_$i']);
+
+                $stmt->bindParam(":JName",$_SESSION["JName_$i"]);
+                $stmt->bindParam(":JEmail",$_SESSION["JEmail_$i"]);
+                $stmt->bindParam(":JUsername",$_SESSION["JUsername_$i"]);
+                $stmt->bindParam(":JPass",$_SESSION["JPass_$i"]);
                 $stmt->bindParam(":H_id",$_SESSION['H_id']);
+                $stmt->bindParam(":is_admin",$zero);
                 $stmt->execute();
             }
 
-            // $query4="INSERT INTO login_data(username,pwd,admin) VALUES (:JUsername,:JPass,:Admin);";
-            // $stmt=$pdo->prepare($query4);
-            // $zero=0;
-            // for($i=0;$i<$_SESSION['judgescount'];$i++){
-            //     $stmt->bindParam(":JUsername",$_SESSION['JUsername_$i']);
-            //     $stmt->bindParam(":JPass",$_SESSION['JPass_$i']);
-            //     $stmt->bindParam(":Admin",$zero);
-            //     $stmt->execute();
-            // }
+            
 
         // echo "SUCCESS2"."<br>";
         
