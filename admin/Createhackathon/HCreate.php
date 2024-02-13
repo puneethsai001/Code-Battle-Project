@@ -72,7 +72,12 @@ if(isset($_SESSION['H_created'])){
       color: #272727;
       border-radius: 25px ;
     }
-  
+
+    .team-type{
+      display: flex;
+      align-items: center;
+      margin-top: 1em;
+    }
 
     input[type="time"], input[type="date"] {
       display: inline;
@@ -138,20 +143,30 @@ if(isset($_SESSION['H_created'])){
       <label for="HTime">Time: <input id="HTime" name="HTime" type="time" required /></label>
 
       <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum Players per Team" required/>
-      <br>
       <p>Category:</p>
       <div class="Category" style="display: flex; align-items: center;">
 
-
-        <label for="jr-cadet" style="margin-left: 8px;">Jr Cadet</label>
+        <label for="jr-cadet" style="margin-left: 2em;">Jr Cadet</label>
         <input type="checkbox" id="jr-cadet" name="Category" value="jr-cadet">
     
         
-        <label for="jr-captain" style="margin-left: 8px;">Jr Captain</label>
+        <label for="jr-captain" style="margin-left: 2em;">Jr Captain</label>
         <input type="checkbox" id="jr-captain" name="Category" value="jr-captain">
     
-        <label for="jr-colonel" style="margin-left: 8px;">Jr Colonel</label>
+        <label for="jr-colonel" style="margin-left: 2em;">Jr Colonel</label>
         <input type="checkbox" id="jr-colonel" name="Category" value="jr-colonel">
+
+      </div>
+
+      <p>Team Type:</p>
+
+      <div class = "team-type">
+
+        <label>Team Based</label>
+        <input type="radio" name="team-type" value="team">
+    
+        <label>Individual Based</label>
+        <input type="radio" name="team-type" value="individual">
 
       </div>
 
