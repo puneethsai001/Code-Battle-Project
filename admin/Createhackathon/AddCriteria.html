@@ -76,7 +76,7 @@ if(isset($_SESSION['H_added_criteria'])){
             color: #ffffff;
             font-size: 1rem;
             padding: 0.5rem;
-            width: 100%;
+            width: 25%;
             margin-top: 2rem;
         }
 
@@ -142,7 +142,9 @@ if(isset($_SESSION['H_added_criteria'])){
         <input id="CName5" name="CName5" type="text"  placeholder=" Criteria 5" required/>
         <input id="CWeight5" name="CWeight5" type="number"  placeholder=" Weight of Criteria 5" required/>
         <br>
-        <button id="redirectButton">Submit</button>
+        <div class="button-container">
+        <button id="redirectButton">Submit</button> <button name = "discard">Discard </button>
+        </div>
     </form>
 </body>
 

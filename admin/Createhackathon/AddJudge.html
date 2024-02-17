@@ -69,23 +69,15 @@ if(isset($_SESSION['H_judges_added'])){
             color: #ffffff;
             font-size: 1rem;
             padding: 0.5rem;
-            width: 100%;
+            width: 25%;
             margin-top: 2rem;
+            margin-left: 15%;
         }
 
         button:hover{
             background-color: #F73634;
         }
-        .discard-button{
-            background-color: #F73634;
-            border: 1px;
-            border-radius: 25px;
-            color: #ffffff;
-            width: 25%;
-            font-weight: bold;
-            margin-top: 0em;
-        }
-
+        
         .button-container{
             text-align: center;
         }
@@ -277,6 +269,11 @@ if(isset($_SESSION['H_judges_added'])){
             var t = document.createTextNode("Next");
             x.appendChild(t);
             document.getElementById("text-field-container").appendChild(x);
+            var y = document.createElement("button");
+            y.name = "discardButton";
+            var u = document.createTextNode("Discard");
+            y.appendChild(u);
+            document.getElementById("text-field-container").appendChild(y);
 
         }
     </script>
