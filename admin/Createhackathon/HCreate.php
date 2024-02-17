@@ -31,7 +31,7 @@ if(isset($_SESSION['H_created'])){
       height: 100vh;
       margin: 0;
       background-color: #272727;
-      color: #f5f6f7;
+      color: #black;
       font-family: Tahoma;
       font-size: 16px;
     }
@@ -51,7 +51,7 @@ if(isset($_SESSION['H_created'])){
       max-width: 500px;
       min-width: 300px;
       margin: 1rem auto;
-      background-color: #F73634;	
+      background-color: white;	
       border-radius: 25px;
       padding: 0 3rem 3rem 3rem ;
     }
@@ -68,7 +68,8 @@ if(isset($_SESSION['H_created'])){
     
     input{
       background-color: white;
-      border: 0px;
+      border: 0.5px solid black;
+      /* box-shadow: 0 4px 4px rgba(0,0,0,0.1); */
       color: #272727;
       border-radius: 25px ;
     }
@@ -94,7 +95,7 @@ if(isset($_SESSION['H_created'])){
     }
     
     button {
-      background-color: #272727;
+      background-color: black;
       border: 1px;
       border-radius: 25px;
       color: #ffffff;
@@ -105,8 +106,8 @@ if(isset($_SESSION['H_created'])){
     }
 
     button:hover{
-        background-color: #ffffff;
-        color: #272727;
+        background-color: #F73634;
+        color: white;
     }
     
     footer {
@@ -121,6 +122,9 @@ if(isset($_SESSION['H_created'])){
     #MaxP{
       margin-top: 2em;
       display: none;
+    }
+    h2{
+      padding-top: 80px;
     }
 
   </style>
@@ -137,12 +141,12 @@ if(isset($_SESSION['H_created'])){
   </head>
   <body>
 
-    <h1>Create a <font color = "#F73634">Hackathon</font></h1>
-    <p id = "instruction">Please fill out the required information</p>
+    <!-- <h1>Create a <font color = "#F73634">Hackathon</font></h1> -->
+    <H2 id = "instruction">Please fill out the required information</H2>
 
     <form action="accept_hackathon_data.php" method="POST">
       <br>
-      <h2>Hackathon Details</h2>
+      <h1><font color = "black">Hackathon</font> <font color = "#F73634">Details</font></h1>
       <input id="HName" name="HName" type="text"  placeholder=" Name of the Hackathon" required/>
       <label for="HDate">Date: <input id="HDate" name="HDate" type="date" min="2024-03-01"  required/></label>
       <label for="HTime">Time: <input id="HTime" name="HTime" type="time" required /></label>
