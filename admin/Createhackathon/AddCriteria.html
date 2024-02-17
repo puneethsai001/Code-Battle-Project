@@ -31,7 +31,7 @@ if(isset($_SESSION['H_added_criteria'])){
             min-height: 100vh;
             margin: 0;
             background-color: #272727;
-            color: white;
+            color: black;
             font-family: Tahoma;
             font-size: 16px;
         }
@@ -39,6 +39,8 @@ if(isset($_SESSION['H_added_criteria'])){
         #instruction{
             font-size: large;
             text-align: center;
+            font-weight: bold;
+            color: white;
         }
 
         h1{
@@ -47,7 +49,7 @@ if(isset($_SESSION['H_added_criteria'])){
         }
 
         form {
-            background-color: #F73634;
+            background-color: #ffffff;
             width: 60vw;
             max-width: 500px;
             min-width: 300px;
@@ -62,7 +64,7 @@ if(isset($_SESSION['H_added_criteria'])){
             width: 100%;
             min-height: 2em;
             background-color: #ffffff;
-            border: 1px;
+            border: 1px solid;
             color: #272727;
             border-radius: 25px ;
         }
@@ -79,8 +81,7 @@ if(isset($_SESSION['H_added_criteria'])){
         }
 
         button:hover{
-            background-color: #ffffff;
-            color: #272727;
+            background-color: #F73634;
         }
         .discard-button{
             background-color: #F73634;
@@ -118,14 +119,14 @@ if(isset($_SESSION['H_added_criteria'])){
         echo '<h1>Add Criteria for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
     ?>
     
-    <div class="button-container">
+    <!-- <div class="button-container">
         <button type="submit" class = "discard-button" name = "discard">Discard Hackathon</button>
-    </div>
+    </div> -->
     <p id = "instruction">Please fill out the required information</p>
 
     <form action="accept_Criteria_data.php" method="POST">
         <br>
-        <h2>Critria Details</h2>
+        <h2>Critria <font color="#F73634">Details</font></h2>
         <input id="CName1" name="CName1" type="text"  placeholder=" Criteria 1" required/>
         <input id="CWeight1" name="CWeight1" type="number"  placeholder=" Weight of Criteria 1" required/> 
         <br><hr><br> 

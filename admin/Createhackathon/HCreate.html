@@ -31,7 +31,7 @@ if(isset($_SESSION['H_created'])){
       height: 100vh;
       margin: 0;
       background-color: #272727;
-      color: #f5f6f7;
+      color: black;
       font-family: Tahoma;
       font-size: 16px;
     }
@@ -42,8 +42,13 @@ if(isset($_SESSION['H_created'])){
       color: white;	
     }
 
+    h1{
+      margin-bottom: 0;
+    }
+
     #instruction{
       font-size: large;
+      padding-top: 1em;
     }
     
     form {
@@ -51,12 +56,10 @@ if(isset($_SESSION['H_created'])){
       max-width: 500px;
       min-width: 300px;
       margin: 1rem auto;
-      background-color: #F73634;	
+      background-color: white;	
       border-radius: 25px;
       padding: 0 3rem 3rem 3rem ;
     }
-    
-    
     
     input,
     select {
@@ -68,7 +71,8 @@ if(isset($_SESSION['H_created'])){
     
     input{
       background-color: white;
-      border: 1px solid #0a0a23;
+      border: 0.5px solid black;
+      /* box-shadow: 0 4px 4px rgba(0,0,0,0.1); */
       color: #272727;
       border-radius: 25px ;
     }
@@ -94,7 +98,7 @@ if(isset($_SESSION['H_created'])){
     }
     
     button {
-      background-color: #272727;
+      background-color: black;
       border: 1px;
       border-radius: 25px;
       color: #ffffff;
@@ -105,8 +109,8 @@ if(isset($_SESSION['H_created'])){
     }
 
     button:hover{
-        background-color: #ffffff;
-        color: #272727;
+        background-color: #F73634;
+        color: white;
     }
     
     footer {
@@ -118,37 +122,32 @@ if(isset($_SESSION['H_created'])){
       top: 100%;
     }
 
-  </style>
-
-  <script>
-    function redirect()
-    {
-      var url = "AddJudge.html";
-      window.location(url);
+    #MaxP{
+      margin-top: 2em;
+      display: none;
+    }
+    h2{
+      padding-top: 80px;
     }
 
-  </script>
+  </style>
 
   </head>
   <body>
-
-    <h1>Create a <font color = "#F73634">Hackathon</font></h1>
-    <p id = "instruction">Please fill out the required information</p>
+    <h1>Hackathon <font color = "#F73634">Details</font></h1>
+    <h2 id = "instruction">Please fill out the required information</h2>
 
     <form action="accept_hackathon_data.php" method="POST">
       <br>
-      <h2>Hackathon Details</h2>
       <input id="HName" name="HName" type="text"  placeholder=" Name of the Hackathon" required/>
       <label for="HDate">Date: <input id="HDate" name="HDate" type="date" min="2024-03-01"  required/></label>
       <label for="HTime">Time: <input id="HTime" name="HTime" type="time" required /></label>
 
-      <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum Players per Team" required/>
       <p>Category:</p>
       <div class="Category" style="display: flex; align-items: center;">
 
         <label for="jr-cadet" style="margin-left: 2em;">Jr Cadet</label>
         <input type="checkbox" id="jr-cadet" name="Category" value="jr-cadet">
-    
         
         <label for="jr-captain" style="margin-left: 2em;">Jr Captain</label>
         <input type="checkbox" id="jr-captain" name="Category" value="jr-captain">
@@ -163,15 +162,33 @@ if(isset($_SESSION['H_created'])){
       <div class = "team-type">
 
         <label>Team Based</label>
-        <input type="radio" name="team-type" value="team">
+        <input type="radio" name="team-type" value="team" required onclick="team()">
     
         <label>Individual Based</label>
-        <input type="radio" name="team-type" value="individual">
+        <input type="radio" name="team-type" value="individual" required onclick="individual()">
 
+      </div>
+
+      <div id = "max-players">
+        <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum participants per team" required/>
       </div>
 
       <button type="submit">Next</button>
     </form>
+
+    <script>
+
+      function team(){
+          var container = document.getElementById("MaxP");
+          container.style.display = 'flex';
+      }
+
+      function individual(){
+          var container = document.getElementById("MaxP");
+          container.style.display = 'none';
+      }
+
+    </script>
 
   </body>
 
