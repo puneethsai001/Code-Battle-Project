@@ -212,31 +212,31 @@ if(isset($_SESSION['H_judges_added'])){
                 //checkbox starts here
 
                 jr_cadet = document.createElement("input");
-                jr_cadet.required=true;
+                
                 jr_cadet.type = "checkbox";
                 jr_cadet.id = "jrcadet_"+(i+1)
-                jr_cadet.name = "jrcadet_"+(i+1)
+                jr_cadet.name = "Jr_Cadet"+(i+1)
 
                 jr_cadetLabel = document.createElement("label");
                 temp = document.createTextNode("Jr Cadet");
                 jr_cadetLabel.appendChild(temp);
 
                 jr_captain = document.createElement("input");
-                jr_captain.required=true;
+                
                 jr_captain.type = "checkbox";
                 jr_captain.id = "jrcaptain_"+(i+1)
-                jr_captain.name = "jrcaptain_"+(i+1)
+                jr_captain.name = "Jr_Captain"+(i+1)
 
                 jr_captainLabel = document.createElement("label");
                 temp = document.createTextNode("Jr Captain");
                 jr_captainLabel.appendChild(temp);
 
                 jr_colonel = document.createElement("input");
-                jr_colonel.required=true;
+                
                 jr_colonel.type = "checkbox";
                 jr_colonel.placeholder = " Name";
                 jr_colonel.id = "jrcolonel_"+(i+1)
-                jr_colonel.name = "jrcolonel_"+(i+1)
+                jr_colonel.name = "Jr_Colonel"+(i+1)
 
                 jr_colonelLabel = document.createElement("label");
                 temp = document.createTextNode("Jr Colonel");

@@ -146,14 +146,14 @@ if(isset($_SESSION['H_created'])){
       <p>Category:</p>
       <div class="Category" style="display: flex; align-items: center;">
 
-        <label for="jr-cadet" style="margin-left: 2em;">Jr Cadet</label>
-        <input type="checkbox" id="jr-cadet" name="Category" value="jr-cadet">
+      <label for="jr-cadet" >Jr Cadet</label>
+        <input type="checkbox" id="jr-cadet" name="Category[]" value="Jr_Cadet">
         
         <label for="jr-captain" style="margin-left: 2em;">Jr Captain</label>
-        <input type="checkbox" id="jr-captain" name="Category" value="jr-captain">
-    
+        <input type="checkbox" id="jr-captain" name="Category[]" value="Jr_Captain">
+       
         <label for="jr-colonel" style="margin-left: 2em;">Jr Colonel</label>
-        <input type="checkbox" id="jr-colonel" name="Category" value="jr-colonel">
+        <input type="checkbox" id="jr-colonel" name="Category[]" value="Jr_Colonel">
 
       </div>
 
@@ -170,7 +170,7 @@ if(isset($_SESSION['H_created'])){
       </div>
 
       <div id = "max-players">
-        <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum participants per team" required/>
+        <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum participants per team" />
       </div>
 
       <button type="submit">Next</button>
@@ -181,11 +181,13 @@ if(isset($_SESSION['H_created'])){
       function team(){
           var container = document.getElementById("MaxP");
           container.style.display = 'flex';
+          input.required = true;
       }
 
       function individual(){
           var container = document.getElementById("MaxP");
           container.style.display = 'none';
+          input.required = false;
       }
 
     </script>
