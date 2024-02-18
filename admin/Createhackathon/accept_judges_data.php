@@ -129,5 +129,4 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
     $_SESSION['H_judges_added']=1;
     header("Location: AddCriteria.php");
-
 }
