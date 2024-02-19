@@ -58,15 +58,41 @@ if(isset($_SESSION['H_added_criteria'])){
             padding: 0 3rem 3rem 3rem ;
         }
         
+        .Criteria-Container {
+            display: flex;
+
+        }
+
+        input[type="number"]{
+            width: 30%;
+            align-items: right;
+            border-radius: 25px;
+            border: 1px solid;
+            margin-left: auto;
+            text-align: center;
+            
+        }
+        
+        label{
+            margin-top: 0.5em;
+        }
+        input[type="checkbox"]{
+            width: 2em;
+        }
+
+        .mybox{
+            height: 40%;
+        }
+
+        hr{
+            margin: 2em;
+        }
+        
         input{
-            display: block;
-            margin: 10px 0 0 0;
-            width: 100%;
             min-height: 2em;
             background-color: #ffffff;
             border: 1px solid;
             color: #272727;
-            border-radius: 25px ;
         }
 
         button {
@@ -119,29 +145,50 @@ if(isset($_SESSION['H_added_criteria'])){
         echo '<h1>Add Criteria for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
     ?>
     
-    <!-- <div class="button-container">
-        <button type="submit" class = "discard-button" name = "discard">Discard Hackathon</button>
-    </div> -->
     <p id = "instruction">Please fill out the required information</p>
 
     <form action="accept_Criteria_data.php" method="POST">
         <br>
-        <h2>Critria <font color="#F73634">Details</font></h2>
-        <input id="CName1" name="CName1" type="text"  placeholder=" Criteria 1" required/>
-        <input id="CWeight1" name="CWeight1" type="number"  placeholder=" Weight of Criteria 1" required/> 
-        <br><hr><br> 
-        <input id="CName2" name="CName2" type="text"  placeholder=" Criteria 2" required/>
-        <input id="CWeight2" name="CWeight2" type="number"  placeholder=" Weight of Criteria 2" required/> 
-        <br><hr><br> 
-        <input id="CName3" name="CName3" type="text"  placeholder=" Criteria 3" required/>
-        <input id="CWeight3" name="CWeight3" type="number"  placeholder=" Weight of Criteria 3" required/>
-        <br><hr><br> 
-        <input id="CName4" name="CName4" type="text"  placeholder=" Criteria 4" required/>
-        <input id="CWeight4" name="CWeight4" type="number"  placeholder=" Weight of Criteria 4" required/>
-        <br><hr><br> 
-        <input id="CName5" name="CName5" type="text"  placeholder=" Criteria 5" required/>
-        <input id="CWeight5" name="CWeight5" type="number"  placeholder=" Weight of Criteria 5" required/>
-        <br>
+        <h1>Criteria <font color="#F73634">Details</font></h1>
+
+        <div class="Criteria-Container">
+            <input type="checkbox">
+            <label>Presentation</label>
+            <input id="CWeight1" name="CWeight1" type="number"  placeholder=" Weight of Criteria 1" required/> 
+        </div>
+
+        <hr>
+
+        <div class="Criteria-Container">
+            <input type="checkbox">
+            <label>Code</label>
+            <input id="CWeight2" name="CWeight2" type="number"  placeholder=" Weight of Criteria 2" required/> 
+        </div>
+
+        <hr>
+
+        <div class="Criteria-Container">
+            <input type="checkbox">
+            <label>User Interface</label>
+            <input id="CWeight3" name="CWeight3" type="number"  placeholder=" Weight of Criteria 3" required/>
+        </div>
+
+        <hr>
+
+        <div class="Criteria-Container">
+            <input type="checkbox">
+            <label>Teamwork</label>
+            <input id="CWeight4" name="CWeight4" type="number"  placeholder=" Weight of Criteria 4" required/>
+        </div>
+
+        <hr>
+
+        <div class="Criteria-Container">
+            <input type="checkbox">
+            <label>Creativity</label>
+            <input id="CWeight5" name="CWeight5" type="number"  placeholder=" Weight of Criteria 5" required/>
+        </div>
+
         <div class="button-container">
         <button id="redirectButton">Submit</button> <button name = "discard">Discard </button>
         </div>
