@@ -148,6 +148,17 @@ if(isset($_SESSION['H_judges_added'])){
     </style>
 
     <script>
+
+        function discard(){
+            const requiredInputs = document.querySelectorAll('form input[required]');
+
+            // Temporarily remove the "required" attribute from each input
+            requiredInputs.forEach(function(input) {
+            input.removeAttribute('required');
+            });
+        }
+
+
         function generateTextFields() {
             var selectedValue = document.getElementById("judgescount").value;
 
@@ -265,15 +276,19 @@ if(isset($_SESSION['H_judges_added'])){
                 }
             }
 
-            var x = document.createElement("button");
+            const x = document.createElement("button");
             x.name = "nextButton";
+            x.type = "submit";
             var t = document.createTextNode("Next");
             x.appendChild(t);
             document.getElementById("text-field-container").appendChild(x);
-            var y = document.createElement("button");
+
+            const y = document.createElement("button");
             y.name = "discardButton";
+            y.formAction = "../discard.php";
             var u = document.createTextNode("Discard");
             y.appendChild(u);
+            y.addEventListener("click", discard);
             document.getElementById("text-field-container").appendChild(y);
 
         }
@@ -286,13 +301,10 @@ if(isset($_SESSION['H_judges_added'])){
     ?>
 
     <form action="accept_judges_data.php" method="POST" id = "formid">
-    <!-- <div class="button-container">
-            <button type="submit" class = "discard-button" name = "discard">Discard Hackathon</button>
-    </div> -->
 
         <div class = "select-container">
             <p for="judges" id = "instruction">Select the number of judges</p>
-            <select name="judgescount" id="judgescount" onchange="generateTextFields()">
+            <select name="judgescount" id="judgescount" onclick="generateTextFields()">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
