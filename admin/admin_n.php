@@ -2,14 +2,13 @@
     declare(strict_types=1);
     require_once '../includes/dbh.inc.php';
 
-
-
     $query="SELECT* from hackathon_data;";
     $stmt=$pdo->prepare($query);
     $stmt->execute();
     $result=$stmt->fetchAll();
     $stmt->execute();
     if($result){
+       
 ?>
     <table>
        <tr>
@@ -28,7 +27,7 @@
                     <td><?php echo $row['HTime'] ?></td>
                     
             </tr>
-         <?php }   ?>
+         <?php  }   ?>
         </table>
 
 

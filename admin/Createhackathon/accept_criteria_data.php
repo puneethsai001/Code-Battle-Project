@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 require_once '../../includes/dbh.inc.php';
-require_once "../../includes/config_session.inc.php";
-require_once "../discard.php";
+require_once '../../includes/config_session.inc.php';
+
 
 
 

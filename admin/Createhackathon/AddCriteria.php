@@ -71,8 +71,7 @@ if(isset($_SESSION['H_added_criteria'])){
             border: 1px solid;
             margin-left: auto;
             text-align: center;
-            display:none
-            
+            /* display:none */
         }
         
         label{
@@ -157,14 +156,14 @@ if(isset($_SESSION['H_added_criteria'])){
     
     <p id = "instruction">Please fill out the required information</p>
 
-    <form action="accept_Criteria_data.php" method="POST">
+    <form action="accept_criteria_data.php" method="POST">
         <br>
         <h1>Criteria <font color="#F73634">Details</font></h1>
 
         <div class="Criteria-Container" id = "C1Box" onclick="clicked()">
             <input type="checkbox">
             <label>Presentation</label>
-            <input id="CWeight1" name="CWeight1" type="number"  placeholder=" Weight of Criteria 1" required/> 
+            <input id="CWeight1" name="CWeight1" type="number"  placeholder=" Weight of Criteria 1" /> 
         </div>
 
         <hr>
@@ -172,7 +171,7 @@ if(isset($_SESSION['H_added_criteria'])){
         <div class="Criteria-Container">
             <input type="checkbox" id = "C2Box" onclick="clicked()">
             <label>Code</label>
-            <input id="CWeight2" name="CWeight2" type="number"  placeholder=" Weight of Criteria 2" required/> 
+            <input id="CWeight2" name="CWeight2" type="number"  placeholder=" Weight of Criteria 2" /> 
         </div>
 
         <hr>
@@ -180,7 +179,7 @@ if(isset($_SESSION['H_added_criteria'])){
         <div class="Criteria-Container">
             <input type="checkbox" id = "C3Box" onclick="clicked()">
             <label>User Interface</label>
-            <input id="CWeight3" name="CWeight3" type="number"  placeholder=" Weight of Criteria 3" required/>
+            <input id="CWeight3" name="CWeight3" type="number"  placeholder=" Weight of Criteria 3" />
         </div>
 
         <hr>
@@ -188,7 +187,7 @@ if(isset($_SESSION['H_added_criteria'])){
         <div class="Criteria-Container">
             <input type="checkbox" id = "C4Box" onclick="clicked()">
             <label>Teamwork</label>
-            <input id="CWeight4" name="CWeight4" type="number"  placeholder=" Weight of Criteria 4" required/>
+            <input id="CWeight4" name="CWeight4" type="number"  placeholder=" Weight of Criteria 4" />
         </div>
 
         <hr>
@@ -196,11 +195,12 @@ if(isset($_SESSION['H_added_criteria'])){
         <div class="Criteria-Container">
             <input type="checkbox" id = "C5Box" onclick="clicked()">
             <label>Creativity</label>
-            <input id="CWeight5" name="CWeight5" type="number"  placeholder=" Weight of Criteria 5" required/>
+            <input id="CWeight5" name="CWeight5" type="number"  placeholder=" Weight of Criteria 5" />
         </div>
 
         <div class="button-container">
-        <button id="redirectButton">Submit</button> <button name = "discard">Discard </button>
+        <button id="redirectButton">Submit</button>
+        <button name = "discard" formaction="../discard.php">Discard </button>
         </div>
     </form>
 </body>
