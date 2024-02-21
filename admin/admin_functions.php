@@ -22,7 +22,7 @@ function logout(PDO $pdo) {
     $past = time() - 3600;
     foreach ($_COOKIE as $key => $value) {
         setcookie($key, '', $past, '/');
-    }
+    }   
 
     header("Location: ../index.php");
     exit(); 

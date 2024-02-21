@@ -4,7 +4,28 @@ declare(strict_types=1);
 require_once '../../includes/dbh.inc.php';
 require_once '../../includes/config_session.inc.php';
 
-
+  
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
+    if(isset($_POST['criteria'])) {
+        $criterias = $_POST['criteria'];
+        $weights=$_POST['weights'];
+        // var_dump($weights);
+        $query1="INSERT INTO criteria_data(CRName,CRWeight,H_id) VALUES (:CRName,:CRWeight,:H_id);";
+        $stmt1=$pdo->prepare($query1);
+        
+        foreach($criterias as $criteria){
+            $stmt1->bindParam(":CRName",$criteria);
+            $weight=$weights[$criteria];
+            $w=intval($weight);
+            $stmt1->bindParam(":CRWeight",$w);
+            $stmt1->bindParam(":H_id",$_SESSION['H_id']);
+            $stmt1->execute();
+        }
+        $_SESSION['H_criteria_added']=1;
+        header("Location: completed.php");
+    }
+}
+    
 
 
 //session start
@@ -23,28 +44,28 @@ require_once '../../includes/config_session.inc.php';
     // }
 //session end
 
-if ($_SERVER["REQUEST_METHOD"]=="POST"){
+// if ($_SERVER["REQUEST_METHOD"]=="POST"){
     
-    $query1="INSERT INTO criteria_data(CRName,CRWeight,H_id) VALUES (:CRName,:CRWeight,:H_id);";
-    $stmt=$pdo->prepare($query1);
+//     $query1="INSERT INTO criteria_data(CRName,CRWeight,H_id) VALUES (:CRName,:CRWeight,:H_id);";
+//     $stmt=$pdo->prepare($query1);
     
-    for($i=1;$i<6;$i++){
-        $CRName=$_POST["CName".$i];
-        $CRWeight=$_POST["CWeight".$i];
-        $stmt->bindParam(":CRName",$CRName);
-        $stmt->bindParam(":CRWeight",$CRWeight);
-        $stmt->bindParam(":H_id",$_SESSION['H_id']);
-        $stmt->execute();
+//     for($i=1;$i<6;$i++){
+//         $CRName=$_POST["CName".$i];
+//         $CRWeight=$_POST["CWeight".$i];
+//         $stmt->bindParam(":CRName",$CRName);
+//         $stmt->bindParam(":CRWeight",$CRWeight);
+//         $stmt->bindParam(":H_id",$_SESSION['H_id']);
+//         $stmt->execute();
         
-    }
+//     }
     
-    $_SESSION['H_criteria_added']=1;
+//     $_SESSION['H_criteria_added']=1;
 
-    unset($_SESSION['HName']);
-    unset($_SESSION['H_id']);
-    unset($_SESSION['H_created']);
-    unset($_SESSION['H_judges_added']);
-    unset($_SESSION['H_criteria_added']);
-    header("Location: ../admin.php");
-}
-    
+//     unset($_SESSION['HName']);
+//     unset($_SESSION['H_id']);
+//     unset($_SESSION['H_created']);
+//     unset($_SESSION['H_judges_added']);
+//     unset($_SESSION['H_criteria_added']);
+//     header("Location: ../admin.php");
+// }
+ 

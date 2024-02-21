@@ -1,4 +1,18 @@
 <?php
+    require_once '../../includes/config_session.inc.php';
+    function Hcreationsuccess(){
+    unset($_SESSION['HName']);
+    unset($_SESSION['H_id']);
+    unset($_SESSION['H_created']);
+    unset($_SESSION['H_judges_added']);
+    unset($_SESSION['H_criteria_added']);
+    header("Location: ../admin.php");
+    }
+    Hcreationsuccess();
+?>
+
+
+
         declare(strict_types=1);
         require_once '../../includes/dbh.inc.php';
         require_once '../../includes/config_session.inc.php';

@@ -181,13 +181,13 @@ if(isset($_SESSION['H_created'])){
       function team(){
           var container = document.getElementById("MaxP");
           container.style.display = 'flex';
-          input.required = true;
+          container.required = true;
       }
 
       function individual(){
           var container = document.getElementById("MaxP");
           container.style.display = 'none';
-          input.required = false;
+          container.required = false;
       }
 
     </script>

@@ -160,42 +160,43 @@ if(isset($_SESSION['H_added_criteria'])){
         <br>
         <h1>Criteria <font color="#F73634">Details</font></h1>
 
-        <div class="Criteria-Container" id = "C1Box" onclick="clicked()">
-            <input type="checkbox">
+        <div class="Criteria-Container" >
+            <input type="checkbox" id = "C1Box" name="criteria[]" value="Presentation" onclick="clicked()">
             <label>Presentation</label>
-            <input id="CWeight1" name="CWeight1" type="number"  placeholder=" Weight of Criteria 1" /> 
+            <!-- creates associative array -->
+            <input id="CWeight1" name="weights[Presentation]" type="number"  placeholder=" Weight of Criteria 1" /> 
         </div>
 
         <hr>
 
         <div class="Criteria-Container">
-            <input type="checkbox" id = "C2Box" onclick="clicked()">
+            <input type="checkbox" id = "C2Box" name="criteria[]" value="Code" onclick="clicked()">
             <label>Code</label>
-            <input id="CWeight2" name="CWeight2" type="number"  placeholder=" Weight of Criteria 2" /> 
+            <input id="CWeight2" name="weights[Code]" type="number"  placeholder=" Weight of Criteria 2" /> 
         </div>
 
         <hr>
 
         <div class="Criteria-Container">
-            <input type="checkbox" id = "C3Box" onclick="clicked()">
+            <input type="checkbox" id = "C3Box" name="criteria[]" value="User Interface" onclick="clicked()">
             <label>User Interface</label>
-            <input id="CWeight3" name="CWeight3" type="number"  placeholder=" Weight of Criteria 3" />
+            <input id="CWeight3" name="weights[User Interface]" type="number"  placeholder=" Weight of Criteria 3" />
         </div>
 
         <hr>
 
         <div class="Criteria-Container">
-            <input type="checkbox" id = "C4Box" onclick="clicked()">
+            <input type="checkbox" id = "C4Box" name="criteria[]" value="Teamwork" onclick="clicked()">
             <label>Teamwork</label>
-            <input id="CWeight4" name="CWeight4" type="number"  placeholder=" Weight of Criteria 4" />
+            <input id="CWeight4" name="weights[Teamwork]" type="number"  placeholder=" Weight of Criteria 4" />
         </div>
 
         <hr>
 
         <div class="Criteria-Container">
-            <input type="checkbox" id = "C5Box" onclick="clicked()">
+            <input type="checkbox" id = "C5Box" name="criteria[]" value="Creativity" onclick="clicked()">
             <label>Creativity</label>
-            <input id="CWeight5" name="CWeight5" type="number"  placeholder=" Weight of Criteria 5" />
+            <input id="CWeight5" name="weights[Creativity]" type="number"  placeholder=" Weight of Criteria 5" />
         </div>
 
         <div class="button-container">
