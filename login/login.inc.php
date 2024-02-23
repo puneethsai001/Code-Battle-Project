@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
                 die();
             }
             else{
-                header("Location: ../judge/judge.html?login=success");
+                header("Location: ../judge/judge.php?login=success");
                 $pdo=null;
                 $stmt=null;
                 die();

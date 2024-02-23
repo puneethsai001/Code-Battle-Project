@@ -6,6 +6,7 @@ if (isset($_SESSION['user_isadmin']) || isset($_SESSION['user_id'])) {
 }
 require_once "../admin/admin_functions.php";
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,6 +113,7 @@ require_once "../admin/admin_functions.php";
 <body>
     <?php
         echo '<h1>Welcome <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
+        
     ?>
     <!-- <h1>Welcome <font color="#FFFFFF">Admin,</font></h1> -->
     
