@@ -4,28 +4,30 @@
  require_once '../includes/config_session.inc.php';
 
 
-$query2="SELECT * from team_data where  H_id=:H_id AND C_id=(SELECT C_id from category where Cname=:Cname) ";
+$query2="SELECT T_id,SUM(Score) as score,TName from scores where C_id=:C_id and J_id=:J_id";
 $stmt2=$pdo->prepare($query2);
 
 if(isset($_POST['Jr_Cadet'])){
     $_SESSION['CName']=$_POST['Jr_Cadet'];
-   $stmt2->bindParam(":Cname",$_POST['Jr_Cadet']);
-//    echo $_SESSION['H_id'];
-   $stmt2->bindParam(":H_id",$_SESSION['H_id']);
+    $val=1;
+    $stmt2->bindParam(":C_id",$val);
+    $stmt2->bindParam(":J_id",$_SESSION['J_id']);
    $stmt2->execute();
    $result=$stmt2->fetchAll();
 }
 if(isset($_POST['Jr_Colonel'])){
     $_SESSION['CName']=$_POST['Jr_Colonel'];
-    $stmt2->bindParam(":Cname",$_POST['Jr_Colonel']);
-    $stmt2->bindParam(":H_id",$_SESSION['H_id']);
+    $val=2;
+    $stmt2->bindParam(":C_id",$val);
+    $stmt2->bindParam(":J_id",$_SESSION['J_id']);
     $stmt2->execute();
     $result=$stmt2->fetchAll();
  }
  if(isset($_POST['Jr_Captain'])){
     $_SESSION['CName']=$_POST['Jr_Captain'];
-    $stmt2->bindParam(":Cname",$_POST['Jr_Captain']);
-    $stmt2->bindParam(":H_id",$_SESSION['H_id']);
+    $val=3;
+    $stmt2->bindParam(":C_id",$val);
+    $stmt2->bindParam(":J_id",$_SESSION['J_id']);
     $stmt2->execute();
     $result=$stmt2->fetchAll();
  }
@@ -82,7 +84,7 @@ if($result){
        <tr>
             <th>Team ID</th>
             <th>Team Name</th>
-            <th>School</th>
+            
             <th>Scores</th>
             
             
@@ -92,8 +94,7 @@ if($result){
             <tr>
                     <td><?php echo $row['T_id'] ?></td>
                     <td><?php echo $row['TName'] ?></td>
-                    <td><?php echo $row['TSchool'] ?></td>
-                    <td><?php echo $row['TScore'] ?></td>
+                    <td><?php echo $row['score'] ?></td>
 
             </tr>
          <?php  }   ?>
