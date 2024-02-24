@@ -144,7 +144,7 @@
     }
 
     window.onload = function() {
-      <?php foreach($result as $row){ ?>
+      <?php foreach($result2 as $row){ ?>
         <?php if($row['CName'] == 'Jr_Cadet'){ ?>
           var cadetCard = document.getElementById("cadet-card");
           cadetCard.style.display = "block";
@@ -179,7 +179,7 @@
 
   <div class="all-cards">
     <div class="card cadet" id="cadet-card" style="display: none;">
-      <form action="teams.php" method="POST">
+      <form action="Team.php" method="POST">
         <input type="hidden" name="Jr_Cadet" value="Jr_Cadet">
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
@@ -190,7 +190,7 @@
     </div>
 
     <div class="card colonel" id="colonel-card" style="display: none;">
-      <form action="teams.php" method="POST">
+      <form action="Team.php" method="POST">
         <input type="hidden" name="Jr_Colonel" value="Jr_Colonel">
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
@@ -201,7 +201,7 @@
     </div>
 
     <div class="card captain" id="captain-card" style="display: none;">
-      <form action="teams.php" method="POST">
+      <form action="Team.php" method="POST">
         <input type="hidden" name="Jr_Captain" value="Jr_Captain">
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
