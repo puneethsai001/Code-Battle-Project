@@ -107,42 +107,51 @@
 
     <div class = "all-cards">
         <div class="card" id="cadet-card" >
+          <form id="divForm" action="teams.php"  method='POST'>
+            <input type="hidden" id="cardValueInput" name="Jr_Cadet" value="Jr_Cadet">
+              <div class="card-text">
+                <div id="cadet-image">
+                  <img src="../Images/error404.jpg" width="450" height="200">
+                </div>
+                <h2>Jr Cadet</h2>
+                <p>
+                  The Jr Cadet category in the hackathon is designed 
+                  for young minds brimming with potential, specifically 
+                  targeting students from Grades 1 to 4.
+                </p>
+              </div>
+          </form>
+        </div>
+        <div class="card" id = "colonel-card">
+          <form id="divForm" action="teams.php"  method='POST'>
+            <input type="hidden" id="cardValueInput" name="Jr_Colonel" value="Jr_Colonel">
             <div class="card-text">
               <div id="cadet-image">
                 <img src="../Images/error404.jpg" width="450" height="200">
               </div>
-              <h2>Jr Cadet</h2>
-              <p>
-                The Jr Cadet category in the hackathon is designed 
-                for young minds brimming with potential, specifically 
-                targeting students from Grades 1 to 4.
+              <h2>Jr Colonel</h2>
+              <p>The Jr Colonel category in the hackathon welcomes high 
+                schoolers and young minds embarking on their undergraduate 
+                journeys, encompassing students from Grades 9-12 and first-year 
+                undergraduates.
               </p>
             </div>
-        </div>
-        <div class="card" id = "colonel-card">
-          <div class="card-text">
-            <div id="cadet-image">
-              <img src="../Images/error404.jpg" width="450" height="200">
-            </div>
-            <h2>Jr Colonel</h2>
-            <p>The Jr Colonel category in the hackathon welcomes high 
-              schoolers and young minds embarking on their undergraduate 
-              journeys, encompassing students from Grades 9-12 and first-year 
-              undergraduates.
-            </p>
-          </div>
+          </form>
         </div>
         <div class="card" id = "captain-card">
-          <div class="card-text">
-            <div id="cadet-image">
-              <img src="../Images/error404.jpg" width="450" height="200">
-            </div>
-            <h2>Jr Captain</h2>
-            <p>The Jr Captain category in the hackathon sets sail for students in 
-              Grades 5-8, a period marked by burgeoning independence, intellectual 
-              curiosity, and a thirst for exploration.
-            </p>
-          </div>
+          <form id="divForm" action="teams.php"  method='POST'>
+            <input type="hidden" id="cardValueInput" name="Jr_Captain" value="Jr_Captain">
+              <div class="card-text">
+                <div id="cadet-image">
+                  <img src="../Images/error404.jpg" width="450" height="200">
+                </div>
+                <h2>Jr Captain</h2>
+                <p>The Jr Captain category in the hackathon sets sail for students in 
+                  Grades 5-8, a period marked by burgeoning independence, intellectual 
+                  curiosity, and a thirst for exploration.
+                </p>
+              </div>
+          </form>
         </div> 
     </div>
 
@@ -154,33 +163,53 @@
     </footer>
 
     <script>
+      
+      function divClick(div){
+        var cardvalue = div.getAttribute('value');
+        // document.getElementById('divForm').submit();
+        var form = div.querySelector('form');
+        form.submit();
+      }
+      
         window.onload = function() {
-      <?php 
-          foreach($result as $row){   
-      ?>
-                  <?php 
-                  if( $row['CName']=='Jr_Cadet'){
-                  ?>
-                  var cadetCard = document.getElementById("cadet-card");
-                  cadetCard.style.display = "block";
-                      
-                  <?php 
-                      }
-                      if($row['CName']=='Jr_Colonel'){ 
-                  ?>
-                      var colonelCard = document.getElementById("colonel-card");
-                      colonelCard.style.display = "block";
-                  <?php 
-                      } 
-                      if(($row['CName']=='Jr_Captain')){ 
-                  ?>
-                      var captainCard = document.getElementById("captain-card");
-                      captainCard.style.display = "block";
-                  <?php 
-                      }
-                  ?>
-          <?php } ?>
-          }
+          <?php 
+              foreach($result as $row){   
+          ?>
+                <?php 
+                    if( $row['CName']=='Jr_Cadet'){
+                ?>
+                    var cadetCard = document.getElementById("cadet-card");
+                    cadetCard.style.display = "block";
+                    cadetCard.addEventListener('click', function() {
+                      divClick(cadetCard)}
+                    );
+                    
+                <?php 
+                    }
+                    if($row['CName']=='Jr_Colonel'){ 
+                ?>
+                    var colonelCard = document.getElementById("colonel-card");
+                    colonelCard.style.display = "block";
+                    colonelCard.addEventListener('click', function() {
+                      divClick(colonelCard)}
+                    );
+                <?php 
+                    } 
+                    if(($row['CName']=='Jr_Captain')){ 
+                ?>
+                    var captainCard = document.getElementById("captain-card");
+                    captainCard.style.display = "block";
+                    captainCard.addEventListener('click', function() {
+                      divClick(captainCard)}
+                    );
+                <?php 
+                    }
+                ?>
+          <?php
+              } 
+          ?>
+        }
+       
     </script>
 
   </body>
