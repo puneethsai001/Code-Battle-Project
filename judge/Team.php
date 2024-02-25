@@ -1,7 +1,47 @@
 <?php 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once 'judgecatdata.php'; 
+require_once '../includes/dbh.inc.php';
+require_once '../includes/config_session.inc.php';
+
+    $_SESSION['CName']=$_GET['categoryname'];
+    // echo $_SESSION['CName'];
+    //to show teams of category
+    $query3="SELECT T_id, TName, SUM(Score) as score
+    FROM scores 
+    WHERE C_id = :C_id AND J_id =:J_id AND H_id=:H_id
+    GROUP BY T_id, TName;";
+    $stmt3=$pdo->prepare($query3);
+    
+    if($_SESSION['CName']=="Jr_Cadet"){
+        $val=1;
+        $stmt3->bindParam(":C_id",$val);
+        $stmt3->bindParam(":J_id",$_SESSION['J_id']);
+        $stmt3->bindParam(":H_id",$_SESSION['H_id']);
+       $stmt3->execute();
+       $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
+    //    var_dump($result3);
+       
+    }
+    if($_SESSION['CName']=="Jr_Colonel"){
+        $val=2;
+        $stmt3->bindParam(":C_id",$val);
+        $stmt3->bindParam(":J_id",$_SESSION['J_id']);
+        $stmt3->bindParam(":H_id",$_SESSION['H_id']);
+        $stmt3->execute();
+        $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
+     }
+     if($_SESSION['CName']=="Jr_Captain"){
+        $val=3;
+        $stmt3->bindParam(":C_id",$val);
+        $stmt3->bindParam(":J_id",$_SESSION['J_id']);
+        $stmt3->bindParam(":H_id",$_SESSION['H_id']);
+        $stmt3->execute();
+        $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
+    
+
 
 // if($result3[0]['T_id'] === null){
 //     $result3=[];
@@ -103,22 +143,22 @@ body {
 }
 
 footer {
-    background-color: black;
+   background-color: black;
     color: #ffffff; 
     padding: 5px;
     text-align: center;
-    position: sticky;
-    top: 100%;
-}
+    position: fixed; /* Set position to fixed */
+    bottom: 0; /* Position at the bottom */
+    width: 100%; 
 H1{
     text-align: center;
 }
 
 </style>
 <script>
-      function TeamClick(card) {
-        var T_id=card.getAttribute('id');
-        console.log(T_id);
+      function TeamClick(Tcard) {
+        var T_id=Tcard.getAttribute('id');
+        // console.log(T_id);
         window.location.href = 'grading.php?T_id=' + T_id;
     }
 </script>
@@ -128,7 +168,7 @@ H1{
     <?php if(!empty($result3)) { ?> 
         <div class="card-container">
             <?php foreach($result3 as $row) { 
-                echo $row['T_id'];?>
+                // echo $row['T_id'];?>
                 
                 <div class="card" id="<?php echo $row['T_id']; ?>" onclick="TeamClick(this)">
 

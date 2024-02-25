@@ -17,7 +17,7 @@
         $stmt1->bindParam(":T_id",$_SESSION['T_id']);
         $stmt1->bindParam(":Score",$score);
         $stmt1->execute();
-        header("Location: Team.php");
+        header("Location: judgescatdata.php");
         exit(); 
 
     }

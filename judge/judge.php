@@ -4,6 +4,7 @@
     require_once '../includes/config_session.inc.php';
     if ($_SESSION['user_isadmin']==0) {
     require_once 'judgecatdata.php'; 
+    //  showcatcards($pdo);
 
 ?>
 <!DOCTYPE html>
@@ -141,61 +142,51 @@
   </style>
 
   <script>
-    function divClick(div) {
-      var cardvalue = div.getAttribute('value');
-      var form = div.querySelector('form');
-      form.submit();
+    function divClick(card) {
+      var categoryname = card.getAttribute('value');
+      window.location.href = 'Team.php?categoryname=' + categoryname;  
     }
-
     window.onload = function() {
-      <?php foreach($result2 as $row){ ?>
-        <?php if($row['CName'] == 'Jr_Cadet'){ ?>
-          var cadetCard = document.getElementById("cadet-card");
-          cadetCard.style.display = "block";
-          cadetCard.addEventListener('click', function() {
-            divClick(cadetCard)}
-          );
-        <?php } ?>
-        <?php if($row['CName'] == 'Jr_Colonel'){ ?>
-          var colonelCard = document.getElementById("colonel-card");
-          colonelCard.style.display = "block";
-          colonelCard.addEventListener('click', function() {
-            divClick(colonelCard)}
-          );
-        <?php } ?>
-        <?php if($row['CName'] == 'Jr_Captain'){ ?>
-          var captainCard = document.getElementById("captain-card");
-          captainCard.style.display = "block";
-          captainCard.addEventListener('click', function() {
-            divClick(captainCard)}
-          );
-        <?php } ?>
-      <?php } ?>
-    }
+  <?php foreach($result2 as $row){ ?>
+    <?php if($row['CName'] == 'Jr_Cadet'){ ?>
+      var cadetCard = document.getElementById("cadet-card");
+      cadetCard.style.display = "block";
+    <?php } ?>
+    <?php if($row['CName'] == 'Jr_Colonel'){ ?>
+      var colonelCard = document.getElementById("colonel-card");
+      colonelCard.style.display = "block";
+    <?php } ?>
+    <?php if($row['CName'] == 'Jr_Captain'){ ?>
+      var captainCard = document.getElementById("captain-card");
+      captainCard.style.display = "block";
+    <?php } ?>
+  <?php } ?>
+
+}
+
   </script>
 </head>
 <body>
   <?php
+    
     echo '<h1><font color="#F73634">Welcome</font> <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
   ?>
 
   <h1 class="team-heading">Select the category you wish to judge</h1>
+  
 
   <div class="all-cards">
-    <div class="card cadet" id="cadet-card" style="display: none;">
-      <form action="Team.php" method="POST">
-        <input type="hidden" name="Jr_Cadet" value="Jr_Cadet">
+    <div class="card cadet" id="cadet-card" style="display: none;" value="Jr_Cadet" onclick="divClick(this)">
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
           <h2>Jr Cadet</h2>
           <p>The Jr Cadet category in the hackathon is designed for young minds brimming with potential, specifically targeting students from Grades 1 to 4.</p>
         </div>
-      </form>
     </div>
 
-    <div class="card colonel" id="colonel-card" style="display: none;">
-      <form action="Team.php" method="POST">
-        <input type="hidden" name="Jr_Colonel" value="Jr_Colonel">
+    <div class="card colonel" id="colonel-card" style="display: none;" value="Jr_Colonel" onclick="divClick(this)">
+      
+        
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
           <h2>Jr Colonel</h2>
@@ -204,9 +195,7 @@
       </form>
     </div>
 
-    <div class="card captain" id="captain-card" style="display: none;">
-      <form action="Team.php" method="POST">
-        <input type="hidden" name="Jr_Captain" value="Jr_Captain">
+    <div class="card captain" id="captain-card" style="display: none;" value="Jr_Captain" onclick="divClick(this)">
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
           <h2>Jr Captain</h2>
@@ -230,6 +219,7 @@
   </footer>
 </body>
 </html>
-<?php }else{
+<?php 
+}else{
   header("Location: ../admin/admin.php");
 } ?>
