@@ -10,8 +10,9 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         $criterias = $_POST['criteria'];
         $weights=$_POST['weights'];
         // var_dump($weights);
-        $query1="INSERT INTO criteria_data(CRName,CRWeight,H_id) VALUES (:CRName,:CRWeight,:H_id);";
+        $query1="INSERT INTO criteria_data(CRName,CR_id,CRWeight,H_id) VALUES (:CRName,:CR_id,:CRWeight,:H_id);";
         $stmt1=$pdo->prepare($query1);
+
         
         foreach($criterias as $criteria){
             $stmt1->bindParam(":CRName",$criteria);
@@ -19,6 +20,11 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
             $w=intval($weight);
             $stmt1->bindParam(":CRWeight",$w);
             $stmt1->bindParam(":H_id",$_SESSION['H_id']);
+            $query2="SELECT CR_id from criteria where CRName=:CRName";
+            $stmt2=$pdo->prepare($query2);
+            $stmt2->execute([":CRName" => $criteria]);
+            $CR_id=$stmt2->fetchColumn();
+            $stmt1->bindParam(":CR_id",$CR_id);
             $stmt1->execute();
         }
         $_SESSION['H_criteria_added']=1;

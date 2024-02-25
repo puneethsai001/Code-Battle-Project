@@ -178,9 +178,9 @@ if(isset($_SESSION['H_added_criteria'])){
         <hr>
 
         <div class="Criteria-Container">
-            <input type="checkbox" id = "C3Box" name="criteria[]" value="User Interface" onclick="clicked()">
+            <input type="checkbox" id = "C3Box" name="criteria[]" value="UserInterface" onclick="clicked()">
             <label>User Interface</label>
-            <input id="CWeight3" name="weights[User Interface]" type="number"  placeholder=" Weight of Criteria 3" />
+            <input id="CWeight3" name="weights[UserInterface]" type="number"  placeholder=" Weight of Criteria 3" />
         </div>
 
         <hr>

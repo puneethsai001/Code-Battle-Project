@@ -115,13 +115,23 @@ H1{
 }
 
 </style>
+<script>
+      function TeamClick(card) {
+        var T_id=card.getAttribute('id');
+        console.log(T_id);
+        window.location.href = 'grading.php?T_id=' + T_id;
+    }
+</script>
 </head>
 <body>
     <h1 style="text-align:center;margin-top: 90px;"><?php echo $_SESSION['CName'].'s'?></h1>  
     <?php if(!empty($result3)) { ?> 
         <div class="card-container">
-            <?php foreach($result3 as $row) { ?>
-                <div class="card">
+            <?php foreach($result3 as $row) { 
+                echo $row['T_id'];?>
+                
+                <div class="card" id="<?php echo $row['T_id']; ?>" onclick="TeamClick(this)">
+
                     <div class="card-inner">
                         <div class="card-front">
                             <div id="cadet-image">
