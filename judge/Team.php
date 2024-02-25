@@ -3,10 +3,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'judgecatdata.php'; 
 
-if($result3[0]['T_id'] === null){
-    $result3=[];
-}
-?>
+// if($result3[0]['T_id'] === null){
+//     $result3=[];
+// }
+// ?>
     
 <!DOCTYPE html>
 <html>

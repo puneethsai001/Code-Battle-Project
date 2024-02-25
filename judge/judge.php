@@ -2,7 +2,9 @@
     declare(strict_types=1);
     require_once '../includes/dbh.inc.php';
     require_once '../includes/config_session.inc.php';
+    if ($_SESSION['user_isadmin']==0) {
     require_once 'judgecatdata.php'; 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,20 +21,25 @@
       margin: 0;
       padding: 0;
     }
-
     button {
       background-color: #F73634;
       border: none;
-      border-radius: 1rem;
+      border-radius: 2rem;
       color: #fff;
       cursor: pointer;
-      font-size: small;
+      font-size: medium;
       padding: 1rem 2rem;
+      margin: 2rem;
     }
 
     .button-container {
       text-align: center;
-      margin-top: 2rem;
+      /* margin-top: 2rem; */
+    
+    }
+    .button-container form { 
+      display: inline-block;
+      margin:  10px; 
     }
 
     button:hover {          
@@ -50,7 +57,7 @@
       cursor: pointer;
       margin: 1rem;
       width: 300px; /* Adjust the width of the card */
-      height: 400px; /* Adjust the height of the card */
+      height: 450px; /* Adjust the height of the card */
     }
 
     .card:hover {
@@ -100,10 +107,6 @@
     .captain .card-text {
       background-color: rgb(100, 181, 19);
     }
-    
-    
-  
-
 
     .card-text h2 {
       margin: 0;
@@ -124,6 +127,7 @@
 
     .team-heading {
       text-align: center;
+      margin-top: 5rem;
     }
 
    footer {
@@ -213,7 +217,12 @@
   </div>
 
   <div class="button-container">
+  <form action="Jlogout.php" method="POST">
     <button>View Scoreboard</button>
+  </form>
+    <form action="judge_functions.php" method="POST">
+      <button type="submit" name="logout">Log Out</button>
+    </form>
   </div>
 
   <footer>
@@ -221,3 +230,6 @@
   </footer>
 </body>
 </html>
+<?php }else{
+  header("Location: ../admin/admin.php");
+} ?>

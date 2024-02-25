@@ -1,9 +1,8 @@
 
 <?php
-if (isset($_SESSION['user_isadmin']) || isset($_SESSION['user_id'])) {
-    header("Location: admin.php");
-    die();
-}
+    require_once '../includes/config_session.inc.php';
+if ($_SESSION['user_isadmin']==1) {
+
 require_once "../admin/admin_functions.php";
 
 
@@ -170,3 +169,7 @@ require_once "../admin/admin_functions.php";
     <p>Contact us at: info@codebattle.com</p>
 </footer>
 </html>
+<?php }else{
+    header("Location: ../judge/judge.php");
+    die();
+} ?>
