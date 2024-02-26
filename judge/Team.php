@@ -5,44 +5,37 @@ require_once '../includes/dbh.inc.php';
 require_once '../includes/config_session.inc.php';
 
     $_SESSION['CName']=$_GET['categoryname'];
-    // echo $_SESSION['CName'];
-    //to show teams of category
+
     $query3="SELECT T_id, TName, SUM(Score) as score
     FROM scores 
     WHERE C_id = :C_id AND J_id =:J_id AND H_id=:H_id
     GROUP BY T_id, TName;";
+
     $stmt3=$pdo->prepare($query3);
-    
+    $stmt3->bindParam(":J_id",$_SESSION['J_id']);
+    $stmt3->bindParam(":H_id",$_SESSION['H_id']);
+
     if($_SESSION['CName']=="Jr_Cadet"){
         $val=1;
         $stmt3->bindParam(":C_id",$val);
-        $stmt3->bindParam(":J_id",$_SESSION['J_id']);
-        $stmt3->bindParam(":H_id",$_SESSION['H_id']);
-       $stmt3->execute();
-       $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-    //    var_dump($result3);
+        $stmt3->execute();
+        $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
        
     }
     if($_SESSION['CName']=="Jr_Colonel"){
         $val=2;
         $stmt3->bindParam(":C_id",$val);
-        $stmt3->bindParam(":J_id",$_SESSION['J_id']);
-        $stmt3->bindParam(":H_id",$_SESSION['H_id']);
         $stmt3->execute();
         $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
      }
      if($_SESSION['CName']=="Jr_Captain"){
         $val=3;
         $stmt3->bindParam(":C_id",$val);
-        $stmt3->bindParam(":J_id",$_SESSION['J_id']);
-        $stmt3->bindParam(":H_id",$_SESSION['H_id']);
         $stmt3->execute();
         $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
         
     }
     
-
-
 // if($result3[0]['T_id'] === null){
 //     $result3=[];
 // }

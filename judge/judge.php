@@ -66,11 +66,11 @@
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .card > form {
+    /* .card > form {
       display: flex;
       flex-direction: column;
       height: 100%;
-    }
+    } */
 
     .card-image {
       height: 200px; /* Adjust the height of the image */
@@ -108,7 +108,9 @@
     .captain .card-text {
       background-color: rgb(100, 181, 19);
     }
-
+    .card-text {
+      height: 450px;
+    }
     .card-text h2 {
       margin: 0;
       font-size: 1.5rem;
@@ -176,6 +178,7 @@
   
 
   <div class="all-cards">
+  <!-- <div class="card cadet" id="cadet-card" style="display: none;"> -->
     <div class="card cadet" id="cadet-card" style="display: none;" value="Jr_Cadet" onclick="divClick(this)">
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
@@ -183,16 +186,14 @@
           <p>The Jr Cadet category in the hackathon is designed for young minds brimming with potential, specifically targeting students from Grades 1 to 4.</p>
         </div>
     </div>
+    
 
     <div class="card colonel" id="colonel-card" style="display: none;" value="Jr_Colonel" onclick="divClick(this)">
-      
-        
         <div class="card-image" style="background-image: url('https://th.bing.com/th/id/R.79f52f73b10746ec95ae68cdba347949?rik=Fx%2fDGsQ5bIc3YQ&pid=ImgRaw&r=0');"></div>
         <div class="card-text">
           <h2>Jr Colonel</h2>
           <p>The Jr Colonel category in the hackathon welcomes high schoolers and young minds embarking on their undergraduate journeys, encompassing students from Grades 9-12 and first-year undergraduates.</p>
         </div>
-      </form>
     </div>
 
     <div class="card captain" id="captain-card" style="display: none;" value="Jr_Captain" onclick="divClick(this)">
@@ -201,8 +202,8 @@
           <h2>Jr Captain</h2>
           <p>The Jr Captain category in the hackathon sets sail for students in Grades 5-8, a period marked by burgeoning independence, intellectual curiosity, and a thirst for exploration.</p>
         </div>
-      </form>
     </div>
+
   </div>
 
   <div class="button-container">
