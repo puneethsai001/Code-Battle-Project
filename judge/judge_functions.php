@@ -18,6 +18,11 @@ if ($_SESSION["user_isadmin"]==0){
     if (isset($_POST['logout'])){     
         logout( $pdo);
     }
+    if (isset($_POST['view-scoreboard'])){     
+        header("Location: Result.php");
+        exit(); 
+    }
+
 }
 
 

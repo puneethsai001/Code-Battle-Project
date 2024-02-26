@@ -4,13 +4,23 @@ ini_set('display_errors', 1);
 require_once '../includes/dbh.inc.php';
 require_once '../includes/config_session.inc.php';
 
-    $_SESSION['CName']=$_GET['categoryname'];
     
     //selects teams from scores table that are to be judge 
-    $query3="SELECT T_id, TName, SUM(Score) as score
-    FROM scores 
-    WHERE C_id = :C_id AND J_id =:J_id AND H_id=:H_id
-    GROUP BY T_id, TName;";
+    $query3="SELECT *
+    FROM hackathon_data 
+    WHERE H_id=:H_id;";
+    //teams registered
+    $query2="SELECT Count(T_id)
+    from team_data
+    where H_id=:H_id;";
+
+    // judges 
+    $query3="SELECT username,C_id,CName,
+    from judges_category
+    where H_id=:H_id";
+
+
+
 
     $stmt3=$pdo->prepare($query3);
     $stmt3->bindParam(":J_id",$_SESSION['J_id']);

@@ -3,9 +3,29 @@
     require_once '../includes/dbh.inc.php';
     require_once '../includes/config_session.inc.php';
     if ($_SESSION['user_isadmin']==0) {
-    require_once 'judgecatdata.php'; 
-    //  showcatcards($pdo);
+    
+    //setting session j and h ids
+    $query1 = "SELECT H_id, J_id FROM judges_category WHERE username=:username;";
+    $stmt1 = $pdo->prepare($query1);
+    $username = $_SESSION['user_username'];
+    $stmt1->bindParam(":username", $username);
+    $stmt1->execute();
+    $row = $stmt1->fetch(PDO::FETCH_ASSOC);
+    $H_id = $row['H_id'];
+    $J_id = $row['J_id'];
 
+    $_SESSION['H_id'] = $H_id;
+    $_SESSION['J_id'] = $J_id;
+   
+
+    //fetch categories judged by this judge
+    $query2="SELECT * FROM `judges_category` where H_id=:H_id AND J_id=:J_id group by C_id;";
+    $stmt2=$pdo->prepare($query2);
+    $stmt2->bindParam(":H_id",$H_id);
+    $stmt2->bindParam(":J_id",$J_id);
+    $stmt2->execute();
+    $result2=$stmt2->fetchAll();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,11 +164,13 @@
   </style>
 
   <script>
+    //sending the category clicked name to teams page
     function divClick(card) {
       var categoryname = card.getAttribute('value');
       window.location.href = 'Team.php?categoryname=' + categoryname;  
     }
     window.onload = function() {
+      //displaying category cards
   <?php foreach($result2 as $row){ ?>
     <?php if($row['CName'] == 'Jr_Cadet'){ ?>
       var cadetCard = document.getElementById("cadet-card");
@@ -207,8 +229,8 @@
   </div>
 
   <div class="button-container">
-  <form action="Jlogout.php" method="POST">
-    <button>View Scoreboard</button>
+  <form action="judge_functions.php" method="POST">
+    <button type="submit" name="view-scoreboard">View Scoreboard</button>
   </form>
     <form action="judge_functions.php" method="POST">
       <button type="submit" name="logout">Log Out</button>

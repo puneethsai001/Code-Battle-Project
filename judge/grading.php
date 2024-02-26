@@ -2,6 +2,14 @@
     declare(strict_types=1);
     require_once '../includes/dbh.inc.php';
     require_once '../includes/config_session.inc.php';
+    $_SESSION['T_id'] = $_GET['T_id'];
+    //display Criterias specific to that session hackathon
+    $query1 = "SELECT CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
+    $stmt1 = $pdo->prepare($query1);
+    $stmt1->bindParam(":H_id",$_SESSION['H_id']);
+    $stmt1->execute();
+    $criterias=$stmt1->fetchAll();
+    $_SESSION['criterias']=$criterias;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,20 +156,15 @@
     
 
    <?php 
-    $_SESSION['T_id'] = $_GET['T_id'];
-    $query1 = "SELECT CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
-    $stmt1 = $pdo->prepare($query1);
-    $stmt1->bindParam(":H_id",$_SESSION['H_id']);
-    $stmt1->execute();
-    $result=$stmt1->fetchAll();
-    $_SESSION['scores']=$result;
-    foreach($result as $row){
+    
+    foreach($criterias as $row){
      ?>
         <div class = "form-container">
             <form action="insert.scores.php" method="POST">
                 <br>
                 <div class="Criteria-Container">
                     <label><?php echo $row['CRName'] ?></label>
+                    <!-- sets the name attribute as 'criteria name'+mark -->
                     <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required/> 
                 </div>
                 <hr>

@@ -1,3 +1,22 @@
+<?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require_once '../includes/dbh.inc.php';
+require_once '../includes/config_session.inc.php';
+
+    
+    $query1="SELECT T_id, TName, SUM(Score) as score
+    FROM scores 
+    WHERE H_id=:H_id
+    GROUP BY T_id
+    ORDER BY score DESC;";
+
+    $stmt1=$pdo->prepare($query1);
+    $stmt1->bindParam(":H_id",$_SESSION['H_id']);
+    $stmt1->execute();
+    $result1=$stmt1->fetchAll();
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,14 +48,15 @@
             text-align: center;
             width: 50%;
             border-collapse: collapse;
-            background-color: white;
+            background-color: #F73634;
             margin-left: auto;
             margin-right: auto;
             border-radius: 18px;
-            margin-bottom: 15px;
+            margin-bottom: 4rem;
         }
 
         th{
+            border-radius: 18px;
             color: white;
             background-color: #F73634;
             font-size: medium;
@@ -44,6 +64,7 @@
         }
 
         td{
+            background-color: white;
             color: black;
             font-size: medium;
             padding: 8px;
@@ -52,7 +73,7 @@
         footer {
             background-color: black;
             color: #ffffff; 
-            padding: 5px;
+            padding: 8px;
             text-align: center;
             position: sticky;
             top: 100%;
@@ -91,51 +112,40 @@
 </head>
 <body>
     <a href="index.html">
-        <img src="Images/Logo.png", height="100">
+        <img src="../Images/Logo.png", height="100">
     </a>
     <h1>Final <font color = "white">Scoreboard</font></h1>
 
+
+
     <table>
-        <tr>
+       <tr>
             <th>Team ID</th>
             <th>Team Name</th>
-            <th>Category</th>
-            <th>Criteria I Marks</th>
-            <th>Criteria II Marks</th>
-            <th>Criteria III Marks</th>
-            <th>Total Marks</th>
+            <th>Scores</th>
         </tr>
+        <?php if($result1){
+        foreach($result1 as $row){ ?>
+                <tr>
+                        <td><?php echo $row['T_id'] ?></td>
+                        <td><?php echo $row['TName'] ?></td>
+                        <td><?php echo $row['score'] ?></td>
+                        
+                </tr>
+            <?php  }   ?>
+            </table>
+
+
+        <?php }else{ ?>
+            <table>
+            
         <tr>
-            <td>1</td>
-            <td>Team X</td>
-            <td>-</td>
-            <td>30</td>
-            <td>27</td>
-            <td>21</td>
-            <td>78</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Team Y</td>
-            <td>-</td>
-            <td>28</td>
-            <td>26</td>
-            <td>25</td>
-            <td>79</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Team Z</td>
-            <td>-</td>
-            <td>18</td>
-            <td>23</td>
-            <td>17</td>
-            <td>58</td>
-        </tr>
-    </table>
-    
+        <td><h1 style="color: #F73634;">No teams graded</h1></td>    
+        </tr> </table>
+
+    <?php }?>
     <div class="button-container">
-    <form action="JLogout.php" method="POST">
+    <form action="judge_functions.php" method="POST">
         <button type="submit" name="logout">Log Out</button>
     </form>
 </div>
