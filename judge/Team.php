@@ -4,38 +4,37 @@ ini_set('display_errors', 1);
 require_once '../includes/dbh.inc.php';
 require_once '../includes/config_session.inc.php';
 
-    $_SESSION['CName']=$_GET['categoryname'];
-    
-    //selects teams from scores table that are to be judge 
-    $query3="SELECT T_id, TName, SUM(Score) as score
-    FROM scores 
-    WHERE C_id = :C_id AND J_id =:J_id AND H_id=:H_id
-    GROUP BY T_id, TName;";
+$query3 = "SELECT td.T_id, td.TName, IFNULL(SUM(s.Score), 0) AS score
+FROM team_data td
+LEFT JOIN scores s ON td.T_id = s.T_id AND s.J_id = :J_id
+WHERE td.C_id = :C_id AND td.H_id = :H_id GROUP BY td.T_id, td.TName";
 
-    $stmt3=$pdo->prepare($query3);
-    $stmt3->bindParam(":J_id",$_SESSION['J_id']);
-    $stmt3->bindParam(":H_id",$_SESSION['H_id']);
+$stmt3 = $pdo->prepare($query3);
+$stmt3->bindParam(":H_id", $_SESSION['H_id']);
+$stmt3->bindParam(":J_id", $_SESSION['J_id']);
 
-    //with particular cids
-    if($_SESSION['CName']=="Jr_Cadet"){
-        $val=1;
-        $stmt3->bindParam(":C_id",$val);
-        $stmt3->execute();
-        $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
+$_SESSION['CName']=$_GET['categoryname'];
+
+if($_SESSION['CName']=="Jr_Cadet"){
+    $val=1;
+    $stmt3->bindParam(":C_id",$val);
+    $stmt3->execute();
+    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
+}
+if($_SESSION['CName']=="Jr_Captain"){
+    $val=2;
+    $stmt3->bindParam(":C_id",$val);
+    $stmt3->execute();
+    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
     }
     if($_SESSION['CName']=="Jr_Colonel"){
-        $val=2;
-        $stmt3->bindParam(":C_id",$val);
-        $stmt3->execute();
-        $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-     }
-     if($_SESSION['CName']=="Jr_Captain"){
-        $val=3;
-        $stmt3->bindParam(":C_id",$val);
-        $stmt3->execute();
-        $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-        
-    }
+    $val=3;
+    $stmt3->bindParam(":C_id",$val);
+    $stmt3->execute();
+    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
+    
+}
+
     
 // if($result3[0]['T_id'] === null){
 //     $result3=[];
