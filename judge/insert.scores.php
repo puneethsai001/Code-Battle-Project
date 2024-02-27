@@ -23,6 +23,7 @@
     }
     unset($_SESSION['criterias']);
     unset($_SESSION['T_id']);
+    unset($_SESSION['TName']);
     header("Location: judge.php");
     exit(); 
         

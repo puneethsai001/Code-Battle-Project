@@ -4,12 +4,11 @@ ini_set('display_errors', 1);
 require_once '../includes/dbh.inc.php';
 require_once '../includes/config_session.inc.php';
 
-    
-    $query1="SELECT T_id, TName, SUM(Score) as score
-    FROM scores 
-    WHERE H_id=:H_id
+    $query1="SELECT T_id, TName, ROUND(AVG(J_score),0) as Total_Score
+    FROM (SELECT T_id, TName, AVG(Score) as J_score from scores WHERE H_id=:H_id
+    GROUP BY T_id,J_id) as subquery 
     GROUP BY T_id
-    ORDER BY score DESC;";
+    ORDER BY Total_Score DESC";
 
     $stmt1=$pdo->prepare($query1);
     $stmt1->bindParam(":H_id",$_SESSION['H_id']);
@@ -129,7 +128,7 @@ require_once '../includes/config_session.inc.php';
                 <tr>
                         <td><?php echo $row['T_id'] ?></td>
                         <td><?php echo $row['TName'] ?></td>
-                        <td><?php echo $row['score'] ?></td>
+                        <td><?php echo $row['Total_Score'] ?></td>
                         
                 </tr>
             <?php  }   ?>

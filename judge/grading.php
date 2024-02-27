@@ -3,13 +3,32 @@
     require_once '../includes/dbh.inc.php';
     require_once '../includes/config_session.inc.php';
     $_SESSION['T_id'] = $_GET['T_id'];
-    //display Criterias specific to that session hackathon
-    $query1 = "SELECT CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
-    $stmt1 = $pdo->prepare($query1);
-    $stmt1->bindParam(":H_id",$_SESSION['H_id']);
-    $stmt1->execute();
-    $criterias=$stmt1->fetchAll();
-    $_SESSION['criterias']=$criterias;
+
+    if(isset($_SESSION['update'])){
+        $query1 = "DELETE from scores where J_id=:J_id and T_id=:T_id and H_id=:H_id;";
+        $stmt1 = $pdo->prepare($query1);
+        $stmt1->bindParam(":H_id",$_SESSION['H_id']);
+        $stmt1->bindParam(":J_id",$_SESSION['J_id']);
+        $stmt1->bindParam(":T_id",$_SESSION['T_id']);
+        $stmt1->execute();
+        ;
+    }
+
+        $query2 = "SELECT TName FROM team_data WHERE T_id=:T_id;";
+        $stmt2 = $pdo->prepare($query2);
+        $stmt2->bindParam(":T_id",$_SESSION['T_id']);
+        $stmt2->execute();
+        $TName=$stmt2->fetchColumn();
+        $_SESSION['TName']=$TName;
+
+        //display Criterias specific to that session hackathon
+        $query1 = "SELECT CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
+        $stmt1 = $pdo->prepare($query1);
+        $stmt1->bindParam(":H_id",$_SESSION['H_id']);
+        $stmt1->execute();
+        $criterias=$stmt1->fetchAll();
+        $_SESSION['criterias']=$criterias;
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,7 +171,7 @@
 
 </head>
 <body>  
-    <h1 id="heading">TEAM NAME</h1>
+    <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
     
 
    <?php 

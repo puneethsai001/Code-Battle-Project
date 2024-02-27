@@ -235,6 +235,9 @@
     <form action="judge_functions.php" method="POST">
       <button type="submit" name="logout">Log Out</button>
     </form>
+    <form action="updatescores.php" method="POST">
+      <button type="submit" name="update">Update Score</button>
+    </form>
   </div>
 
   <footer>

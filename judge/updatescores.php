@@ -7,39 +7,16 @@ require_once '../includes/config_session.inc.php';
 $query3 = "SELECT td.T_id, td.TName, IFNULL(SUM(s.Score), 0) AS score
 FROM team_data td
 LEFT JOIN scores s ON td.T_id = s.T_id AND s.J_id = :J_id
-WHERE td.C_id = :C_id AND td.H_id = :H_id GROUP BY td.T_id, td.TName HAVING score=0;";
+WHERE td.H_id = :H_id GROUP BY td.T_id, td.TName HAVING score!=0;";
 
 $stmt3 = $pdo->prepare($query3);
 $stmt3->bindParam(":H_id", $_SESSION['H_id']);
 $stmt3->bindParam(":J_id", $_SESSION['J_id']);
+$stmt3->execute();
+$result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
 
-$_SESSION['CName']=$_GET['categoryname'];
-
-if($_SESSION['CName']=="Jr_Cadet"){
-    $val=1;
-    $stmt3->bindParam(":C_id",$val);
-    $stmt3->execute();
-    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-}
-if($_SESSION['CName']=="Jr_Captain"){
-    $val=2;
-    $stmt3->bindParam(":C_id",$val);
-    $stmt3->execute();
-    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-    }
-    if($_SESSION['CName']=="Jr_Colonel"){
-    $val=3;
-    $stmt3->bindParam(":C_id",$val);
-    $stmt3->execute();
-    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-    
-}
-
-    
-// if($result3[0]['T_id'] === null){
-//     $result3=[];
-// }
-// ?>
+$_SESSION['update']=1;
+?>
     
 <!DOCTYPE html>
 <html>
@@ -151,13 +128,12 @@ H1{
 <script>
       function TeamClick(Tcard) {
         var T_id=Tcard.getAttribute('id');
-        // console.log(T_id);
         window.location.href = 'grading.php?T_id=' + T_id;
     }
 </script>
 </head>
 <body>
-    <h1 style="text-align:center;margin-top: 90px;"><?php echo $_SESSION['CName'].'s'?></h1>  
+    <h1 style="text-align:center;margin-top: 90px;">Select Team to Update Score</h1>  
     <?php if(!empty($result3)) { ?> 
         <div class="card-container">
             <?php foreach($result3 as $row) { 
@@ -184,7 +160,7 @@ H1{
             <?php } ?>
         </div>
     <?php } else { ?>
-        <h2 style="text-align: center;">No teams under this category</h2>
+        <h2 style="text-align: center;">No teams graded you yet</h2>
     <?php } ?>
     <footer>
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>

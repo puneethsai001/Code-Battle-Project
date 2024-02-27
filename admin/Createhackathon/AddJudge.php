@@ -12,10 +12,7 @@ if(isset($_SESSION['H_judges_added'])){
     header("Location: AddCriteria.php");
     die();
   }
-// if(!isset($_SESSION['H_judges_added'])){
-//     header("Location: ../admin.php");
-//     die();
-//   }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -325,3 +322,16 @@ if(isset($_SESSION['H_judges_added'])){
     <p>Contact us at: info@codebattle.com</p>
 </footer>
 </html>
+<!-- //   trying to get only selected category checkboxes
+//   $query1="SELECT H_id, Jr_Cadet, Jr_Colonel, Jr_Captain FROM hackathon_data WHERE H_id = :H_id AND 1 IN (Jr_Cadet, Jr_Colonel, Jr_Captain);;";
+//   $stmt=$pdo->prepare($query1);
+//   $stmt->bindParam(":H_id",$_SESSION['H_id']);
+//   $stmt->execute();
+//   $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+//   var_dump($result);
+  
+//   foreach($result[0] as $key=>$value){
+//       if ($value==1){
+//           $key1[]=$key;
+//       }
+//   } -->
