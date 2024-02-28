@@ -15,27 +15,15 @@ $stmt3->bindParam(":J_id", $_SESSION['J_id']);
 
 $_SESSION['CName']=$_GET['categoryname'];
 
-if($_SESSION['CName']=="Jr_Cadet"){
-    $val=1;
-    $stmt3->bindParam(":C_id",$val);
-    $stmt3->execute();
-    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-}
-if($_SESSION['CName']=="Jr_Captain"){
-    $val=2;
-    $stmt3->bindParam(":C_id",$val);
-    $stmt3->execute();
-    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-    }
-    if($_SESSION['CName']=="Jr_Colonel"){
-    $val=3;
-    $stmt3->bindParam(":C_id",$val);
-    $stmt3->execute();
-    $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
-    
-}
+$query1 = "SELECT C_id from category where CName=:CName;";
+$stmt1 = $pdo->prepare($query1);
+$stmt1->bindParam(":CName",$_SESSION['CName']);
+$stmt1->execute();
+$val=$stmt1->fetchColumn();
+$stmt3->bindParam(":C_id",$val);
+$stmt3->execute();
+$result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
 
-    
 // if($result3[0]['T_id'] === null){
 //     $result3=[];
 // }

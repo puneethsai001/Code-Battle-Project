@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Battle - Create</title>
+
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background-color: #272727;
+            color: white;
+            font-family: Tahoma;
+            font-size: 16px;
+        }
+
+        h1{
+            text-align: center;
+            font-size: xx-large;
+            margin-top: 2rem;
+            padding: 0.5rem 0 0.5rem 2rem;
+        }
+        .TeamCard{
+            margin-top:2.5rem;
+            border-radius: 18px;
+            background-color: gray;
+            text-align: center;
+            position: relative;
+            padding-top: 1rem;
+            width: 20%;
+            margin-left:3rem;
+            height: 75%
+        }
+       
+
+        .MainContainer {
+            margin-top:1rem;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin: 1em auto;
+            background-color: white; 
+            border-radius: 25px;
+            padding: 1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            height: 40%;
+            /* width: 70%; */
+        }
+
+        table {
+            margin-top:2.5rem;
+            font-family: arial, sans-serif;
+            color: #000000;
+            text-align: center;
+            width:100%;
+            font-size: large;
+            font-weight: 100;
+            border-collapse:collapse;
+            border-radius: 18px;
+            height: 300px;
+        }
+        
+        #Total{
+            font-size: x-large;
+            font-weight: bold ;
+        }
+        th:first-of-type {
+            border-top-left-radius: 18px;
+        }
+        th:last-of-type {
+           
+            border-top-right-radius: 18px;
+        }
+
+        th {
+            border: 1px solid rgb(255, 255, 255);
+            font-size: x-large;
+            color: white;
+            background-color: #F73634;
+            padding: 8px;
+            height: 20%;
+            
+            
+        }
+        td{
+            border: 1px solid gray;
+        }
+        tr:last-of-type td:first-of-type {
+        border-bottom-left-radius: 10px;
+        }
+        tr:last-of-type td:last-of-type {
+        border-bottom-right-radius: 10px;
+        }
+
+        .JudgeInfo{
+            width: calc(60%); /* adjust width to fill remaining space */
+            margin-left: 20px;
+            margin-right: 3rem;
+
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ffffff; 
+            padding: 5px;
+            text-align: center;
+            position: sticky;
+            top: 100%;
+        }
+    </style>
+
+</head>
+<body>
+    <H1>Jr_Cadet</H1>
+    
+    <div class="MainContainer">
+        <div class="TeamCard">
+            <h2>Team Nebula</h2>
+            <p>
+                Manipal Academic of Higher Education
+            </p>
+            <h3>Hackathon_ID</h3>
+        </div>
+        <div class="JudgeInfo">      
+            <table>
+                <tr>
+                  <th>Judge ID</th>
+                  <th>Code</th>
+                  <th>Presentation</th>
+                  <th>User Interface</th>
+                  <th>Teamwork</th>
+                  <th>Creativity</th>
+                  <th>Total</th>
+                </tr>
+                <tr>
+                  <td>J1</td>
+                  <td>55</td>
+                  <td>57</td>
+                  <td>63</td>
+                  <td>96</td>
+                  <td>42</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>J2</td>
+                  <td>72</td>
+                  <td>22</td>
+                  <td>24</td>
+                  <td>25</td>
+                  <td>25</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>J3</td>
+                  <td>62</td>
+                  <td>95</td>
+                  <td>47</td>
+                  <td>36</td>
+                  <td>45</td>
+                  <td></td>
+                </tr>
+                <tr>
+                </tr>
+                <tr>
+                    <td id="Total" >Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+              </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+        <p>Contact us at: info@codebattle.com</p>
+    </footer>
+</body>
+</html>
