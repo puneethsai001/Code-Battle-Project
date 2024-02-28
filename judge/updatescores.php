@@ -133,8 +133,8 @@ H1{
 </script>
 </head>
 <body>
-    <h1 style="text-align:center;margin-top: 90px;">Select Team to Update Score</h1>  
     <?php if(!empty($result3)) { ?> 
+    <h1 style="text-align:center;margin-top: 90px;">Select Team to Change scores. </h1>  
         <div class="card-container">
             <?php foreach($result3 as $row) { 
                 // echo $row['T_id'];?>
@@ -160,7 +160,7 @@ H1{
             <?php } ?>
         </div>
     <?php } else { ?>
-        <h2 style="text-align: center;">No teams graded you yet</h2>
+        <h2 style="text-align: center;">No teams graded by you yet</h2>
     <?php } ?>
     <footer>
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>

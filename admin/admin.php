@@ -117,8 +117,8 @@ require_once "../admin/admin_functions.php";
     <!-- <h1>Welcome <font color="#FFFFFF">Admin,</font></h1> -->
     
     <div class="button-container">
-        <form action="" method="POST">
-            <button type="button">View Hackathon</button> &nbsp; &nbsp;
+        <form action="HDetail.php" method="POST">
+            <button type="submit">View Hackathon</button> &nbsp; &nbsp;
         </form>
         <form action="" method="POST">
             <button type="button">Edit Hackathon</button> &nbsp; &nbsp;

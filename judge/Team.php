@@ -184,7 +184,7 @@ H1{
             <?php } ?>
         </div>
     <?php } else { ?>
-        <h2 style="text-align: center;">No teams under this category</h2>
+        <h2 style="text-align: center;">All teams under this category have been graded.</h2>
     <?php } ?>
     <footer>
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
