@@ -22,7 +22,7 @@
         $_SESSION['TName']=$TName;
 
         //display Criterias specific to that session hackathon
-        $query1 = "SELECT CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
+        $query1 = "SELECT CRWeight,CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
         $stmt1 = $pdo->prepare($query1);
         $stmt1->bindParam(":H_id",$_SESSION['H_id']);
         $stmt1->execute();
@@ -171,7 +171,7 @@
 
 </head>
 <body>  
-    <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
+    <h1 id="heading"><font color="#F73634">Please Enter Scores for: </font><?php echo $_SESSION['TName'] ?></h1>
     
 
    <?php 
@@ -182,7 +182,7 @@
             <form action="insert.scores.php" method="POST">
                 <br>
                 <div class="Criteria-Container">
-                    <label><?php echo $row['CRName'] ?></label>
+                    <label><?php echo $row['CRName']."<br>"." (Weight: ". $row['CRWeight'].")"?></label>
                     <!-- sets the name attribute as 'criteria name'+mark -->
                     <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required/> 
                 </div>

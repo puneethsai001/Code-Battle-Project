@@ -232,8 +232,8 @@
   <form action="judge_functions.php" method="POST">
     <button type="submit" name="view-scoreboard">View Scoreboard</button>
   </form>
-  <form action="categoricscoring.php" method="POST">
-    <button type="submit" name="update">Categorical Score</button>
+  <form action="otherjudges.php" method="POST">
+    <button type="submit" name="update">Other Judges Score</button>
   </form>
     <form action="judge_functions.php" method="POST">
       <button type="submit" name="logout">Log Out</button>
