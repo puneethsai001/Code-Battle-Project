@@ -179,23 +179,25 @@ require_once '../includes/config_session.inc.php';
     </h1>
     <div class="search-bar">
         <form id="myForm" action="" method="POST">
-            <input name="H_id" type="text" class="search-input" placeholder="Enter Hackathon ID:">
+            <input name="HName" type="text" class="search-input" placeholder="Enter Hackathon Name:">
             <button type="submit" class="search-button">Search</button>
         </form>
     </div>
-<?php if(!isset($_POST['H_id'])){?>
+<?php if(!isset($_POST['HName'])){?>
 </body><?php }
 
 else{
-    $val=$_POST['H_id'];
-    $query="SELECT* from hackathon_data where H_id=:H_id";
+    $name=$_POST['HName'];
+    $query="SELECT* from hackathon_data where HName=:HName";
     $stmt=$pdo->prepare($query);
-    $stmt->bindParam("H_id",$val);
+    $stmt->bindParam("HName",$name);
     $stmt->execute();
-    $result=$stmt->fetchAll();
+    $result=$stmt->fetch();
+    $val=$result['H_id'];
+    
 
     if(!($result)){
-        echo "<h1>Invalid Hackathon ID</h1>";
+        echo "<h1>Invalid Hackathon name</h1>";
         die();
     }
     $query2="SELECT* from criteria_data where H_id=:H_id";
@@ -230,9 +232,9 @@ else{
             </div>
             <div class="details-container">
 
-                <?php foreach($result as $row){?>
+                <?php// foreach($result as $row){?>
                     <h1 id="HName">
-                        <?php echo $row['HName']?>
+                        <?php echo $result['HName']?>
                     </h1>
                     <hr>
                     <h1>Hackathon</h1>
@@ -241,22 +243,22 @@ else{
                         <div class="Hackathon-Info">
                             <span>
                                 <font color="#F73634">Hackathon ID: </font><label>
-                                    <?php echo $row['H_id']?>
+                                    <?php echo $result['H_id']?>
                                 </label>
                             </span>
                             <span>
                                 <font color="#F73634">Date: </font><label>
-                                    <?php echo $row['HDate']?>
+                                    <?php echo $result['HDate']?>
                                 </label>
                             </span>
                             <span>
                                 <font color="#F73634">Time: </font><label>
-                                    <?php echo $row['HTime']?>
+                                    <?php echo $result['HTime']?>
                                 </label>
                             </span>
                         </div>
                     </div>
-                <?php }?>
+                <?php //}?>
 
 
                 <div class="CATCRI">
