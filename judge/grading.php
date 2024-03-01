@@ -22,7 +22,7 @@
         $_SESSION['TName']=$TName;
 
         //display Criterias specific to that session hackathon
-        $query1 = "SELECT CRWeight,CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
+        $query1 = "SELECT CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
         $stmt1 = $pdo->prepare($query1);
         $stmt1->bindParam(":H_id",$_SESSION['H_id']);
         $stmt1->execute();
@@ -141,6 +141,7 @@
 
         .button-container{
             text-align: center;
+            margin: auto;
         }
 
         footer {
@@ -148,8 +149,6 @@
             color: #ffffff; 
             padding: 5px;
             text-align: center;
-            /* position: sticky; */
-            /* top: 100%; */
             position: fixed; 
             bottom: 0;
             width: 100%; 
@@ -165,13 +164,47 @@
             text-align: center;
         }
         
+        .modal-background {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
+        .modal-content {
+            position: absolute;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 1rem;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content p{
+            margin-top: 1rem;
+        }
+        .modal-text {
+            margin-bottom: 20px;
+        }
+
+        .modal-button {
+        border: none;
+
+        color: white;
+        cursor: pointer;
+}
     </style>
 
 
 </head>
 <body>  
-    <h1 id="heading"><font color="#F73634">Please Enter Scores for: </font><?php echo $_SESSION['TName'] ?></h1>
+    <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
     
 
    <?php 
@@ -179,10 +212,10 @@
     foreach($criterias as $row){
      ?>
         <div class = "form-container">
-            <form action="insert.scores.php" method="POST">
+            <form id= "myform" action="insert.scores.php" method="POST">
                 <br>
                 <div class="Criteria-Container">
-                    <label><?php echo $row['CRName']."<br>"." (Weight: ". $row['CRWeight'].")"?></label>
+                    <label><?php echo $row['CRName'] ?></label>
                     <!-- sets the name attribute as 'criteria name'+mark -->
                     <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required/> 
                 </div>
@@ -190,11 +223,36 @@
     <?php }?>
 
                 <h1>total: 0</h1>
-                <div class="button-container">
-                <button id="redirectButton">Submit</button>
-                </div>
+                <div class="button-container"><button class="submit-button" onclick="showModal()">Submit</button></div>
+<div id="modal" class="modal-background">
+  <div class="modal-content">
+    <p class="modal-text">Are you sure you want to submit?</p>
+    <div class="button-container">
+    <button class="modal-button" onclick="hideModal()">Cancel</button>
+    <button class="modal-button" onclick="submitForm()">Submit</button>
+    </div>
+  </div>
+</div>
             </form>
         </div>
+        <script>
+            document.getElementById("myform").addEventListener("submit", function(event) {
+                event.preventDefault();
+                showModal();
+            });
+            function showModal() {
+            document.getElementById("modal").style.display = "flex";
+            }
+
+            function hideModal() {
+            document.getElementById("modal").style.display = "none";
+            }
+            function submitForm() {
+                document.getElementById("myform").submit();
+                // alert("Updated Successfully")
+            }
+            
+        </script>
     
 
     </div>

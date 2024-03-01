@@ -110,6 +110,7 @@ require_once '../includes/config_session.inc.php';
             /* Each section takes up half of the container */
             margin-bottom: 2rem;
             /* Add spacing between items */
+            margin-left: 25%;
         }
 
         .Category dt,
@@ -170,6 +171,9 @@ require_once '../includes/config_session.inc.php';
 
         hr {
             margin: 1.5rem;
+        }
+        table{
+            width: 100%;
         }
     </style>
      
@@ -299,17 +303,19 @@ else{
                 <hr>
                 <div class="Judges">
                     <?php foreach($result3 as $row){ ?>
-
-                        <span id="JName">
+                    <table>
+                        <tr>
+                        <th id="JName">
                             <font color="#F73634">Name: </font>
                             <?php echo $row['username']?><label></label>
-                        </span>
+                        </th>
 
-                        <span id="JCat">
+                        <th id="JCat">
                             <font color="#F73634">Category: </font>
                             <?php echo $row['CName']?><label></label>
-                        </span>
-
+                        </th>
+                        </tr>
+                    </table>
                     <?php } ?>
                 </div>
 
