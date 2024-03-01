@@ -34,6 +34,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Battle - Judge</title>
 <style>
+  H1{
+    margin-bottom:3rem;
+  }
     body {
       font-family: 'Arial', sans-serif;
       background-color: #272727;
@@ -45,28 +48,29 @@
     button {
       background-color: #F73634;
       border: none;
-      border-radius: 2rem;
       color: #fff;
       cursor: pointer;
-      font-size: medium;
-      padding: 1rem 2rem;
-      margin: 2rem;
+      font-size: large;
+      padding: 5px 15px;
+      margin-left: 1em;
+      border-radius: 18px;
+      font-weight: bold;
     }
 
     .button-container {
       text-align: center;
-      /* margin-top: 2rem; */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #F73634;
+      padding: 5px;
     
-    }
-    .button-container form { 
-      display: inline-block;
-      margin:  10px; 
     }
 
     button:hover {          
-      background-color: #000000;
-      color: #ffffff;
-    }
+      /* background-color: #000000; */
+      color: #272727;
+      text-decoration: underline;}
 
     .card {
       display: flex;
@@ -171,30 +175,43 @@
     }
     window.onload = function() {
       //displaying category cards
-  <?php foreach($result2 as $row){ ?>
-    <?php if($row['CName'] == 'Jr_Cadet'){ ?>
-      var cadetCard = document.getElementById("cadet-card");
-      cadetCard.style.display = "block";
-    <?php } ?>
-    <?php if($row['CName'] == 'Jr_Colonel'){ ?>
-      var colonelCard = document.getElementById("colonel-card");
-      colonelCard.style.display = "block";
-    <?php } ?>
-    <?php if($row['CName'] == 'Jr_Captain'){ ?>
-      var captainCard = document.getElementById("captain-card");
-      captainCard.style.display = "block";
-    <?php } ?>
-  <?php } ?>
-
-}
+      <?php foreach($result2 as $row){ ?>
+        <?php if($row['CName'] == 'Jr_Cadet'){ ?>
+          var cadetCard = document.getElementById("cadet-card");
+          cadetCard.style.display = "block";
+        <?php } ?>
+        <?php if($row['CName'] == 'Jr_Colonel'){ ?>
+          var colonelCard = document.getElementById("colonel-card");
+          colonelCard.style.display = "block";
+        <?php } ?>
+        <?php if($row['CName'] == 'Jr_Captain'){ ?>
+          var captainCard = document.getElementById("captain-card");
+          captainCard.style.display = "block";
+        <?php } ?>
+      <?php } ?>
+    }
 
   </script>
 </head>
 <body>
   <?php
-    
     echo '<h1><font color="#F73634">Welcome</font> <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
   ?>
+  <div class="button-container">
+    <form action="judge_functions.php" method="POST">
+      <button type="submit" name="view-scoreboard">View Scoreboard</button>
+    </form>
+    <form action="otherjudges.php" method="POST">
+      <button type="submit" name="update">Other Judges Score</button>
+    </form>
+    <form action="updatescores.php" method="POST">
+      <button type="submit" name="update">Update Score</button>
+    </form>
+    <form action="judge_functions.php" method="POST">
+      <button type="submit" name="logout">Log Out</button>
+    </form>
+  </div>
+
 
   <h1 class="team-heading">Select the category you wish to judge</h1>
   
@@ -228,21 +245,7 @@
 
   </div>
 
-  <div class="button-container">
-  <form action="judge_functions.php" method="POST">
-    <button type="submit" name="view-scoreboard">View Scoreboard</button>
-  </form>
-  <form action="otherjudges.php" method="POST">
-    <button type="submit" name="update">Other Judges Score</button>
-  </form>
-    <form action="judge_functions.php" method="POST">
-      <button type="submit" name="logout">Log Out</button>
-    </form>
-    <form action="updatescores.php" method="POST">
-      <button type="submit" name="update">Update Score</button>
-    </form>
-  </div>
-
+  
   <footer>
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
   </footer>
