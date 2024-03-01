@@ -84,80 +84,75 @@ $team_sum=0;
             margin-top: 2rem;
             padding: 0.5rem 0 0.5rem 2rem;
         }
-        .TeamCard{
-            margin-top:2.5rem;
-            border-radius: 18px;
-            background-color: #F73634;
-            text-align: center;
-            position: relative;
-            padding-top: 1rem;
-            width: 20%;
-            margin-left:3rem;
-            height: 70%;
-            text-align: center;
-            
-            
-        }
-       
-
-        .MainContainer {
-            margin-top:1rem;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            margin: 1em auto;
-            background-color: white; 
-            border-radius: 25px;
-            
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-            height: 40%;
-            
-        }
-
-        table {
-            margin-top:2.5rem;
-            font-family: arial, sans-serif;
-            color: #000000;
-            text-align: center;
-            width:100%;
-            font-size: large;
-            font-weight: 100;
-            border-collapse:collapse;
-            border-radius: 18px;
-            height: 70%
-
-        }
         
-        /* #Total{
-            font-size: x-large;
-            font-weight: bold ;
-        } */
-        th:first-of-type {
-            border-top-left-radius: 18px;
-        }
-        th:last-of-type {
-           
-            border-top-right-radius: 18px;
-        }
+            .MainContainer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+        
+      .TeamCard {
+        margin: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        max-width: 250px;
+        width: calc(50% - 40px); 
+    }
 
-        th {
-            
-            border: 1px solid black;
-            font-size: large;
-            color: white;
-            background-color: #F73634;
-            padding: 8px;
-            height: 20%;
-            
-            
-        }
-        td{
-            font-weight: bold ;
-           
-            border: 1px solid black;
-        }
+    .TeamCard:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .TeamCard h1 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+        text-align: left;
+    }
+
+    .TeamCard p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #666;
+    }
+
+    .JudgeInfo {
+        margin-top: 20px;
+        width: calc(50% - 40px); /* Adjust the width */
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f73634;
+        color: white;
+    }
+
+    td {
+        background-color: #fff;
+        color: #333;
+    }
+
         /* tr:last-of-type td:first-of-type {
         border-bottom-left-radius: 10px;
         }
@@ -189,19 +184,21 @@ $team_sum=0;
         //searching for teams with that category
         $s2->bindParam(":CName",$key);
         $s2->execute();
-        $teams=$s2->fetchAll(PDO::FETCH_ASSOC);
+        $teams=$s2->fetchAll(PDO::FETCH_ASSOC); 
+       
         
-        ?>
+        
             
-            
-        <H1><?php echo $key?></H1>
+        if (!empty($teams)){?>
+            <H1><?php echo $key?></H1>
+        <?php }?>
         <?php foreach($teams as $team){?>
             <div class="MainContainer">
                 <div class="TeamCard">
                     <!-- //displaying team details -->
-                    <h1><?php echo $team['TName']?></h1>
-                    <H1><?php echo $team['TSchool']?></H1>
-                    <h1><?php echo $team['T_id']?></h1>
+                    <h1><?php echo "Team name: ", $team['TName']?></h1>
+                    <H1><?php echo "School Name: ", $team['TSchool']?></H1>
+                    <h1><?php echo "Team ID: ", $team['T_id']?></h1>
                     <?php
 
                     $s4->bindParam(":T_id",$team['T_id']);
@@ -216,7 +213,7 @@ $team_sum=0;
                 <div class="JudgeInfo">      
                     <table>
                         <tr>
-                            //start of row 1
+                            <!--//start of row 1-->
                             <th>Judge</th>
                             <?php 
                             foreach($criterias as $criteria){?>
@@ -225,7 +222,7 @@ $team_sum=0;
                             <?php } ?>
 
                             <th>Total</th>
-                            //end of row 1
+                            <!--//end of row 1-->
                         </tr>
                         <?php foreach($judges as $judge){
                             $s6->bindParam(":J_id",$judge['J_id']);?>
@@ -267,7 +264,6 @@ $team_sum=0;
         <?php }}}?>
     <footer>
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-        <p>Contact us at: info@codebattle.com</p>
     </footer>
 </body>
 </html>

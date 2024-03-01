@@ -13,7 +13,19 @@ require_once '../includes/config_session.inc.php';
     $stmt1=$pdo->prepare($query1);
     $stmt1->bindParam(":H_id",$_SESSION['H_id']);
     $stmt1->execute();
-    $result1=$stmt1->fetchAll();
+    $teams=$stmt1->fetchAll();
+
+    $q5="SELECT * FROM criteria_data WHERE H_id=:H_id";
+    $s5=$pdo->prepare($q5);
+    $s5->bindParam(":H_id",$_SESSION['H_id']);
+    $s5->execute();
+    //found
+    $criterias=$s5->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($criterias);
+
+    $q7="Select SUM(Score) from scores where H_id=:H_id and T_id=:T_id and CR_id In (SELECT CR_id FROM criteria_data WHERE CRName =:CRName)";
+$s7=$pdo->prepare($q7);
+$s7->bindParam(":H_id",$_SESSION['H_id']);
     
     ?>
 <!DOCTYPE html>
@@ -119,16 +131,27 @@ require_once '../includes/config_session.inc.php';
 
     <table>
        <tr>
-            <th>Team ID</th>
-            <th>Team Name</th>
+           <th>Team ID</th>
+           <th>Team Name</th>
+           <?php foreach($criterias as $criteria){?> 
+            <th><?php echo $criteria['CRName']?></th>
+            <?php }?>
             <th>Scores</th>
         </tr>
-        <?php if($result1){
-        foreach($result1 as $row){ ?>
+        <?php if($teams){
+        foreach($teams as $team){?>
                 <tr>
-                        <td><?php echo $row['T_id'] ?></td>
-                        <td><?php echo $row['TName'] ?></td>
-                        <td><?php echo $row['Total_Score'] ?></td>
+                    <td><?php echo $team['T_id'] ?></td>
+                    <td><?php echo $team['TName'] ?></td>
+                        <?php $s7->bindParam(":T_id",$team['T_id']);
+                         foreach($criterias as $criteria){
+                            $s7->bindParam(":CRName",$criteria['CRName']);
+                            $s7->execute();
+                            //criteria_sum found
+                            $criteria_sum=$s7->fetchColumn();?>
+                            <td><?php echo $criteria_sum;?></td>
+                        <?php }?>
+                        <td><?php echo $team['Total_Score'] ?></td>
                         
                 </tr>
             <?php  }   ?>
