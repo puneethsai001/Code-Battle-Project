@@ -186,7 +186,6 @@
 </head>
 <body>
   
-//moved the navbar up
   <div class="button-container">
     <form action="" method="POST">
       <button type="submit" name="view-scoreboard">Home</button>
