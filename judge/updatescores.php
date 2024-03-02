@@ -159,7 +159,7 @@ $_SESSION['update']=1;
 
 <body>
     <div class="button-container">
-        <form action="" method="POST">
+        <form action="judge.php" method="POST">
           <button type="submit" name="view-scoreboard">Home</button>
         </form>
         <form action="judge_functions.php" method="POST">
