@@ -2,7 +2,15 @@
     declare(strict_types=1);
     require_once '../includes/dbh.inc.php';
 
-    $query="SELECT* from hackathon_data;";
+    $query="SELECT *FROM hackathon_data WHERE H_id IN (
+        SELECT H_id
+        FROM judges_data
+    )
+    AND H_id IN (
+        SELECT H_id
+        FROM criteria_data
+    );
+    ";
     $stmt=$pdo->prepare($query);
     $stmt->execute();
     $result=$stmt->fetchAll();

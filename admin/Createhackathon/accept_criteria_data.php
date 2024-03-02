@@ -31,8 +31,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
         header("Location: completed.php");
     }
 }
-    
-
 
 //session start
     // if ($_SERVER["REQUEST_METHOD"]=="POST"){

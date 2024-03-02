@@ -45,6 +45,30 @@ require_once '../includes/config_session.inc.php';
             border-radius: 5px;
             cursor: pointer;
         }
+        .button-container {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
+        }
+        
+        button {
+            background-color: #F73634;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: large;
+            padding: 5px 30px; 
+            margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
+        }
+
+        button:hover{
+            text-decoration: underline;
+        }
         #back {
         text-align: center; /* Align the button to the center */
         }
@@ -179,6 +203,22 @@ require_once '../includes/config_session.inc.php';
      
 </head>
 <body>
+
+<div class="button-container">
+      <form action="" method="POST">
+          <button type="submit">Home</button>
+      </form>
+      <form action="HDetail.php" method="POST">
+          <button type="submit">View Hackathon</button>
+      </form>
+      <form action="admin_functions.php" method="POST">
+          <button type="submit" name="create_hackathon">Create Hackathon</button>
+      </form>
+      <form action="admin_functions.php" method="POST">
+          <button type="submit" name="logout">Log Out</button>
+      </form>
+  </div>
+
     <h1 id="Details">Hackathon <font color="#F73634">Details</font>
     </h1>
     <div class="search-bar">

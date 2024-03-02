@@ -160,15 +160,12 @@ if(isset($_SESSION['H_created'])){
   </head>
   <body>
 
-    <div class="button-container">
-      <form action="" method="POST">
+  <div class="button-container">
+      <form action="../admin.php" method="POST">
           <button type="submit">Home</button>
       </form>
       <form action="HDetail.php" method="POST">
           <button type="submit">View Hackathon</button>
-      </form>
-      <form action="" method="POST">
-          <button type="button">Edit Hackathon</button>
       </form>
       <form action="admin_functions.php" method="POST">
           <button type="submit" name="create_hackathon">Create Hackathon</button>

@@ -110,26 +110,22 @@ require_once "../admin/admin_functions.php";
 </head>
 
 <body>
-    <div class="button-container">
-        <form action="" method="POST">
-            <button type="submit">Home</button>
-        </form>
-        <form action="HDetail.php" method="POST">
-            <button type="submit">View Hackathon</button>
-        </form>
-        <form action="" method="POST">
-            <button type="button">Edit Hackathon</button>
-        </form>
-        <form action="admin_functions.php" method="POST">
-            <button type="submit" name="create_hackathon">Create Hackathon</button>
-        </form>
-        <form action="admin_functions.php" method="POST">
-            <button type="submit" name="logout">Log Out</button>
-        </form>
+<div class="button-container">
+      <form action="admin.php" method="POST">
+          <button type="submit">Home</button>
+      </form>
+      <form action="HDetail.php" method="POST">
+          <button type="submit">View Hackathon</button>
+      </form>
+      <form action="admin_functions.php" method="POST">
+          <button type="submit" name="create_hackathon">Create Hackathon</button>
+      </form>
+      <form action="admin_functions.php" method="POST">
+          <button type="submit" name="logout">Log Out</button>
+      </form>
     </div>
-
     <?php
-        echo '<h1>Welcome <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
+        echo '<h1>Welcome <font color="#F73634">'.$_SESSION["user_username"].',</font></h1>';
         
     ?>
     
