@@ -32,119 +32,161 @@ $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #272727;
-    color: white;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code Battle - Team Score</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #E3E3E3;
+            color: black;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
 
-.card {
-  background-color: transparent;
-  width: 300px;
-  height: 500px;
-  perspective: 1000px;
-  display: flex;
-  margin: auto;
-  margin-bottom: 50px;
-}
+        .card {
+            background-color: transparent;
+            width: 300px;
+            height: 500px;
+            perspective: 1000px;
+            display: flex;
+            margin: auto;
+            margin-bottom: 50px;
+        }
 
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
 
-.card-container{
-    display: flex;
+        .card-container{
+            display: flex;
             justify-content: space-around; /* Adjust alignment */
             flex-wrap: wrap; /* Allow cards to wrap to next line */
             max-width: 1000px; /* Limit container width */
             margin: 0 auto; /* Center container */
             padding: 20px; /* Add some spacing */
-}
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
 
-.card h1 {
-    font-size:90px;
-}
+        .card h1 {
+            font-size:90px;
+        }
 
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
 
-.card-front {
-  background-color: white;
-  color: black;
-  grid-template-columns: 400px;
-  grid-template-rows: 290px 210px;
-  grid-template-areas: "image" "text";
-}
+        .card-front {
+            background-color: white;
+            color: black;
+            grid-template-columns: 400px;
+            grid-template-rows: 290px 210px;
+            grid-template-areas: "image" "text";
+        }
 
-.card-back {
-  background-color: #F73634;
-  color: white;
-  transform: rotateY(180deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+        .card-back {
+            background-color: #F73634;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.card-text {
-    grid-area: text;
-    margin: 25px;
-}
-    
-.card-text p {
-    font-size:15px;
-    font-weight: 300;
-}
-.card-text h2 {
-    margin-top:0px;
-    font-size:28px;
-}
-.card-text h3 {
-    margin-top:70px;
+        .card-text {
+            grid-area: text;
+            margin: 25px;
+        }
+            
+        .card-text p {
+            font-size:15px;
+            font-weight: 300;
+        }
+        .card-text h2 {
+            margin-top:0px;
+            font-size:28px;
+        }
+        .card-text h3 {
+            margin-top:70px;
 
-}
+        }
 
-footer {
-   background-color: black;
-    color: #ffffff; 
-    padding: 5px;
-    text-align: center;
-    position: fixed; /* Set position to fixed */
-    bottom: 0; /* Position at the bottom */
-    width: 100%; 
-H1{
-    text-align: center;
-}
+        button {
+            background-color: #F73634;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: large;
+            padding: 5px 30px; 
+            margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
+        }
 
-</style>
-<script>
-      function TeamClick(Tcard) {
-        var T_id=Tcard.getAttribute('id');
-        // console.log(T_id);
-        window.location.href = 'grading.php?T_id=' + T_id;
-    }
-</script>
+        .button-container {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
+        }
+
+        button:hover {          
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: black;
+            color: #ffffff; 
+            padding: 5px;
+            text-align: center;
+            position: fixed; /* Set position to fixed */
+            bottom: 0; /* Position at the bottom */
+            width: 100%; 
+        }
+
+    </style>
+
+    <script>
+        function TeamClick(Tcard) {
+            var T_id=Tcard.getAttribute('id');
+            // console.log(T_id);
+            window.location.href = 'grading.php?T_id=' + T_id;
+        }
+    </script>
 </head>
 <body>
+    <div class="button-container">
+        <form action="" method="POST">
+          <button type="submit" name="view-scoreboard">Home</button>
+        </form>
+        <form action="judge_functions.php" method="POST">
+          <button type="submit" name="view-scoreboard">View Scoreboard</button>
+        </form>
+        <form action="otherjudges.php" method="POST">
+          <button type="submit" name="update">Other Judges Score</button>
+        </form>
+        <form action="updatescores.php" method="POST">
+          <button type="submit" name="update">Update Score</button>
+        </form>
+        <form action="judge_functions.php" method="POST">
+          <button type="submit" name="logout">Log Out</button>
+        </form>
+    </div>
     <h1 style="text-align:center;margin-top: 90px;"><?php echo $_SESSION['CName'].'s'?></h1>  
     <?php if(!empty($result3)) { ?> 
         <div class="card-container">

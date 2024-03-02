@@ -65,15 +65,15 @@ $team_sum=0;
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Code Battle - Create</title>
+    <title>Code Battle - Other Scores</title>
 
     <style>
         body {
             width: 100%;
             height: 100vh;
             margin: 0;
-            background-color: #272727;
-            color: white;
+            background-color: #E3E3E3;
+            color: black;
             font-family: Tahoma;
             font-size: 16px;
         }
@@ -85,80 +85,98 @@ $team_sum=0;
             padding: 0.5rem 0 0.5rem 2rem;
         }
         
-            .MainContainer {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 20px;
-    }
-        
-      .TeamCard {
-        margin: 20px;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        max-width: 250px;
-        width: calc(50% - 40px); 
-    }
-
-    .TeamCard:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    .TeamCard h1 {
-        font-size: 16px;
-        margin-bottom: 10px;
-        color: #333;
-        text-align: left;
-    }
-
-    .TeamCard p {
-        font-size: 16px;
-        margin-bottom: 10px;
-        color: #666;
-    }
-
-    .JudgeInfo {
-        margin-top: 20px;
-        width: calc(50% - 40px); /* Adjust the width */
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-    }
-
-    th,
-    td {
-        padding: 12px;
-        border-bottom: 1px solid #ddd;
-        text-align: center;
-    }
-
-    th {
-        background-color: #f73634;
-        color: white;
-    }
-
-    td {
-        background-color: #fff;
-        color: #333;
-    }
-
-        /* tr:last-of-type td:first-of-type {
-        border-bottom-left-radius: 10px;
+        .MainContainer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
         }
-        tr:last-of-type td:last-of-type {
-        border-bottom-right-radius: 10px;
-        } */
+
+        button {
+            background-color: #F73634;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: large;
+            padding: 5px 30px; 
+            margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
+        }
+
+        .button-container {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
+        }
+
+        button:hover {          
+            text-decoration: underline;
+        }
+        
+        .TeamCard {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            max-width: 250px;
+            width: calc(50% - 40px); 
+        }
+
+        .TeamCard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .TeamCard h1 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+            text-align: left;
+        }
+
+        .TeamCard p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .JudgeInfo {
+            margin-top: 20px;
+            width: calc(50% - 40px); /* Adjust the width */
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f73634;
+            color: white;
+        }
+
+        td {
+            background-color: #fff;
+            color: #333;
+        }
 
         .JudgeInfo{
             width: calc(60%); /* adjust width to fill remaining space */
@@ -179,16 +197,31 @@ $team_sum=0;
 
 </head>
 <body>
+    <div class="button-container">
+        <form action="" method="POST">
+          <button type="submit" name="view-scoreboard">Home</button>
+        </form>
+        <form action="judge_functions.php" method="POST">
+          <button type="submit" name="view-scoreboard">View Scoreboard</button>
+        </form>
+        <form action="otherjudges.php" method="POST">
+          <button type="submit" name="update">Other Judges Score</button>
+        </form>
+        <form action="updatescores.php" method="POST">
+          <button type="submit" name="update">Update Score</button>
+        </form>
+        <form action="judge_functions.php" method="POST">
+          <button type="submit" name="logout">Log Out</button>
+        </form>
+      </div>
+
 <?php foreach($category as $key=>$value){
     if($value==1){
         //searching for teams with that category
         $s2->bindParam(":CName",$key);
         $s2->execute();
         $teams=$s2->fetchAll(PDO::FETCH_ASSOC); 
-       
         
-        
-            
         if (!empty($teams)){?>
             <H1><?php echo $key?></H1>
         <?php }?>

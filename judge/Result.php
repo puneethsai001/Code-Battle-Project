@@ -45,7 +45,7 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
         body {
             min-height: 100vh;
             font-family: 'Arial', sans-serif;
-            background-color: #272727;
+            background-color: #E3E3E3;
             color: #F73634;
             margin: 0;
             padding: 0;
@@ -100,34 +100,50 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
         button {
             background-color: #F73634;
             border: none;
-            border-radius: 1rem;
             color: #fff;
             cursor: pointer;
             font-size: large;
-            padding: 5px 15px;
+            padding: 5px 30px; 
             margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
         }
 
-        button:hover{
-            background-color: #000000;
-            color: #ffffff;
-        }
         .button-container {
             text-align: center;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
+        }
+
+        button:hover {          
+            text-decoration: underline;
         }
 
     </style>
 </head>
 <body>
-    <a href="index.html">
-        <img src="../Images/Logo.png", height="100">
-    </a>
-    <h1>Final <font color = "white">Scoreboard</font></h1>
+    <div class="button-container">
+        <form action="" method="POST">
+          <button type="submit" name="view-scoreboard">Home</button>
+        </form>
+        <form action="judge_functions.php" method="POST">
+          <button type="submit" name="view-scoreboard">View Scoreboard</button>
+        </form>
+        <form action="otherjudges.php" method="POST">
+          <button type="submit" name="update">Other Judges Score</button>
+        </form>
+        <form action="updatescores.php" method="POST">
+          <button type="submit" name="update">Update Score</button>
+        </form>
+        <form action="judge_functions.php" method="POST">
+          <button type="submit" name="logout">Log Out</button>
+        </form>
+      </div>
 
-
+    <h1>Final <font color = "black">Scoreboard</font></h1>
 
     <table>
        <tr>
@@ -166,11 +182,6 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
         </tr> </table>
 
     <?php }?>
-    <div class="button-container">
-    <form action="judge_functions.php" method="POST">
-        <button type="submit" name="logout">Log Out</button>
-    </form>
-</div>
 </body>
 
 <footer>
