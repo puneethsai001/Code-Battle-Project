@@ -34,24 +34,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Battle - Judge</title>
 <style>
-  H1{
-    margin-bottom:3rem;
-  }
+
+/* H1.welcome{
+  margin-left:1rem;
+} */
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #272727;
-      color: white;
+      background-color: #E3E3E3;
+      color: black;
       min-height: 100vh;
       margin: 0;
       padding: 0;
     }
+    
     button {
       background-color: #F73634;
       border: none;
       color: #fff;
       cursor: pointer;
       font-size: large;
-      padding: 5px 15px;
+      /* changed to 30px */
+      padding: 5px 30px; 
       margin-left: 1em;
       border-radius: 18px;
       font-weight: bold;
@@ -63,14 +66,13 @@
       flex-wrap: wrap;
       justify-content: center;
       background-color: #F73634;
-      padding: 5px;
-    
+      /* changed to 15px */
+      padding: 15px;
     }
 
     button:hover {          
-      /* background-color: #000000; */
-      color: #272727;
-      text-decoration: underline;}
+      text-decoration: underline;
+    }
 
     .card {
       display: flex;
@@ -89,12 +91,6 @@
       transform: scale(1.15);
       box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    /* .card > form {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    } */
 
     .card-image {
       height: 200px; /* Adjust the height of the image */
@@ -154,7 +150,8 @@
 
     .team-heading {
       text-align: center;
-      margin-top: 5rem;
+      //removed the margin top
+      
     }
 
    footer {
@@ -194,10 +191,12 @@
   </script>
 </head>
 <body>
-  <?php
-    echo '<h1><font color="#F73634">Welcome</font> <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
-  ?>
+  
+//moved the navbar up
   <div class="button-container">
+    <form action="" method="POST">
+      <button type="submit" name="view-scoreboard">Home</button>
+    </form>
     <form action="judge_functions.php" method="POST">
       <button type="submit" name="view-scoreboard">View Scoreboard</button>
     </form>
@@ -212,6 +211,10 @@
     </form>
   </div>
 
+  <?php
+  /* changed the font color */
+    echo '<h1 class="welcome"><font color="black">Welcome</font> <font color="#F73634">'.$_SESSION["user_username"].',</font></h1>';
+  ?> 
 
   <h1 class="team-heading">Select the category you wish to judge</h1>
   
