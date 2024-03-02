@@ -34,10 +34,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Battle - Judge</title>
 <style>
-
-/* H1.welcome{
-  margin-left:1rem;
-} */
     body {
       font-family: 'Arial', sans-serif;
       background-color: #E3E3E3;
@@ -53,7 +49,6 @@
       color: #fff;
       cursor: pointer;
       font-size: large;
-      /* changed to 30px */
       padding: 5px 30px; 
       margin-left: 1em;
       border-radius: 18px;
@@ -66,7 +61,6 @@
       flex-wrap: wrap;
       justify-content: center;
       background-color: #F73634;
-      /* changed to 15px */
       padding: 15px;
     }
 

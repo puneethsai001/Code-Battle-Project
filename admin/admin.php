@@ -1,12 +1,12 @@
 
-<?php
+<!-- <?php
     require_once '../includes/config_session.inc.php';
 if ($_SESSION['user_isadmin']==1) {
 
 require_once "../admin/admin_functions.php";
 
 
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +30,10 @@ require_once "../admin/admin_functions.php";
 
         body{
             font-family: 'Arial', sans-serif;
-            color: #F73634;
+            color: black;
             margin: 0;
             padding: 0;
-            background-color: #272727;
+            background-color: #E3E3E3;
             min-height: 100vh;
         }
 
@@ -57,7 +57,6 @@ require_once "../admin/admin_functions.php";
         
         
         td {
-            /* border-radius: 18px; */
             background-color: white;
             color: black;
             font-size: medium;
@@ -67,7 +66,6 @@ require_once "../admin/admin_functions.php";
 
         h2{
             text-align: center;
-            color: #ffffff;
         }
 
         .button-container {
@@ -75,6 +73,8 @@ require_once "../admin/admin_functions.php";
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
         }
 
         .button-wrapper {
@@ -84,17 +84,17 @@ require_once "../admin/admin_functions.php";
         button {
             background-color: #F73634;
             border: none;
-            border-radius: 1rem;
             color: #fff;
             cursor: pointer;
             font-size: large;
-            padding: 5px 15px;
+            padding: 5px 30px; 
             margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
         }
 
         button:hover{
-            background-color: #000000;
-            color: #ffffff;
+            text-decoration: underline;
         }
 
         footer {
@@ -110,18 +110,15 @@ require_once "../admin/admin_functions.php";
 </head>
 
 <body>
-    <?php
-        echo '<h1>Welcome <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
-        
-    ?>
-    <!-- <h1>Welcome <font color="#FFFFFF">Admin,</font></h1> -->
-    
     <div class="button-container">
+        <form action="" method="POST">
+            <button type="submit">Home</button>
+        </form>
         <form action="HDetail.php" method="POST">
-            <button type="submit">View Hackathon</button> &nbsp; &nbsp;
+            <button type="submit">View Hackathon</button>
         </form>
         <form action="" method="POST">
-            <button type="button">Edit Hackathon</button> &nbsp; &nbsp;
+            <button type="button">Edit Hackathon</button>
         </form>
         <form action="admin_functions.php" method="POST">
             <button type="submit" name="create_hackathon">Create Hackathon</button>
@@ -130,27 +127,14 @@ require_once "../admin/admin_functions.php";
             <button type="submit" name="logout">Log Out</button>
         </form>
     </div>
-    <br><br>
+
+    <?php
+        echo '<h1>Welcome <font color="#FFFFFF">'.$_SESSION["user_username"].',</font></h1>';
+        
+    ?>
+    
     <h2>Hackathon Details</h2>
     <div id="table">
-            <!-- <table>
-                <tr>
-                    <th>Hackathon ID</th>
-                    <th>Hackathon Name</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    
-                </tr>
-                
-                <tr>
-                        <td>HID</td>
-                        <td>HName</td>
-                        <td>HDate</td>
-                        <td>HTime</td>
-                        
-                </tr>
-                
-            </table> -->
         <script>
             fetch('admin_n.php')
             .then(response => response.text())
@@ -169,7 +153,7 @@ require_once "../admin/admin_functions.php";
     <p>Contact us at: info@codebattle.com</p>
 </footer>
 </html>
-<?php }else{
+<!-- <?php }else{
     header("Location: ../judge/judge.php");
     die();
-} ?>
+} ?> -->

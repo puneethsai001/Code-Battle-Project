@@ -30,7 +30,7 @@ if(isset($_SESSION['H_created'])){
       width: 100%;
       height: 100vh;
       margin: 0;
-      background-color: #272727;
+      background-color: #E3E3E3;
       color: black;
       font-family: Tahoma;
       font-size: 16px;
@@ -39,7 +39,7 @@ if(isset($_SESSION['H_created'])){
     h1, #instruction{
       margin: 1em auto;
       text-align: center;
-      color: white;	
+      color: black;	
     }
 
     h1{
@@ -51,7 +51,7 @@ if(isset($_SESSION['H_created'])){
       padding-top: 1em;
     }
     
-    form {
+    .createForm {
       width: 60vw;
       max-width: 500px;
       min-width: 300px;
@@ -72,7 +72,6 @@ if(isset($_SESSION['H_created'])){
     input{
       background-color: white;
       border: 0.5px solid black;
-      /* box-shadow: 0 4px 4px rgba(0,0,0,0.1); */
       color: #272727;
       border-radius: 25px ;
     }
@@ -96,8 +95,33 @@ if(isset($_SESSION['H_created'])){
     ::placeholder{
       color: #272727;
     }
+
+    .button-container {
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: #F73634;
+        padding: 15px;
+    }
     
     button {
+      background-color: #F73634;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: large;
+      padding: 5px 30px; 
+      margin-left: 1em;
+      border-radius: 18px;
+      font-weight: bold;
+    }
+
+    button:hover{
+      text-decoration: underline;
+    }
+
+    #nextButton{
       background-color: black;
       border: 1px;
       border-radius: 25px;
@@ -108,9 +132,10 @@ if(isset($_SESSION['H_created'])){
       margin-top: 2rem;
     }
 
-    button:hover{
+    #nextButton:hover{
         background-color: #F73634;
         color: white;
+        text-decoration: none;
     }
     
     footer {
@@ -134,10 +159,29 @@ if(isset($_SESSION['H_created'])){
 
   </head>
   <body>
+
+    <div class="button-container">
+      <form action="" method="POST">
+          <button type="submit">Home</button>
+      </form>
+      <form action="HDetail.php" method="POST">
+          <button type="submit">View Hackathon</button>
+      </form>
+      <form action="" method="POST">
+          <button type="button">Edit Hackathon</button>
+      </form>
+      <form action="admin_functions.php" method="POST">
+          <button type="submit" name="create_hackathon">Create Hackathon</button>
+      </form>
+      <form action="admin_functions.php" method="POST">
+          <button type="submit" name="logout">Log Out</button>
+      </form>
+  </div>
+
     <h1>Hackathon <font color = "#F73634">Details</font></h1>
     <h2 id = "instruction">Please fill out the required information</h2>
 
-    <form action="accept_hackathon_data.php" method="POST">
+    <form action="accept_hackathon_data.php" method="POST" class="createForm">
       <br>
       <input id="HName" name="HName" type="text"  placeholder=" Name of the Hackathon" required/>
       <label for="HDate">Date: <input id="HDate" name="HDate" type="date" min="2024-03-01"  required/></label>
@@ -173,7 +217,7 @@ if(isset($_SESSION['H_created'])){
         <input id="MaxP" type="number" name="MaxP" max="5" placeholder=" Maximum participants per team" />
       </div>
 
-      <button type="submit">Next</button>
+      <button type="submit" id="nextButton">Next</button>
     </form>
 
     <script>
@@ -197,7 +241,6 @@ if(isset($_SESSION['H_created'])){
   <footer>
 
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-    <p>Contact us at: info@codebattle.com</p>
 
   </footer>
 

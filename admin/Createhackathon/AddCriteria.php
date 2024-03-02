@@ -30,7 +30,7 @@ if(isset($_SESSION['H_added_criteria'])){
             width: 100%;
             min-height: 100vh;
             margin: 0;
-            background-color: #272727;
+            background-color: #E3E3E3;
             color: black;
             font-family: Tahoma;
             font-size: 16px;
@@ -40,7 +40,7 @@ if(isset($_SESSION['H_added_criteria'])){
             font-size: large;
             text-align: center;
             font-weight: bold;
-            color: white;
+            color: black;
         }
 
         h1{
@@ -49,7 +49,7 @@ if(isset($_SESSION['H_added_criteria'])){
             text-align: center;
         }
 
-        form {
+        #criteriaForm {
             background-color: #ffffff;
             width: 60vw;
             max-width: 500px;
@@ -96,34 +96,44 @@ if(isset($_SESSION['H_added_criteria'])){
             color: #272727;
         }
 
+        .button-container {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
+        }
+        
         button {
-            background-color: #272727;
-            border: 1px;
-            border-radius: 25px;
-            color: #ffffff;
-            font-size: 1rem;
-            padding: 0.5rem;
-            width: 25%;
-            margin-top: 2rem;
+            background-color: #F73634;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: large;
+            padding: 5px 30px; 
+            margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
         }
 
         button:hover{
-            background-color: #F73634;
-        }
-        .discard-button{
-            background-color: #F73634;
-            border: 1px;
-            border-radius: 25px;
-            color: #ffffff;
-            width: 25%;
-            font-weight: bold;
-            margin-top: 0em;
+            text-decoration: underline;
         }
 
-        .button-container{
+        .action-button-container{
+            margin-top: 2rem;
             text-align: center;
         }
 
+        .action-button-container button{
+            background-color: #272727;
+        }
+
+        .action-button-container button:hover{
+            background-color: #F73634;
+            text-decoration: none;
+        }
 
         ::placeholder{
             color: #272727;
@@ -140,23 +150,32 @@ if(isset($_SESSION['H_added_criteria'])){
 
     </style>
 
-    <script>
-
-        function clicked(){
-            document.getElementById("")
-        }
-
-    </script>
-
 </head>
 <body>
+    <div class="button-container">
+        <form action="" method="POST">
+            <button type="submit">Home</button>
+        </form>
+        <form action="HDetail.php" method="POST">
+            <button type="submit">View Hackathon</button>
+        </form>
+        <form action="" method="POST">
+            <button type="button">Edit Hackathon</button>
+        </form>
+        <form action="admin_functions.php" method="POST">
+            <button type="submit" name="create_hackathon">Create Hackathon</button>
+        </form>
+        <form action="admin_functions.php" method="POST">
+            <button type="submit" name="logout">Log Out</button>
+        </form>
+    </div>
     <?php
         echo '<h1>Add Criteria for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
     ?>
     
     <p id = "instruction">Please fill out the required information</p>
 
-    <form action="accept_criteria_data.php" method="POST">
+    <form action="accept_criteria_data.php" method="POST" id="criteriaForm">
         <br>
         <h1>Criteria <font color="#F73634">Details</font></h1>
 
@@ -199,9 +218,9 @@ if(isset($_SESSION['H_added_criteria'])){
             <input id="CWeight5" name="weights[Creativity]" type="number"  placeholder=" Weight of Criteria 5" />
         </div>
 
-        <div class="button-container">
-        <button id="redirectButton">Submit</button>
-        <button name = "discard" formaction="../discard.php">Discard </button>
+        <div class="action-button-container">
+            <button id="redirectButton">Submit</button>
+            <button name = "discard" formaction="../discard.php">Discard </button>
         </div>
     </form>
 </body>
@@ -209,7 +228,6 @@ if(isset($_SESSION['H_added_criteria'])){
 <footer>
 
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-    <p>Contact us at: info@codebattle.com</p>
 
 </footer>
 </html>

@@ -26,7 +26,7 @@ if(isset($_SESSION['H_judges_added'])){
             width: 100%;
             min-height: 100vh;
             margin: 0;
-            background-color: #272727;
+            background-color: #E3E3E3;
             color: black;
             font-family: Tahoma;
             font-size: 16px;
@@ -35,7 +35,7 @@ if(isset($_SESSION['H_judges_added'])){
         #instruction{
             font-size: large;
             text-align: center;
-            color: #ffffff;
+            color: black;
             font-weight: bold;
         }
 
@@ -59,7 +59,32 @@ if(isset($_SESSION['H_judges_added'])){
             border-radius: 25px ;
         }
 
+        .button-container {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
+        }
+        
         button {
+            background-color: #F73634;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: large;
+            padding: 5px 30px; 
+            margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
+        }
+
+        button:hover{
+            text-decoration: underline;
+        }
+
+        #nextButton, #discardButton {
             background-color: #272727;
             border: 1px;
             border-radius: 25px;
@@ -71,13 +96,11 @@ if(isset($_SESSION['H_judges_added'])){
             margin-left: 1rem;
         }
 
-        button:hover{
+        #nextButton:hover, #discardButton:hover{
             background-color: #F73634;
+            text-decoration: none;
         }
         
-        .button-container{
-            text-align: center;
-        }
 
         select{
             width: 25%;
@@ -183,7 +206,7 @@ if(isset($_SESSION['H_judges_added'])){
                 container.appendChild(judgeName);
 
                 heading = document.createElement("h2");
-                heading.style.color = "#F73634"
+                heading.style.color = "black";
                 temp = document.createTextNode("Judge "+(i+1)+" Details");
                 heading.appendChild(temp);
                 document.getElementById("text-field-container").insertBefore(heading,document.getElementById("JName_"+(i+1)));
@@ -275,6 +298,7 @@ if(isset($_SESSION['H_judges_added'])){
 
             const x = document.createElement("button");
             x.name = "nextButton";
+            x.id = "nextButton";
             x.type = "submit";
             var t = document.createTextNode("Next");
             x.appendChild(t);
@@ -282,6 +306,7 @@ if(isset($_SESSION['H_judges_added'])){
 
             const y = document.createElement("button");
             y.name = "discardButton";
+            y.id = "discardButton";
             y.formAction = "../discard.php";
             var u = document.createTextNode("Discard");
             y.appendChild(u);
@@ -292,6 +317,23 @@ if(isset($_SESSION['H_judges_added'])){
     </script>
 </head>
 <body>
+    <div class="button-container">
+        <form action="" method="POST">
+            <button type="submit">Home</button>
+        </form>
+        <form action="HDetail.php" method="POST">
+            <button type="submit">View Hackathon</button>
+        </form>
+        <form action="" method="POST">
+            <button type="button">Edit Hackathon</button>
+        </form>
+        <form action="admin_functions.php" method="POST">
+            <button type="submit" name="create_hackathon">Create Hackathon</button>
+        </form>
+        <form action="admin_functions.php" method="POST">
+            <button type="submit" name="logout">Log Out</button>
+        </form>
+    </div>
     
     <?php
         echo '<h1>Add Judges for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
