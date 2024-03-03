@@ -31,6 +31,9 @@ if(isset($_SESSION['H_created'])){
       height: 100vh;
       margin: 0;
       background-color: #E3E3E3;
+      background-image: url(../../Images/grids.jpeg);
+      background-repeat: no-repeat;
+      background-size: cover;
       color: black;
       font-family: Tahoma;
       font-size: 16px;
@@ -58,6 +61,7 @@ if(isset($_SESSION['H_created'])){
       margin: 1rem auto;
       background-color: white;	
       border-radius: 25px;
+      border: 1px solid;
       padding: 0 3rem 3rem 3rem ;
     }
     

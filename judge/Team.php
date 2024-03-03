@@ -38,6 +38,9 @@ $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
         body {
             font-family: 'Arial', sans-serif;
             background-color: #E3E3E3;
+            background-image: url(../Images/grids.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
             color: black;
             min-height: 100vh;
             margin: 0;

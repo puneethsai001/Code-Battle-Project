@@ -35,7 +35,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Battle - Add Criteria</title>
+    <title>Code Battle - Grade</title>
 
     <style>
         body {
@@ -43,6 +43,9 @@
             min-height: 100vh;
             margin: 0;
             background-color: #E3E3E3;
+            background-image: url(../Images/grids.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
             color: black;
             font-family: Tahoma;
             font-size: 16px;
@@ -77,6 +80,7 @@
             min-width: 300px;
             margin: 1em auto;
             border-radius: 25px;
+            border: 1px solid;
             padding: 3rem;
         }
         
@@ -149,7 +153,7 @@
             color: #ffffff; 
             padding: 5px;
             text-align: center;
-            position: auto; 
+            position: fixed; 
             bottom: 0;
             width: 100%; 
         }

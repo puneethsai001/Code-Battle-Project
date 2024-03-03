@@ -27,6 +27,9 @@ if(isset($_SESSION['H_judges_added'])){
             min-height: 100vh;
             margin: 0;
             background-color: #E3E3E3;
+            background-image: url(../../Images/grids.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
             color: black;
             font-family: Tahoma;
             font-size: 16px;
@@ -192,6 +195,8 @@ if(isset($_SESSION['H_judges_added'])){
             var heading;
 
             document.getElementById("text-field-container").style.backgroundColor = "#ffffff";
+            document.getElementById("text-field-container").style.border = "1px solid";
+            
 
             container.appendChild(document.createElement("br")); 
 
