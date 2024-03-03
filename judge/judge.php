@@ -41,9 +41,9 @@
       min-height: 100vh;
       margin: 0;
       padding: 0;
-      background-image: url('https://trianglify.io/p/w:1440!h:900!x:f73634.ffffff.ffffff.ffffff.f73634!v:0.062!c:0.041!s:8qhh5i!f:il!i:0.603');
+      background-image: url(../Images/grids.jpeg);
+      background-repeat: no-repeat;
       background-size: cover;
-        background-position: center;
     }
 
 

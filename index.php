@@ -13,20 +13,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - CodeBattle</title>
+    <title>Code Battle - Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            color: #ffffff;
+            color: black;
             margin: 0;
             padding: 0;
-            background-color: #272727;
+            background-color: #E3E3E3;
+            background-image: url(Images/grids.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
         .container {
             display: flex;
-            align-items: stretch;
             height: 100vh;
+            width: 60vw;
+            max-width: 500px;
+            min-width: 300px;
+            margin: 1rem auto;
+            background-color: #272727;
+            color: white;	
+            border-radius: 25px;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            padding-bottom: 0%;
+            padding-top: 0%;
         }
 
         .form-container {
@@ -39,18 +52,12 @@
             border-radius: 30px;
             flex-grow: 1;
             text-align: center;
-            margin: 5%;
-        }
-
-        .form-container h1 {
-            margin-bottom: 20px;
-            font-size: 3rem;
-
+            /* margin: 5%; */
         }
 
         .form-container p {
-            margin-bottom: 20px; 
             font-size: 1rem; 
+            text-align: center;
         }
 
         .form-group {
@@ -60,7 +67,6 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
             text-align: left;
         }
 
@@ -73,38 +79,17 @@
             box-sizing: border-box;
         }
 
-        .forgot-password {
-            display: block;
-            margin-top: 10px;
-            color: #ccc;
-            text-decoration: none;
-            float: left;
-            margin-bottom: 10px;
-        }
-
-        .forgot-password:hover {
-            text-decoration: underline;
-            color: #F73634;
-        }
-
-        hr {
-            width: 100%;
-            border: none;
-            border-top: 1px solid #000000;
-            margin: 20px 0;
-        }
 
         button {
             background-color: #F73634;
-            border: 1px solid #000000;
+            border: none;
             border-radius: 25px;
             color: #ffffff;
             font-size: 1rem;
             padding: 0.5rem;
             width: 100%;
-            max-width: none;
             margin-top: 2rem;
-            transition: background-color 0.3s ease;
+            margin-bottom: 0%;
         }
 
         button:hover {
@@ -112,18 +97,22 @@
             color: #ffffff;
         }
 
-        .image-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        img{
+            height: 80%;
+            margin-top: 0%;
         }
 
-        .image-container img {
-            width: 90%;
-            height: auto;
-            border-radius: 20px;
+        hr{
+            width: 100%;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #ffffff; 
+            padding: 5px;
+            text-align: center;
+            position: sticky;
+            top: 100%;
         }
 
         @media screen and (max-width: 768px) {
@@ -164,9 +153,12 @@
     <div class="container">
 
         <div class="form-container">
-            <h1>Welcome <font color = "#F73634">Back!</font></h1>
+            <!-- <h1>Welcome <font color = "#F73634">Back!</font></h1> -->
+            <span>
+                <img src="Images/Logo.png" alt="CodeBattle Image">
+            </span>
             <p>CodeBattle – where young minds transform ideas into digital masterpieces. <br>Join the journey and let your creativity unfold!</p>
-            <form action="login/login.inc.php" method="POST">
+            <form action="login/login.inc.php" method="POST" class="myform">
                 <h4>Please enter your login details to proceed.</h4>
                 <div class="form-group">
                     <label for="username"></label>
@@ -176,18 +168,19 @@
                     <label for="password"></label>
                     <input type="password" id="password" name="pwd" placeholder="Password">
                 </div>
-                <!-- <a href="#" class="forgot-password" >Forgot your password?</a> -->
                 <hr>
                 <button type="submit">Log In</button>
             </form>
             <?php
                 check_login_errors();
             ?>
-            </div>
-        <div class="image-container">
-            <img src="Images/Hackathon.png" alt="CodeBattle Image">
         </div>
             
-        </div>
+    </div>
 </body>
+
+<footer>
+    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+</footer>
+
 </html>

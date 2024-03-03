@@ -34,6 +34,9 @@ require_once "../admin/admin_functions.php";
             margin: 0;
             padding: 0;
             background-color: #E3E3E3;
+            background-image: url(../Images/grids.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
             min-height: 100vh;
         }
 
@@ -146,7 +149,6 @@ require_once "../admin/admin_functions.php";
 </body>
 <footer>
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-    <p>Contact us at: info@codebattle.com</p>
 </footer>
 </html>
 <!-- <?php }else{
