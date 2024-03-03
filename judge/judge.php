@@ -41,7 +41,12 @@
       min-height: 100vh;
       margin: 0;
       padding: 0;
+      background-image: url('https://trianglify.io/p/w:1440!h:900!x:f73634.ffffff.ffffff.ffffff.f73634!v:0.062!c:0.041!s:8qhh5i!f:il!i:0.603');
+      background-size: cover;
+        background-position: center;
     }
+
+
     
     button {
       background-color: #F73634;
@@ -79,6 +84,7 @@
       margin: 1rem;
       width: 300px; /* Adjust the width of the card */
       height: 450px; /* Adjust the height of the card */
+      color:white;
     }
 
     .card:hover {
@@ -112,7 +118,7 @@
     }
 
     .cadet .card-text {
-      background-color: rgb(80, 80, 228);
+      background-color: #45b6fe;
     }
 
     .colonel .card-text {
@@ -120,7 +126,7 @@
     }
 
     .captain .card-text {
-      background-color: rgb(100, 181, 19);
+      background-color: #3fbe7e;
     }
     .card-text {
       height: 450px;
@@ -185,7 +191,7 @@
   </script>
 </head>
 <body>
-  
+
   <div class="button-container">
     <form action="judge.php" method="POST">
       <button type="submit" name="view-scoreboard">Home</button>
@@ -241,11 +247,13 @@
 
   </div>
 
-  
+ 
   <footer>
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
   </footer>
+
 </body>
+
 </html>
 <?php 
 }else{

@@ -51,7 +51,7 @@
         #heading{
             margin-top: 0rem ;
             font-size: xx-large;
-            color: #ffffff;
+            color: black;
             /* background-color: #F73634; */
             padding: 2rem 2rem 2rem 2rem;
             text-align: center;
@@ -149,7 +149,7 @@
             color: #ffffff; 
             padding: 5px;
             text-align: center;
-            position: fixed; 
+            position: auto; 
             bottom: 0;
             width: 100%; 
         }
