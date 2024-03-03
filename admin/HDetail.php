@@ -15,7 +15,8 @@ require_once '../includes/config_session.inc.php';
             width: 100%;
             height: 100vh;
             margin: 0;
-            background-color: #272727;
+            background-color: #E3E3E3;
+            
             color: white;
             font-family: Tahoma;
             font-size: 16px;

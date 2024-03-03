@@ -1,8 +1,8 @@
 <?php
 $host='localhost';
-$dbname='u355595427_code_battle_db';
-$dbusername = 'u355595427_code_battle';
-$dbpassword = 'Code-battle321#';
+$dbname='code-battle-db';
+$dbusername = 'root';
+$dbpassword = '';
 
 $dsn="mysql:host=$host;dbname=$dbname";
 

@@ -322,20 +322,20 @@ if(isset($_SESSION['H_judges_added'])){
     </script>
 </head>
 <body>
-<div class="button-container">
+    <div class="button-container">
       <form action="../admin.php" method="POST">
           <button type="submit">Home</button>
       </form>
-      <form action="HDetail.php" method="POST">
+      <form action="../HDetail.php" method="POST">
           <button type="submit">View Hackathon</button>
       </form>
-      <form action="admin_functions.php" method="POST">
+      <form action="../admin_functions.php" method="POST">
           <button type="submit" name="create_hackathon">Create Hackathon</button>
       </form>
-      <form action="admin_functions.php" method="POST">
+      <form action="../admin_functions.php" method="POST">
           <button type="submit" name="logout">Log Out</button>
       </form>
-  </div>
+    </div>
     
     <?php
         echo '<h1>Add Judges for  <font color = "#F73634"> Hackathon '.$_SESSION["HName"].'</font></h1>';
