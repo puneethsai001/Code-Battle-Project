@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /Images/
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /judge/
+Disallow: /login/
