@@ -42,7 +42,7 @@
             width: 100%;
             min-height: 100vh;
             margin: 0;
-            background-color: #272727;
+            background-color: #E3E3E3;
             color: black;
             font-family: Tahoma;
             font-size: 16px;
@@ -260,7 +260,6 @@
     <footer>
         
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-        <p>Contact us at: info@codebattle.com</p>
         
     </footer>
 </body>
