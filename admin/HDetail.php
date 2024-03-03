@@ -166,6 +166,7 @@ require_once '../includes/config_session.inc.php';
         h1 {
             text-align: center;
             font-size: large;
+            color:black;
         }
 
         button:hover {
@@ -206,7 +207,7 @@ require_once '../includes/config_session.inc.php';
 <body>
 
 <div class="button-container">
-      <form action="" method="POST">
+      <form action="admin.php" method="POST">
           <button type="submit">Home</button>
       </form>
       <form action="HDetail.php" method="POST">
