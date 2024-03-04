@@ -42,7 +42,6 @@
       margin: 0;
       padding: 0;
       background-image: url(../Images/grids.jpeg);
-      background-repeat: no-repeat;
       background-size: cover;
     }
 
