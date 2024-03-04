@@ -2,7 +2,7 @@
     declare(strict_types=1);
     require_once '../includes/dbh.inc.php';
     require_once '../includes/config_session.inc.php';
-    if ($_SESSION['user_isadmin']==0) {
+    if ((isset($_SESSION['user_isadmin'])) &&  $_SESSION['user_isadmin']==0) {
     
     //setting session j and h ids
     $query1 = "SELECT H_id, J_id FROM judges_category WHERE username=:username;";
@@ -290,6 +290,13 @@
 
 </html>
 <?php 
-}else{
-  header("Location: ../admin/admin.php");
+
+}
+// else if ((isset($_SESSION['user_isadmin'])) &&  $_SESSION['user_isadmin']==1) {
+//   header("Location: ../admin/admin.php");
+//   die();
+// }
+else{
+  header("Location: ../index.php");
+  die();
 } ?>

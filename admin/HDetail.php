@@ -202,46 +202,46 @@ require_once '../includes/config_session.inc.php';
             width: 100%;
         }
         
-#suggestionBox {
-    position: relative;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    max-width: 365px; 
-    max-height: 200px;
-    overflow-y: auto; 
-    background-color: #FFFFFF;
-    border: 1px solid #ccc; 
-    border-top: none; 
-    border-radius: 0 0 5px 5px; /* Shadow */
-}
+        #suggestionBox {
+            position: relative;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            max-width: 365px; 
+            max-height: 200px;
+            overflow-y: auto; 
+            background-color: #FFFFFF;
+            border: 1px solid #ccc; 
+            border-top: none; 
+            border-radius: 0 0 5px 5px; /* Shadow */
+        }
 
-.suggestion {
-    padding: 5px 10px;
-    cursor: pointer;
-   
-    color:black;
-    
-}
+        .suggestion {
+            padding: 5px 10px;
+            cursor: pointer;
+        
+            color:black;
+            
+        }
 
-.suggestion:hover {
-    background-color: #f0f0f0; 
-}
+        .suggestion:hover {
+            background-color: #f0f0f0; 
+        }
 
-.preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #272727;
-        color:#F73634;
-        font-size: x-large;
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        .preloader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #272727;
+                color:#F73634;
+                font-size: x-large;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
     
     .loader {
         border: 8px solid #0000007c;
@@ -260,7 +260,7 @@ require_once '../includes/config_session.inc.php';
     </style>
     
     <script>
-document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     const hackathonInput = document.getElementById("hackathonInput");
     const suggestionBox = document.getElementById("suggestionBox");
 
@@ -292,7 +292,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-     
 </head>
 <body>
 <div class="preloader">
@@ -323,10 +322,8 @@ document.addEventListener("DOMContentLoaded", function() {
     </form>
 </div>
 
-<?php if(!isset($_POST['HName'])){?>
-</body><?php }
-
-else{
+<?php 
+if(isset($_POST['HName'])){
     $name=$_POST['HName'];
     $query="SELECT* from hackathon_data where HName=:HName";
     $stmt=$pdo->prepare($query);
@@ -469,13 +466,15 @@ else{
                 </div>
             </div>
         </div>
-<?php }?>
+
         <form id="back" action="admin.php" method="POST">
             <button type="submit" class="search-button">Go Back</button>
         </form>
         <footer>
             <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
         </footer>
+        </body>
+        <?php }?>
 
         <script>
   window.addEventListener('load', function(){

@@ -1,7 +1,7 @@
 
 <?php
     require_once '../includes/config_session.inc.php';
-if ($_SESSION['user_isadmin']==1) {
+if ((isset($_SESSION['user_isadmin'])) &&  $_SESSION['user_isadmin']==1) {
 
 require_once "../admin/admin_functions.php";
 
@@ -178,7 +178,7 @@ require_once "../admin/admin_functions.php";
                
         </script>
     </div>
-    
+
     <script>
     window.addEventListener('load', function(){
             const preloader = document.querySelector('.preloader');
@@ -192,7 +192,12 @@ require_once "../admin/admin_functions.php";
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
 </footer>
 </html>
-<?php }else{
-    header("Location: ../judge/judge.php");
+<?php }
+// else if ((isset($_SESSION['user_isadmin'])) &&  $_SESSION['user_isadmin']==0) {
+//     header("Location: ../judge/judge.php");
+//     die();
+// }
+else{
+    header("Location: ../index.php");
     die();
 } ?>
