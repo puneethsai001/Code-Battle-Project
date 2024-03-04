@@ -15,32 +15,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Battle - Login</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: black;
-            margin: 0;
-            padding: 0;
-            background-color: #E3E3E3;
-            background-image: url(Images/grids.jpeg);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
 
-        .container {
-            display: flex;
-            height: 100vh;
-            width: 60vw;
-            max-width: 500px;
-            min-width: 300px;
-            margin: 1rem auto;
-            background-color: #272727;
-            color: white;	
-            border-radius: 25px;
-            padding-left: 3rem;
-            padding-right: 3rem;
-            padding-bottom: 0%;
-            padding-top: 0%;
-        }
+body {
+    font-family: Arial, sans-serif;
+    color: black;
+    margin: 0;
+    padding: 0;
+    background-color: #E3E3E3;
+    background-image: url(Images/grids.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+ .container {
+    display: flex;
+    max-width: 500px;
+    max-height:600px;
+    margin: 1rem auto;
+    background-color: #FAFAFA;
+    color: white;
+    border-radius: 25px;
+    padding: 3rem; 
+    box-sizing: border-box; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
         .form-container {
             display: flex;
@@ -58,6 +57,11 @@
             font-size: 1rem; 
             text-align: center;
         }
+        
+            .form-container h4 {
+                padding: 10px;
+                text-align:center;
+            }
 
         .form-group {
             margin-bottom: 1.5rem;
@@ -76,6 +80,7 @@
             padding: 10px;
             width: 100%;
             box-sizing: border-box;
+            
         }
 
 
@@ -105,14 +110,15 @@
             width: 100%;
         }
 
-        footer {
-            background-color: #000000;
-            color: #ffffff; 
-            padding: 5px;
-            text-align: center;
-            position: sticky;
-            top: 100%;
-        }
+footer {
+    background-color: #000000;
+    color: #ffffff; 
+    padding: 5px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%; 
+}
 
         @media screen and (max-width: 768px) {
             .form-container {
@@ -175,6 +181,18 @@
         100% { transform: rotate(360deg); }
     }
     
+    .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:15px;
+}
+
+.logo img {
+    max-width: 200px; 
+    max-height: 200px; 
+}
+    
     </style>
 </head>
 <body>
@@ -182,16 +200,21 @@
   <div class="loader"></div>
 </div>
 
+    
     <div class="container">
+       
 
         <div class="form-container">
-            <!-- <h1>Welcome <font color = "#F73634">Back!</font></h1> -->
-            <span>
-                <img src="Images/Logo.png" alt="CodeBattle Image">
-            </span>
-            <p>CodeBattle – where young minds transform ideas into digital masterpieces. <br>Join the journey and let your creativity unfold!</p>
+         
+         <div class="logo">
+   
+                <img src="Images/logob.png" alt="CodeBattle Image" >
+           
+</div>
+              <h1><font color = "Black">Welcome</font> <font color = "#F73634">Back!</font></h1>
+            <!--<p>CodeBattle – where young minds transform ideas into digital masterpieces. <br>Join the journey and let your creativity unfold!</p>-->
             <form action="login/login.inc.php" method="POST" class="myform">
-                <h4>Please enter your login details to proceed.</h4>
+                <h4><font color = "Black">Please enter your login details to proceed.</font></h4>
                 <div class="form-group">
                     <label for="username"></label>
                     <input type="text" id="username" name="username" placeholder="Username">
@@ -200,7 +223,7 @@
                     <label for="password"></label>
                     <input type="password" id="password" name="pwd" placeholder="Password">
                 </div>
-                <hr>
+                <!--<hr>-->
                 <button type="submit">Log In</button>
             </form>
             <?php
@@ -219,7 +242,7 @@
 </body>
 
 <footer>
-    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+    <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
 </footer>
 
 </html>

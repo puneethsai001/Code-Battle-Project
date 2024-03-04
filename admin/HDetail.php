@@ -201,8 +201,34 @@ require_once '../includes/config_session.inc.php';
         table{
             width: 100%;
         }
+        
+#suggestionBox {
+    position: relative;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    max-width: 365px; 
+    max-height: 200px;
+    overflow-y: auto; 
+    background-color: #FFFFFF;
+    border: 1px solid #ccc; 
+    border-top: none; 
+    border-radius: 0 0 5px 5px; /* Shadow */
+}
 
-        .preloader {
+.suggestion {
+    padding: 5px 10px;
+    cursor: pointer;
+   
+    color:black;
+    
+}
+
+.suggestion:hover {
+    background-color: #f0f0f0; 
+}
+
+.preloader {
         position: fixed;
         top: 0;
         left: 0;
@@ -230,7 +256,42 @@ require_once '../includes/config_session.inc.php';
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+        
     </style>
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const hackathonInput = document.getElementById("hackathonInput");
+    const suggestionBox = document.getElementById("suggestionBox");
+
+    hackathonInput.addEventListener("input", function() {
+        const input = hackathonInput.value;
+        if (input.length > 0) {
+            fetch("get_hackathon_suggestions.php?query=" + input)
+                .then(response => response.json())
+                .then(data => {
+                    suggestionBox.innerHTML = ""; 
+                    data.forEach(suggestion => {
+                        const option = document.createElement("div");
+                        option.classList.add("suggestion");
+                        option.textContent = suggestion;
+                        option.addEventListener("click", function() {
+                            hackathonInput.value = suggestion;
+                            suggestionBox.innerHTML = ""; 
+                        });
+                        suggestionBox.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching suggestions:", error);
+                });
+        } else {
+            suggestionBox.innerHTML = ""; 
+        }
+    });
+});
+</script>
+
      
 </head>
 <body>
@@ -254,12 +315,14 @@ require_once '../includes/config_session.inc.php';
 
     <h1 id="Details">Hackathon <font color="#F73634">Details</font>
     </h1>
-    <div class="search-bar">
-        <form id="myForm" action="" method="POST">
-            <input name="HName" type="text" class="search-input" placeholder="Enter Hackathon Name:">
-            <button type="submit" class="search-button">Search</button>
-        </form>
-    </div>
+<div class="search-bar">
+    <form id="myForm" action="" method="POST">
+        <input name="HName" type="text" class="search-input" placeholder="Enter Hackathon Name:" id="hackathonInput">
+        <button type="submit" class="search-button">Search</button>
+         <div id="suggestionBox"></div>
+    </form>
+</div>
+
 <?php if(!isset($_POST['HName'])){?>
 </body><?php }
 
@@ -411,8 +474,7 @@ else{
             <button type="submit" class="search-button">Go Back</button>
         </form>
         <footer>
-            <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-            <p>Contact us at: info@codebattle.com</p>
+            <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
         </footer>
 
         <script>

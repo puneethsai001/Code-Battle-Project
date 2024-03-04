@@ -1,12 +1,12 @@
 
-<!-- <?php
+<?php
     require_once '../includes/config_session.inc.php';
 if ($_SESSION['user_isadmin']==1) {
 
 require_once "../admin/admin_functions.php";
 
 
-?> -->
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,23 +173,26 @@ require_once "../admin/admin_functions.php";
             })
             .catch(error => {
                 console.error('Error fetching table', error);
+            });
 
                
-        window.addEventListener('load', function(){
+        </script>
+    </div>
+    
+    <script>
+    window.addEventListener('load', function(){
             const preloader = document.querySelector('.preloader');
             preloader.style.display = 'none';
         });
-
-            });
         </script>
-    </div>
+          
     
 </body>
 <footer>
     <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
 </footer>
 </html>
-<!-- <?php }else{
+<?php }else{
     header("Location: ../judge/judge.php");
     die();
-} ?> -->
+} ?>
