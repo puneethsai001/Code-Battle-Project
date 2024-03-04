@@ -216,16 +216,18 @@
         <?php } ?>
       <?php } ?>
     }
-    window.addEventListener('load', function(){
-            const preloader = document.querySelector('.preloader');
-            preloader.style.display = 'none';
-        });
   </script>
 </head>
 <body>
 <div class="preloader">
   <div class="loader"></div>
-</div>
+  </div>
+  <script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
   <div class="button-container">
     <form action="judge.php" method="POST">
       <button type="submit" name="view-scoreboard">Home</button>

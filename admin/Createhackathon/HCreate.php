@@ -266,13 +266,14 @@ if(isset($_SESSION['H_created'])){
           container.style.display = 'none';
           container.required = false;
       }
-      
-      window.addEventListener('load', function(){
-        const preloader = document.querySelector('.preloader');
-        preloader.style.display = 'none';
-      });
-
     </script>
+
+<script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
 
   </body>
 

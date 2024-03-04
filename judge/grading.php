@@ -286,14 +286,14 @@
             function submitForm() {
                 document.getElementById("myform").submit();
                 // alert("Updated Successfully")
-
-                window.addEventListener('load', function(){
-            const preloader = document.querySelector('.preloader');
-            preloader.style.display = 'none';
-        });
-            }
             
         </script>
+        <script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
     
 
     </div>

@@ -186,11 +186,6 @@ $_SESSION['update']=1;
             var T_id=Tcard.getAttribute('id');
             window.location.href = 'grading.php?T_id=' + T_id;
         }
-
-        window.addEventListener('load', function(){
-            const preloader = document.querySelector('.preloader');
-            preloader.style.display = 'none';
-        });
     </script>
 </head>
 
@@ -247,5 +242,11 @@ $_SESSION['update']=1;
     <footer>
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
     </footer>
+    <script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
 </body>
 </html>
