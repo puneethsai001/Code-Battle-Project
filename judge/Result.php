@@ -217,10 +217,14 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
 
     <?php }?>
     <script>
-  window.addEventListener('load', function(){
-    const preloader = document.querySelector('.preloader');
-    preloader.style.display = 'none';
-  });
+
+        function load(){
+            const preloader = document.querySelector('.preloader');
+            preloader.style.display = 'none';
+        }
+
+        window.addEventListener('load', load);
+        
 </script>
 </body>
 

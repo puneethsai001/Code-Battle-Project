@@ -476,10 +476,14 @@ if(isset($_POST['HName'])){
         <?php }?>
 
         <script>
-  window.addEventListener('load', function(){
+
+function load(){
     const preloader = document.querySelector('.preloader');
     preloader.style.display = 'none';
-  });
+}
+
+window.addEventListener('load', load);
+
 </script>
     </body>
 </html>

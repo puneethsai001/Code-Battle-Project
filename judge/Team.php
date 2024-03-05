@@ -200,13 +200,13 @@ $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
         }
 
     </script>
-    <script>
+</head>
+<script>
   window.addEventListener('load', function(){
     const preloader = document.querySelector('.preloader');
     preloader.style.display = 'none';
   });
 </script>
-</head>
 <body>
 <div class="preloader">
   <div class="loader"></div>

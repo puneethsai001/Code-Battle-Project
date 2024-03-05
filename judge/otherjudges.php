@@ -333,10 +333,14 @@ $team_sum=0;
     </footer>
 
     <script>
-  window.addEventListener('load', function(){
-    const preloader = document.querySelector('.preloader');
-    preloader.style.display = 'none';
-  });
+
+        function load(){
+            const preloader = document.querySelector('.preloader');
+            preloader.style.display = 'none';
+        }
+
+        window.addEventListener('load', load);
+        
 </script>
 </body>
 </html>

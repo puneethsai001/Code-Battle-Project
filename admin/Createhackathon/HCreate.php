@@ -268,11 +268,15 @@ if(isset($_SESSION['H_created'])){
       }
     </script>
 
-<script>
-  window.addEventListener('load', function(){
+<<script>
+
+function load(){
     const preloader = document.querySelector('.preloader');
     preloader.style.display = 'none';
-  });
+}
+
+window.addEventListener('load', load);
+
 </script>
 
   </body>

@@ -179,11 +179,15 @@ require_once "../admin/admin_functions.php";
     </div>
 
     <script>
-    window.addEventListener('load', function(){
+
+        function load(){
             const preloader = document.querySelector('.preloader');
             preloader.style.display = 'none';
-        });
-        </script>
+        }
+
+        window.addEventListener('load', load);
+        
+</script>
           
     
 </body>

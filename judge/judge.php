@@ -217,16 +217,17 @@
     }
   </script>
 </head>
-<body>
-<div class="preloader">
-  <div class="loader"></div>
-  </div>
-  <script>
+<script>
   window.addEventListener('load', function(){
     const preloader = document.querySelector('.preloader');
     preloader.style.display = 'none';
   });
 </script>
+<body>
+<div class="preloader">
+  <div class="loader"></div>
+  </div>
+  
   <div class="button-container">
   <button name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
         <!-- </form> -->
