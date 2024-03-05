@@ -16,7 +16,8 @@ require_once '../includes/config_session.inc.php';
             height: 100vh;
             margin: 0;
             background-color: #E3E3E3;
-            
+            background-image: url(../Images/grids.jpeg);
+            background-size: cover;
             color: white;
             font-family: Tahoma;
             font-size: 16px;
@@ -41,11 +42,18 @@ require_once '../includes/config_session.inc.php';
         .search-button {
             padding: 0.5rem 1rem;
             background-color: black;
+            font-size: medium;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
+            margin-left: 5px;
             cursor: pointer;
         }
+
+        button.search-button:hover{
+            text-decoration: none;
+        }
+
         .button-container {
             text-align: center;
             display: flex;
@@ -71,12 +79,13 @@ require_once '../includes/config_session.inc.php';
             text-decoration: underline;
         }
         #back {
-        text-align: center; /* Align the button to the center */
+            text-align: center; /* Align the button to the center */
         }
 
         #back button {
-            padding: 1rem 2rem; /* Increase button size */
-            font-size: 1.2rem; /* Increase font size */
+            padding: 0.5rem 2rem;
+            border-radius: 25px;
+            font-size: large; /* Increase font size */
             margin-bottom: 3rem;
         }
         .The-Container {
@@ -92,6 +101,10 @@ require_once '../includes/config_session.inc.php';
             padding: 1rem;
             font-weight: bold;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input{
+            border-radius: 25px;
         }
 
         .image-container {
@@ -299,10 +312,7 @@ require_once '../includes/config_session.inc.php';
 </div>
 <div class="button-container">
         <button type="submit" onClick="window.location.href='admin.php';">Home</button>
-      <!-- </form> -->
-      <!-- <form action="HDetail.php" method="POST"> -->
         <button type="submit" onClick="window.location.href='HDetail.php';">View Hackathon</button>
-      <!-- </form> -->
       <form action="admin_functions.php" method="POST">
           <button type="submit" name="create_hackathon">Create Hackathon</button>
       </form>
@@ -315,9 +325,8 @@ require_once '../includes/config_session.inc.php';
     </h1>
 <div class="search-bar">
     <form id="myForm" action="" method="POST">
-        <input name="HName" type="text" class="search-input" placeholder="Enter Hackathon Name:" id="hackathonInput">
+        <input name="HName" type="text" class="search-input" placeholder="Enter Hackathon Name" id="hackathonInput">
         <button type="submit" class="search-button">Search</button>
-         <div id="suggestionBox"></div>
     </form>
 </div>
 
@@ -363,9 +372,9 @@ if(isset($_POST['HName'])){
 
 ?>
         <div class="The-Container">
-            <div class="image-container">
+            <!-- <div class="image-container">
                 <img src="../Images/Hackathon.png" alt="Image" class="image">
-            </div>
+            </div> -->
             <div class="details-container">
 
                 <?php// foreach($result as $row){?>
