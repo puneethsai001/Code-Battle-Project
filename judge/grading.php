@@ -44,7 +44,6 @@
             margin: 0;
             background-color: #E3E3E3;
             background-image: url(../Images/grids.jpeg);
-            background-repeat: no-repeat;
             background-size: cover;
             color: black;
             font-family: Tahoma;
@@ -286,14 +285,14 @@
             function submitForm() {
                 document.getElementById("myform").submit();
                 // alert("Updated Successfully")
-
-                window.addEventListener('load', function(){
-            const preloader = document.querySelector('.preloader');
-            preloader.style.display = 'none';
-        });
-            }
             
         </script>
+        <script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
     
 
     </div>

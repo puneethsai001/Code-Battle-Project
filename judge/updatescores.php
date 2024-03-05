@@ -28,7 +28,6 @@ $_SESSION['update']=1;
             font-family: 'Arial', sans-serif;
             background-color: #E3E3E3;
             background-image: url(../Images/grids.jpeg);
-            background-repeat: no-repeat;
             background-size: cover;
             color: black;
             min-height: 100vh;
@@ -186,11 +185,6 @@ $_SESSION['update']=1;
             var T_id=Tcard.getAttribute('id');
             window.location.href = 'grading.php?T_id=' + T_id;
         }
-
-        window.addEventListener('load', function(){
-            const preloader = document.querySelector('.preloader');
-            preloader.style.display = 'none';
-        });
     </script>
 </head>
 
@@ -247,5 +241,11 @@ $_SESSION['update']=1;
     <footer>
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
     </footer>
+    <script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
 </body>
 </html>

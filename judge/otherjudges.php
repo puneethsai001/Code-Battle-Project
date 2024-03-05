@@ -74,7 +74,6 @@ $team_sum=0;
             margin: 0;
             background-color: #E3E3E3;
             background-image: url(../Images/grids.jpeg);
-          
             background-size: cover;
             color: black;
             font-family: Tahoma;

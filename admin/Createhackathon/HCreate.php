@@ -33,7 +33,6 @@ if(isset($_SESSION['H_created'])){
       background-color: #E3E3E3;
       background-image: url(../../Images/grids.jpeg);
       background-repeat: no-repeat;
-      background-size: cover;
       color: black;
       font-family: Tahoma;
       font-size: 16px;
@@ -266,13 +265,14 @@ if(isset($_SESSION['H_created'])){
           container.style.display = 'none';
           container.required = false;
       }
-      
-      window.addEventListener('load', function(){
-        const preloader = document.querySelector('.preloader');
-        preloader.style.display = 'none';
-      });
-
     </script>
+
+<script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
 
   </body>
 
