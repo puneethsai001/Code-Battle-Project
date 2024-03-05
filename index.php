@@ -26,6 +26,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
+    
 }
 
  .container {

@@ -285,14 +285,10 @@
             function submitForm() {
                 document.getElementById("myform").submit();
                 // alert("Updated Successfully")
+            }
             
         </script>
-        <script>
-  window.addEventListener('load', function(){
-    const preloader = document.querySelector('.preloader');
-    preloader.style.display = 'none';
-  });
-</script>
+        
     
 
     </div>
@@ -302,5 +298,11 @@
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
         
     </footer>
+    <script>
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
 </body>
 </html>

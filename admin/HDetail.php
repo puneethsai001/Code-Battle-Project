@@ -298,12 +298,11 @@ require_once '../includes/config_session.inc.php';
   <div class="loader"></div>
 </div>
 <div class="button-container">
-      <form action="admin.php" method="POST">
-          <button type="submit">Home</button>
-      </form>
-      <form action="HDetail.php" method="POST">
-          <button type="submit">View Hackathon</button>
-      </form>
+        <button type="submit" onClick="window.location.href='admin.php';">Home</button>
+      <!-- </form> -->
+      <!-- <form action="HDetail.php" method="POST"> -->
+        <button type="submit" onClick="window.location.href='HDetail.php';">View Hackathon</button>
+      <!-- </form> -->
       <form action="admin_functions.php" method="POST">
           <button type="submit" name="create_hackathon">Create Hackathon</button>
       </form>

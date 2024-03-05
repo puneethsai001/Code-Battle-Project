@@ -228,21 +228,20 @@
   });
 </script>
   <div class="button-container">
-    <form action="judge.php" method="POST">
-      <button type="submit" name="view-scoreboard">Home</button>
-    </form>
-    <form action="judge_functions.php" method="POST">
-      <button type="submit" name="view-scoreboard">View Scoreboard</button>
-    </form>
-    <form action="otherjudges.php" method="POST">
-      <button type="submit" name="update">Other Judges Score</button>
-    </form>
-    <form action="updatescores.php" method="POST">
-      <button type="submit" name="update">Update Score</button>
-    </form>
-    <form action="judge_functions.php" method="POST">
-      <button type="submit" name="logout">Log Out</button>
-    </form>
+  <button name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
+        <!-- </form> -->
+        <!-- <form action="judge_functions.php" method="POST"> -->
+          <button name="view-scoreboard" onClick="window.location.href='Result.php';">View Scoreboard</button>
+        <!-- </form> -->
+        <!-- <form action="otherjudges.php" method="POST"> -->
+          <button name="update" onClick="window.location.href='otherjudges.php';">Other Judges Score</button>
+        <!-- </form> -->
+        <!-- <form action="updatescores.php" > -->
+          <button name="update" onClick="window.location.href='updatescores.php';">Update Score</button>
+        <!-- </form> -->
+        <form action="judge_functions.php" method="POST">
+          <button type="submit" name="logout">Log Out</button>
+        </form>
   </div>
 
   <?php
