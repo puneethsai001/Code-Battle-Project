@@ -156,7 +156,7 @@ $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
             color: #ffffff; 
             padding: 5px;
             text-align: center;
-            position: auto; /* Set position to fixed */
+            position: fixed; /* Set position to fixed */
             bottom: 0; /* Position at the bottom */
             width: 100%; 
         }

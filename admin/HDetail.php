@@ -481,9 +481,7 @@ if(isset($_POST['HName'])){
         <footer>
             <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
         </footer>
-        </body>
-        <?php }?>
-
+         <?php }?>
         <script>
 
 function load(){
@@ -494,5 +492,7 @@ function load(){
 window.addEventListener('load', load);
 
 </script>
-    </body>
+</body>
+       
+
 </html>
