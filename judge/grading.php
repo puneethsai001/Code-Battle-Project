@@ -18,6 +18,13 @@ $query1 = "SELECT CR_id, CRName, CRWeight, H_id FROM criteria_data WHERE H_id=:H
         $stmt1->execute();
         $criterias=$stmt1->fetchAll();
         $_SESSION['criterias']=$criterias;
+
+$query3="SELECT Score from scores where CR_id=:CR_id and H_id=:H_id and T_id=:T_id and J_id=:J_id";
+$stmt3 = $pdo->prepare($query3);
+$stmt3->bindParam(":H_id",$_SESSION['H_id']);
+$stmt3->bindParam(":J_id",$_SESSION['J_id']);
+$stmt3->bindParam(":T_id",$_SESSION['T_id']);
+
     
 ?>
 <!DOCTYPE html>
@@ -233,7 +240,6 @@ $query1 = "SELECT CR_id, CRName, CRWeight, H_id FROM criteria_data WHERE H_id=:H
     <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
     
 
-
     
     <!--Modified by Harsh-->
     
@@ -243,7 +249,12 @@ $query1 = "SELECT CR_id, CRName, CRWeight, H_id FROM criteria_data WHERE H_id=:H
             <br>
             <div class="Criteria-Container">
                 <label><?php echo $row['CRName'] ?> (Weight: <?php echo $row['CRWeight'] ?>)</label>
-                <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required max="<?php echo $row['CRWeight'] ?>" /> 
+                <?php 
+                $stmt3->bindParam(":CR_id",$row['CR_id']);
+                $stmt3->execute();
+                $score=$stmt3->fetchColumn();
+                ?>
+                <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required max="<?php echo $row['CRWeight']?>" placeholder="<?php echo (empty($score)) ? "0" : $score;?>" value="<?php echo (empty($score)) ? "0" : $score;?>">
             </div>
             <hr>
     <?php endforeach; ?>

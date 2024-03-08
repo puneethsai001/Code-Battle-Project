@@ -229,6 +229,7 @@ $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <h1 style="text-align:center;margin-top: 90px;"><?php echo $_SESSION['CName'].'s'?></h1>  
     <?php if(!empty($result3)) { ?> 
+        <h1 style="text-align:center;">Select the team you wish to grade. </h1>  
         <div class="card-container">
             <?php foreach($result3 as $row) { 
                 // echo $row['T_id'];?>
