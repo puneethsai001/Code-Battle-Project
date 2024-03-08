@@ -27,6 +27,7 @@ body {
     background-size: cover;
     overflow-x: hidden;
     
+    
 }
 
  .container {
@@ -40,7 +41,7 @@ body {
     padding: 3rem; 
     box-sizing: border-box; 
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-top:9rem;
+    /*margin-top:9rem;*/
 }
 
         .form-container {
@@ -117,7 +118,7 @@ footer {
     color: #ffffff; 
     padding: 5px;
     text-align: center;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%; 
 }

@@ -225,6 +225,40 @@ if(isset($_SESSION['H_added_criteria'])){
         </div>
     </form>
 </body>
+<!--Modified by Harsh-->
+<script>
+    // calculate the sum of weights
+    function calculateSum() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var weights = document.querySelectorAll('input[type="number"]');
+        var sum = 0;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                sum += parseInt(weights[i].value) || 0;
+            }
+        }
+
+        return sum;
+    }
+
+    // validate the sum of weights
+    function validateSum() {
+        var sum = calculateSum();
+        if (sum !== 100) {
+            alert("The sum of weights must be equal to 100.");
+            return false;
+        }
+        return true;
+    }
+
+    // prevent submission
+    document.getElementById('criteriaForm').addEventListener('submit', function(event) {
+        if (!validateSum()) {
+            event.preventDefault(); 
+        }
+    });
+</script>
 
 <footer>
 

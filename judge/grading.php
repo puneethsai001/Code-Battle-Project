@@ -5,6 +5,7 @@
     $_SESSION['T_id'] = $_GET['T_id'];
 
     if(isset($_SESSION['update'])){
+        
         $query1 = "DELETE from scores where J_id=:J_id and T_id=:T_id and H_id=:H_id;";
         $stmt1 = $pdo->prepare($query1);
         $stmt1->bindParam(":H_id",$_SESSION['H_id']);
@@ -22,7 +23,7 @@
         $_SESSION['TName']=$TName;
 
         //display Criterias specific to that session hackathon
-        $query1 = "SELECT CR_id,CRName,H_id FROM criteria_data WHERE H_id=:H_id;";
+$query1 = "SELECT CR_id, CRName, CRWeight, H_id FROM criteria_data WHERE H_id=:H_id;";
         $stmt1 = $pdo->prepare($query1);
         $stmt1->bindParam(":H_id",$_SESSION['H_id']);
         $stmt1->execute();
@@ -235,12 +236,7 @@
 
 
 </head>
-<script>
-  window.addEventListener('load', function(){
-    const preloader = document.querySelector('.preloader');
-    preloader.style.display = 'none';
-  });
-</script>
+
 <body>  
 <div class="preloader">
   <div class="loader"></div>
@@ -248,23 +244,25 @@
     <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
     
 
-   <?php 
-    
-    foreach($criterias as $row){
-     ?>
-        <div class = "form-container">
-            <form id= "myform" action="insert.scores.php" method="POST">
-                <br>
-                <div class="Criteria-Container">
-                    <label><?php echo $row['CRName'] ?></label>
-                    <!-- sets the name attribute as 'criteria name'+mark -->
-                    <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required/> 
-                </div>
-                <hr>
-    <?php }?>
 
-                <h1>total: 0</h1>
-                <div class="button-container"><button class="submit-button" onclick="showModal()">Submit</button></div>
+    
+    <!--Modified by Harsh-->
+    
+    <?php foreach($criterias as $row): ?>
+    <div class="form-container">
+        <form id="myform" action="insert.scores.php" method="POST">
+            <br>
+            <div class="Criteria-Container">
+                <label><?php echo $row['CRName'] ?> (Weight: <?php echo $row['CRWeight'] ?>)</label>
+                <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required max="<?php echo $row['CRWeight'] ?>" /> 
+            </div>
+            <hr>
+    <?php endforeach; ?>
+    
+       <!--Modified by Harsh-->
+
+                <!--<h1>total: 0</h1>-->
+                <div class="button-container"><button class="submit-button" onclick="validateMarks()">Submit</button></div>
 <div id="modal" class="modal-background">
   <div class="modal-content">
     <p class="modal-text">Are you sure you want to submit?</p>
@@ -293,7 +291,32 @@
                 // alert("Updated Successfully")
             }
             
-        </script>
+    function validateMarks() {
+        var inputs = document.querySelectorAll('input[type="number"]');
+        var valid = true;
+        
+        inputs.forEach(function(input) {
+            var weight = parseInt(input.getAttribute('max'));
+            var mark = parseInt(input.value);
+            
+            if (mark > weight) {
+                valid = false;
+                alert("Mark cannot be greater than weight for " + input.name);
+                input.focus();
+                return;
+            }
+        });
+        
+        if (valid) {
+            showModal();
+        } else {
+            hideModal(); // Ensure modal is hidden if marks are not valid
+        }
+    }
+</script>
+
+            
+        
         
     
 
@@ -304,6 +327,14 @@
         <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
         
     </footer>
+    <script>
+
+
+  window.addEventListener('load', function(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+  });
+</script>
     
 </body>
 </html>
