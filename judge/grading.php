@@ -4,17 +4,6 @@
     require_once '../includes/config_session.inc.php';
     $_SESSION['T_id'] = $_GET['T_id'];
 
-    if(isset($_SESSION['update'])){
-        
-        $query1 = "DELETE from scores where J_id=:J_id and T_id=:T_id and H_id=:H_id;";
-        $stmt1 = $pdo->prepare($query1);
-        $stmt1->bindParam(":H_id",$_SESSION['H_id']);
-        $stmt1->bindParam(":J_id",$_SESSION['J_id']);
-        $stmt1->bindParam(":T_id",$_SESSION['T_id']);
-        $stmt1->execute();
-        ;
-    }
-
         $query2 = "SELECT TName FROM team_data WHERE T_id=:T_id;";
         $stmt2 = $pdo->prepare($query2);
         $stmt2->bindParam(":T_id",$_SESSION['T_id']);
