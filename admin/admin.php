@@ -153,13 +153,12 @@ require_once "../admin/admin_functions.php";
       <!-- <form action="admin_functions.php" method="POST"> -->
           <button type="submit" name="create_hackathon" onClick="window.location.href='create.php';">Create Hackathon</button>
       <!-- </form> -->
-      <form action="admin_functions.php" method="POST">
-          <button type="submit" name="logout">Log Out</button>
-      </form>
+      <!-- <form action="admin_functions.php" method="POST"> -->
+          <button type="submit" name="logout" onClick="window.location.href='../logout.php';">Log Out</button>
+      <!-- </form> -->
     </div>
     <?php
         echo '<h1>Welcome <font color="#F73634">'.$_SESSION["user_username"].',</font></h1>';
-        
     ?>
     
     <h2>Hackathon Details</h2>
@@ -192,7 +191,7 @@ require_once "../admin/admin_functions.php";
     
 </body>
 <footer>
-    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+    <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
 </footer>
 </html>
 <?php }

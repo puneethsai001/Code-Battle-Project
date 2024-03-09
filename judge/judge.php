@@ -149,8 +149,30 @@
 
     .team-heading {
       text-align: center;
-      //removed the margin top
-      
+    }
+
+    .score-dropdown {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .score-dropdown a {
+        font-family: 'Arial', sans-serif;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+    }
+
+    .score-dropdown a:hover {
+        background-color: #ddd;
+    }
+    .scoreboard-dropdown-container:hover .score-dropdown {
+        display: block;
     }
 
    footer {
@@ -224,25 +246,22 @@
   });
 </script>
 <body>
-<div class="preloader">
-  <div class="loader"></div>
+  <div class="preloader">
+    <div class="loader"></div>
   </div>
-  
+
   <div class="button-container">
-  <button name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
-        <!-- </form> -->
-        <!-- <form action="judge_functions.php" method="POST"> -->
-          <button name="view-scoreboard" onClick="window.location.href='Result.php';">View Scoreboard</button>
-        <!-- </form> -->
-        <!-- <form action="otherjudges.php" method="POST"> -->
-          <button name="update" onClick="window.location.href='otherjudges.php';">Other Judges Score</button>
-        <!-- </form> -->
-        <!-- <form action="updatescores.php" > -->
-          <button name="update" onClick="window.location.href='updatescores.php';">Update Score</button>
-        <!-- </form> -->
-        <form action="judge_functions.php" method="POST">
-          <button type="submit" name="logout">Log Out</button>
-        </form>
+    <button name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
+    <div id="scoreboard-dropdown-container" class="scoreboard-dropdown-container">
+        <button id="scoreboard" name="view-scoreboard">Scoreboard &#x25BC;</button>
+        <div class="score-dropdown">
+            <a onclick="window.location.href='Result.php';">My Scoreboard</a>
+            <a onclick="window.location.href='otherjudges.php';">Judges Scoreboard</a>
+            <a onclick="window.location.href='myScores.php';">Team Scoreboard</a>
+        </div>
+    </div>
+    <button name="update" onClick="window.location.href='updatescores.php';">Update Score</button>
+    <button type="submit" name="logout" onClick="window.location.href='../logout.php';">Log Out</button>
   </div>
 
   <?php

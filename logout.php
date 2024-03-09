@@ -1,6 +1,6 @@
 <?php
-require_once "../includes/dbh.inc.php";
-require_once '../includes/config_session.inc.php';
+require_once "includes/dbh.inc.php";
+require_once 'includes/config_session.inc.php';
 function logout(PDO $pdo) {
     $_SESSION = array();
     session_unset();
@@ -11,12 +11,11 @@ function logout(PDO $pdo) {
         setcookie($key, '', $past, '/');
     }   
 
-    header("Location: ../index.php");
+    header("Location: index.php");
     exit(); 
 }
-if ($_SESSION["user_isadmin"]==0){
-    if (isset($_POST['logout'])){     
+if (isset($_SESSION["user_isadmin"])){
         logout( $pdo);
     }
-}
+
 

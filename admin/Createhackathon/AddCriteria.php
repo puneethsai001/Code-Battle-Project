@@ -262,7 +262,7 @@ if(isset($_SESSION['H_added_criteria'])){
 
 <footer>
 
-    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+    <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
 
 </footer>
 </html>

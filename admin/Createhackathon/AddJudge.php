@@ -362,8 +362,7 @@ if(isset($_SESSION['H_judges_added'])){
 </body>
 
 <footer>
-    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-    <p>Contact us at: info@codebattle.com</p>
+    <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
 </footer>
 </html>
 <!-- //   trying to get only selected category checkboxes
