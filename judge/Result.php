@@ -3,12 +3,14 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once '../includes/dbh.inc.php';
 require_once '../includes/config_session.inc.php';
-
-    $query1="SELECT T_id, TName, ROUND(AVG(J_score),0) as Total_Score
-    FROM (SELECT T_id, TName, AVG(Score) as J_score from scores WHERE H_id=:H_id
-    GROUP BY T_id,J_id) as subquery 
-    GROUP BY T_id
-    ORDER BY Total_Score DESC";
+// Modified by harsh
+    $query1 = "SELECT T_id, TName, ROUND(AVG(J_score)) as Total_Score
+           FROM (SELECT T_id, TName, SUM(Score) as J_score 
+                 FROM scores 
+                 WHERE H_id=:H_id
+                 GROUP BY T_id, J_id) as subquery 
+           GROUP BY T_id
+           ORDER BY Total_Score DESC";
 
     $stmt1=$pdo->prepare($query1);
     $stmt1->bindParam(":H_id",$_SESSION['H_id']);
@@ -22,8 +24,8 @@ require_once '../includes/config_session.inc.php';
     //found
     $criterias=$s5->fetchAll(PDO::FETCH_ASSOC);
     // var_dump($criterias);
-
-    $q7="Select SUM(Score) from scores where H_id=:H_id and T_id=:T_id and CR_id In (SELECT CR_id FROM criteria_data WHERE CRName =:CRName)";
+// Modified by harsh
+    $q7="Select ROUND(AVG(Score)) from scores where H_id=:H_id and T_id=:T_id and CR_id In (SELECT CR_id FROM criteria_data WHERE CRName =:CRName)";
 $s7=$pdo->prepare($q7);
 $s7->bindParam(":H_id",$_SESSION['H_id']);
     
