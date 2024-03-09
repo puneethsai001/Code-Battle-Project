@@ -180,7 +180,7 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
       </div>
 
     <h1><font color = "black">Final </font>Scoreboard</h1>
-
+    <?php if($teams){?>
     <table>
        <tr>
            <th>Team ID</th>
@@ -190,8 +190,8 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
             <?php }?>
             <th>Scores</th>
         </tr>
-        <?php if($teams){
-        foreach($teams as $team){?>
+        
+        <?php foreach($teams as $team){?>
                 <tr>
                     <td><?php echo $team['T_id'] ?></td>
                     <td><?php echo $team['TName'] ?></td>
@@ -206,16 +206,16 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
                         <td><?php echo $team['Total_Score'] ?></td>
                         
                 </tr>
-            <?php  }   ?>
+                <?php  }   ?>
             </table>
 
 
         <?php }else{ ?>
-            <table>
             
-        <tr>
-        <td><h1 style="color: #F73634;">No teams graded</h1></td>    
-        </tr> </table>
+            
+        
+        <?php echo "<h1><font color=\"black\">No teams graded</font></h1>"; ?></td>
+           
 
     <?php }?>
     <script>

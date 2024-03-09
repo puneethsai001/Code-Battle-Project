@@ -5,7 +5,15 @@
    
     $criterias=$_SESSION['criterias'];
 
-    if(isset($_SESSION['update'])){
+    $q1="SELECT Score from scores where H_id=:H_id AND J_id=:J_id AND T_id=:T_id;";
+    $stmt1=$pdo->prepare($q1);
+    $stmt1->bindParam(":H_id",$_SESSION['H_id']);
+    $stmt1->bindParam(":T_id",$_SESSION['T_id']);
+    $stmt1->bindParam(":J_id",$_SESSION['J_id']);
+    $stmt1->execute();
+    $score=$stmt1->fetch(PDO::FETCH_ASSOC);
+
+    if(!empty($score)){
         $query2="UPDATE scores SET Score=:score WHERE H_id=:H_id AND J_id=:J_id AND T_id=:T_id AND CR_id=:CR_id";
     } else {
         $query2="INSERT INTO scores (H_id, J_id, CR_id, T_id, Score) VALUES (:H_id, :J_id, :CR_id, :T_id, :score)";
@@ -27,7 +35,6 @@
         $stmt2->execute();
     }
     
-    unset($_SESSION['update']);
     unset($_SESSION['criterias']);
     unset($_SESSION['T_id']);
     unset($_SESSION['TName']);

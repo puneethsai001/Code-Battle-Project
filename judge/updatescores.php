@@ -15,7 +15,6 @@ $stmt3->bindParam(":J_id", $_SESSION['J_id']);
 $stmt3->execute();
 $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
 
-$_SESSION['update']=1;
 ?>
     
 <!DOCTYPE html>
