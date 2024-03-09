@@ -44,8 +44,6 @@
       background-image: url(../Images/grids.jpeg);
       background-size: cover;
     }
-
-
     
     button {
       background-color: #F73634;
@@ -53,7 +51,7 @@
       color: #fff;
       cursor: pointer;
       font-size: large;
-      padding: 5px 30px; 
+      padding: 5px 50px; 
       margin-left: 1em;
       border-radius: 18px;
       font-weight: bold;
@@ -152,6 +150,7 @@
     }
 
     .score-dropdown {
+      margin-left: 40px;
       display: none;
       position: absolute;
       background-color: #f1f1f1;
@@ -159,13 +158,14 @@
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
     }
+
     .score-dropdown a {
         font-family: 'Arial', sans-serif;
         color: black;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
-        text-align: center;
+        text-align: left;
     }
 
     .score-dropdown a:hover {
@@ -173,6 +173,10 @@
     }
     .scoreboard-dropdown-container:hover .score-dropdown {
         display: block;
+    }
+
+    #profile-dropdown{
+      margin-left: 10px;
     }
 
    footer {
@@ -214,7 +218,7 @@
     }
   </style>
 
-  <script>
+  <!-- <script>
     //sending the category clicked name to teams page
     function divClick(card) {
       var categoryname = card.getAttribute('value');
@@ -237,7 +241,7 @@
         <?php } ?>
       <?php } ?>
     }
-  </script>
+  </script> -->
 </head>
 <script>
   window.addEventListener('load', function(){
@@ -251,7 +255,7 @@
   </div>
 
   <div class="button-container">
-    <button name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
+    <button id = "home-container" name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
     <div id="scoreboard-dropdown-container" class="scoreboard-dropdown-container">
         <button id="scoreboard" name="view-scoreboard">Scoreboard &#x25BC;</button>
         <div class="score-dropdown">
@@ -261,7 +265,16 @@
         </div>
     </div>
     <button name="update" onClick="window.location.href='updatescores.php';">Update Score</button>
-    <button type="submit" name="logout" onClick="window.location.href='../logout.php';">Log Out</button>
+    <!-- <button type="submit" name="logout" onClick="window.location.href='../logout.php';">Log Out</button> -->
+
+    <div class="scoreboard-dropdown-container" id ="profile-container">
+      <button class="dropbtn"><i class="fas fa-user"></i>&#x25BC;</button>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <div id ="profile-dropdown" class="score-dropdown">
+        <a onclick="window.location.href='../logout.php';">Logout</a>
+      </div>
+    </div>
+
   </div>
 
   <?php
@@ -303,7 +316,7 @@
 
  
   <footer>
-    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+    <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
   </footer>
 
 </body>

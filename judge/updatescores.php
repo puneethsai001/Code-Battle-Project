@@ -237,7 +237,7 @@ $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
         <h2 style="text-align: center;">No teams graded by you yet</h2>
     <?php } ?>
     <footer>
-        <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+        <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
     </footer>
     <script>
   window.addEventListener('load', function(){

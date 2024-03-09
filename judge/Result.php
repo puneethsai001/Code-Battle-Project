@@ -231,8 +231,7 @@ $s7->bindParam(":H_id",$_SESSION['H_id']);
 </body>
 
 <footer>
-    <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
-    <p>Contact us at: info@codebattle.com</p>
+<p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
 </footer>
 
 </html>

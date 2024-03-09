@@ -258,7 +258,7 @@ $result3=$stmt3->fetchAll(PDO::FETCH_ASSOC);
         <h2 style="text-align: center;">All teams under this category have been graded.</h2>
     <?php } ?>
     <footer>
-        <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+        <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
     </footer>
 </body>
 </html>

@@ -329,7 +329,7 @@ $team_sum=0;
             </div>
         <?php }}}?>
     <footer>
-        <p>Code Battle &copy; 2024. All rights reserved. Made in U.A.E</p>
+    <p>Code Battle &copy; 2024. All rights reserved. Made with ❤️ in U.A.E</p>
     </footer>
 
     <script>
