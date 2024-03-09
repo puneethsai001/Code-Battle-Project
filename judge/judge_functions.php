@@ -18,25 +18,5 @@ if ($_SESSION["user_isadmin"]==0){
     if (isset($_POST['logout'])){     
         logout( $pdo);
     }
-    if (isset($_POST['view-scoreboard'])){     
-        header("Location: Result.php");
-        exit(); 
-    }
-
 }
 
-
-
-
-    // $_SESSION = array();
-    // session_unset();
-    // session_destroy();
-
-    // $past = time() - 3600;
-    // foreach ($_COOKIE as $key => $value) {
-    //     setcookie($key, '', $past, '/');
-    // }
-
-    // header("Location: ../index.php");
-    // exit(); 
-?>

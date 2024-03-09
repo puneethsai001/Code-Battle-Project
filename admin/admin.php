@@ -150,9 +150,9 @@ require_once "../admin/admin_functions.php";
       <!-- <form action="HDetail.php" method="POST"> -->
         <button type="submit" onClick="window.location.href='HDetail.php';">View Hackathon</button>
       <!-- </form> -->
-      <form action="admin_functions.php" method="POST">
-          <button type="submit" name="create_hackathon">Create Hackathon</button>
-      </form>
+      <!-- <form action="admin_functions.php" method="POST"> -->
+          <button type="submit" name="create_hackathon" onClick="window.location.href='create.php';">Create Hackathon</button>
+      <!-- </form> -->
       <form action="admin_functions.php" method="POST">
           <button type="submit" name="logout">Log Out</button>
       </form>

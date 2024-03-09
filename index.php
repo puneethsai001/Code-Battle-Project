@@ -4,7 +4,20 @@
         session_start();
     }
     if (isset($_SESSION['user_isadmin']) || isset($_SESSION['user_id'])) {
-        header("Location: admin/admin.php");
+        if($_SESSION["user_isadmin"]==1){
+            header("Location: admin/admin.php");
+            $pdo=null;
+            $stmt=null;
+
+            die();
+        }
+        else{
+            header("Location: judge/judge.php");
+            $pdo=null;
+            $stmt=null;
+            die();
+
+        }
         exit();
     }
 ?>
