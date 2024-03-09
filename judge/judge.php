@@ -255,9 +255,9 @@
     <div id="scoreboard-dropdown-container" class="scoreboard-dropdown-container">
         <button id="scoreboard" name="view-scoreboard">Scoreboard &#x25BC;</button>
         <div class="score-dropdown">
-            <a onclick="window.location.href='Result.php';">My Scoreboard</a>
+            <a onclick="window.location.href='myScores.php';">My Scoreboard</a>
             <a onclick="window.location.href='otherjudges.php';">Judges Scoreboard</a>
-            <a onclick="window.location.href='myScores.php';">Team Scoreboard</a>
+            <a onclick="window.location.href='Result.php';">Team Scoreboard</a>
         </div>
     </div>
     <button name="update" onClick="window.location.href='updatescores.php';">Update Score</button>
