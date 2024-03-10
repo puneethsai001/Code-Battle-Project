@@ -296,7 +296,7 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
 </div>
     
 
-    <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
+    
     
     <div class="button-container">
         <button id = "home-container" name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
@@ -318,6 +318,7 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
         </div>
     
       </div>
+      <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
     
     <!--Modified by Harsh-->
     
@@ -332,7 +333,7 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
                 $stmt3->execute();
                 $score=$stmt3->fetchColumn();
                 ?>
-                <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required max="<?php echo $row['CRWeight']?>" placeholder="<?php echo (empty($score)) ? "0" : $score;?>" value="<?php echo (empty($score)) ? "0" : $score;?>">
+                <input id="CWeight" name="<?php echo $row['CRName'].'mark' ?>" type="number" required max="<?php echo $row['CRWeight']?>" placeholder="<?php echo (empty($score)) ? "0" : $score;?>">
             </div>
             <hr>
     <?php endforeach; ?>
