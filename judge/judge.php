@@ -218,7 +218,7 @@
     }
   </style>
 
-  <!-- <script>
+  <script>
     //sending the category clicked name to teams page
     function divClick(card) {
       var categoryname = card.getAttribute('value');
@@ -241,7 +241,7 @@
         <?php } ?>
       <?php } ?>
     }
-  </script> -->
+  </script>
 </head>
 <script>
   window.addEventListener('load', function(){
@@ -265,8 +265,6 @@
         </div>
     </div>
     <button name="update" onClick="window.location.href='updatescores.php';">Update Score</button>
-    <!-- <button type="submit" name="logout" onClick="window.location.href='../logout.php';">Log Out</button> -->
-
     <div class="scoreboard-dropdown-container" id ="profile-container">
       <button class="dropbtn"><i class="fas fa-user"></i>&#x25BC;</button>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

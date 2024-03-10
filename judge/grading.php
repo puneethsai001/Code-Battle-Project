@@ -129,6 +129,54 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
         button:hover{
             background-color: #F73634;
         }
+
+        .button-container button{
+            background-color: #F73634;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: large;
+            padding: 5px 50px; 
+            margin-left: 1em;
+            border-radius: 18px;
+            font-weight: bold;
+            width: auto;
+        }
+
+        .button-container button:hover{
+            text-decoration: underline;
+        }
+
+        .score-dropdown {
+      margin-left: 40px;
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .score-dropdown a {
+        font-family: 'Arial', sans-serif;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .score-dropdown a:hover {
+        background-color: #ddd;
+    }
+    .scoreboard-dropdown-container:hover .score-dropdown {
+        display: block;
+    }
+
+    #profile-dropdown{
+      margin-left: 10px;
+    }
+
         .discard-button{
             background-color: #F73634;
             border: 1px;
@@ -139,7 +187,16 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
             margin-top: 0em;
         }
 
-        .button-container{
+        .button-container {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: #F73634;
+            padding: 15px;
+        }
+
+        .button-container2{
             text-align: center;
             margin: auto;
         }
@@ -237,9 +294,30 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
 <div class="preloader">
   <div class="loader"></div>
 </div>
-    <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
     
 
+    <h1 id="heading"><?php echo $_SESSION['TName'] ?></h1>
+    
+    <div class="button-container">
+        <button id = "home-container" name="view-scoreboard" onClick="window.location.href='judge.php';">Home</button>
+        <div id="scoreboard-dropdown-container" class="scoreboard-dropdown-container">
+            <button id="scoreboard" name="view-scoreboard">Scoreboard &#x25BC;</button>
+            <div class="score-dropdown">
+                <a onclick="window.location.href='myScores.php';">My Scoreboard</a>
+                <a onclick="window.location.href='otherjudges.php';">Judges Scoreboard</a>
+                <a onclick="window.location.href='Result.php';">Team Scoreboard</a>
+            </div>
+        </div>
+        <button name="update" onClick="window.location.href='updatescores.php';">Update Score</button>
+        <div class="scoreboard-dropdown-container" id ="profile-container">
+          <button class="dropbtn"><i class="fas fa-user"></i>&#x25BC;</button>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+          <div id ="profile-dropdown" class="score-dropdown">
+            <a onclick="window.location.href='../logout.php';">Logout</a>
+          </div>
+        </div>
+    
+      </div>
     
     <!--Modified by Harsh-->
     
@@ -262,7 +340,7 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
        <!--Modified by Harsh-->
 
                 <!--<h1>total: 0</h1>-->
-                <div class="button-container"><button class="submit-button" onclick="validateMarks()">Submit</button></div>
+                <div class="button-container2"><button class="submit-button" onclick="validateMarks()">Submit</button></div>
 <div id="modal" class="modal-background">
   <div class="modal-content">
     <p class="modal-text">Are you sure you want to submit?</p>
