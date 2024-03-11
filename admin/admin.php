@@ -99,6 +99,36 @@ require_once "../admin/admin_functions.php";
             text-decoration: underline;
         }
 
+        .score-dropdown {
+      margin-left: 40px;
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .score-dropdown a {
+        font-family: 'Arial', sans-serif;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .score-dropdown a:hover {
+        background-color: #ddd;
+    }
+    .scoreboard-dropdown-container:hover .score-dropdown {
+        display: block;
+    }
+
+    #profile-dropdown{
+      margin-left: 10px;
+    }
+
         footer {
             background-color: #000000;
             color: #ffffff; 
@@ -143,19 +173,17 @@ require_once "../admin/admin_functions.php";
 <div class="preloader">
   <div class="loader"></div>
 </div>
-<div class="button-container">
-      <!-- <form action="admin.php" method="POST"> -->
-        <button type="submit" onClick="window.location.href='admin.php';">Home</button>
-      <!-- </form> -->
-      <!-- <form action="HDetail.php" method="POST"> -->
-        <button type="submit" onClick="window.location.href='HDetail.php';">View Hackathon</button>
-      <!-- </form> -->
-      <!-- <form action="admin_functions.php" method="POST"> -->
-          <button type="submit" name="create_hackathon" onClick="window.location.href='create.php';">Create Hackathon</button>
-      <!-- </form> -->
-      <!-- <form action="admin_functions.php" method="POST"> -->
-          <button type="submit" name="logout" onClick="window.location.href='../logout.php';">Log Out</button>
-      <!-- </form> -->
+    <div class="button-container">
+        <button type="submit" onClick="window.location.href='../admin.php';">Home</button>
+        <button type="submit" onClick="window.location.href='../HDetail.php';">View Hackathon</button>
+        <button type="submit" name="create_hackathon" onClick="window.location.href='../admin_functions.php';">Create Hackathon</button>
+        <div class="scoreboard-dropdown-container" id ="profile-container">
+        <button class="dropbtn"><i class="fas fa-user"></i>&#x25BC;</button>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <div id ="profile-dropdown" class="score-dropdown">
+            <a onclick="window.location.href='../../logout.php';">Logout</a>
+        </div>
+        </div>
     </div>
     <?php
         echo '<h1>Welcome <font color="#F73634">'.$_SESSION["user_username"].',</font></h1>';
