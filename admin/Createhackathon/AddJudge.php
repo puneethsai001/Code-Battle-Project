@@ -352,16 +352,16 @@ if(isset($_SESSION['H_judges_added'])){
     </script>
 </head>
 <body>
-    <div class="button-container">
-        <button type="submit" onClick="window.location.href='../admin.php';">Home</button>
-        <button type="submit" onClick="window.location.href='../HDetail.php';">View Hackathon</button>
-        <button type="submit" name="create_hackathon" onClick="window.location.href='../admin_functions.php';">Create Hackathon</button>
+<div class="button-container">
+        <button class="navButtons" onClick="window.location.href='../admin.php';">Home</button>
+        <button class="navButtons" onClick="window.location.href='../HDetail.php';">View Hackathon</button>
+        <button class="navButtons" onClick="window.location.href='../create.php';">Create Hackathon</button>
         <div class="scoreboard-dropdown-container" id ="profile-container">
-            <button class="dropbtn"><i class="fas fa-user"></i>&#x25BC;</button>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-            <div id ="profile-dropdown" class="score-dropdown">
-                <a onclick="window.location.href='../../logout.php';">Logout</a>
-            </div>
+        <button class="dropbtn"><i class="fas fa-user"></i>&#x25BC;</button>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <div id ="profile-dropdown" class="score-dropdown">
+            <a onclick="window.location.href='../logout.php';">Logout</a>
+        </div>
         </div>
     </div>
     
