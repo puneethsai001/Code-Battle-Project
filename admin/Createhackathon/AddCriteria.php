@@ -194,7 +194,7 @@ if(isset($_SESSION['H_added_criteria'])){
         <button class="dropbtn"><i class="fas fa-user"></i>&#x25BC;</button>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <div id ="profile-dropdown" class="score-dropdown">
-            <a onclick="window.location.href='../logout.php';">Logout</a>
+            <a onclick="window.location.href='../../logout.php';">Logout</a>
         </div>
         </div>
     </div>
