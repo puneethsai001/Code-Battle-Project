@@ -54,14 +54,14 @@ require_once '../includes/config_session.inc.php';
             text-decoration: none;
         }
 
-        .button-container {
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            background-color: #F73634;
-            padding: 15px;
-        }
+     .button-container {
+    text-align: center; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    background-color: #F73634;
+    padding: 15px;
+}
         
         button {
             background-color: #F73634;
@@ -79,13 +79,13 @@ require_once '../includes/config_session.inc.php';
             text-decoration: underline;
         }
         #back {
-            text-align: center; /* Align the button to the center */
+            text-align: center; 
         }
 
         #back button {
             padding: 0.5rem 2rem;
             border-radius: 25px;
-            font-size: large; /* Increase font size */
+            font-size: large; 
             margin-bottom: 3rem;
         }
         .The-Container {
@@ -122,7 +122,6 @@ require_once '../includes/config_session.inc.php';
         .details-container {
             flex-grow: 1;
             padding-left: 1rem;
-            /* Add left padding */
         }
 
         .Hackathon-Info {
@@ -139,15 +138,12 @@ require_once '../includes/config_session.inc.php';
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
-            /* Add spacing between sections */
         }
 
         .Category,
         .Criteria {
             flex-basis: 50%;
-            /* Each section takes up half of the container */
             margin-bottom: 2rem;
-            /* Add spacing between items */
             margin-left: 25%;
         }
 
@@ -155,7 +151,6 @@ require_once '../includes/config_session.inc.php';
         .Criteria dt {
             display: block;
             margin-bottom: 0.5rem;
-            /* Add spacing between items */
             font-weight: bold;
         }
 
@@ -163,7 +158,6 @@ require_once '../includes/config_session.inc.php';
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            /* justify-content: center; */
             margin-bottom: 2rem;
             /* margin-right: 6rem; */
 
@@ -172,7 +166,6 @@ require_once '../includes/config_session.inc.php';
         .Team span {
             display: inline-block;
             margin-right: 1rem;
-            /* Reduce the margin between spans */
             margin-bottom: 2rem;
         }
 
@@ -195,6 +188,7 @@ require_once '../includes/config_session.inc.php';
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
+      cursor:pointer;
     }
 
     .score-dropdown a {
@@ -303,7 +297,7 @@ require_once '../includes/config_session.inc.php';
     </style>
     
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const hackathonInput = document.getElementById("hackathonInput");
     const suggestionBox = document.getElementById("suggestionBox");
 
@@ -333,6 +327,7 @@ require_once '../includes/config_session.inc.php';
         }
     });
 });
+
 </script>
 
 </head>
@@ -358,8 +353,11 @@ require_once '../includes/config_session.inc.php';
     <form id="myForm" action="" method="POST">
         <input name="HName" type="text" class="search-input" placeholder="Enter Hackathon Name" id="hackathonInput">
         <button type="submit" class="search-button">Search</button>
+        
     </form>
+    <div id="suggestionBox"></div>
 </div>
+
 
 <?php 
 if(isset($_POST['HName'])){

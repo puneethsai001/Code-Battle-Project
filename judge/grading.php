@@ -228,7 +228,7 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            //background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
@@ -241,6 +241,7 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
             padding: 20px;
             border-radius: 1rem;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align :center;
         }
 
         .modal-content p{
@@ -249,14 +250,32 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
         .modal-text {
             margin-bottom: 20px;
         }
+        
+       
 
-        .modal-button {
-        border: none;
 
-        color: white;
-        cursor: pointer;
-        }
+   .modal-button-container button {
+     background-color: #000000;
+            border: 1px;
+            border-radius: 25px;
+            color: #ffffff;
+            font-size: 1rem;
+            padding: 0.5rem;
+            width: 25%;
+            margin-top:1rem;  
+}
 
+.modal-button-container button:hover {
+    background-color: #DF2724; 
+}
+
+.modal-button:first-child {
+    margin-right: 1rem;
+}
+
+.modal-button:last-child {
+    margin-left: 1rem; 
+}
         .preloader {
         position: fixed;
         top: 0;
@@ -345,7 +364,7 @@ $stmt3->bindParam(":T_id",$_SESSION['T_id']);
 <div id="modal" class="modal-background">
   <div class="modal-content">
     <p class="modal-text">Are you sure you want to submit?</p>
-    <div class="button-container">
+    <div class="modal-button-container">
     <button class="modal-button" onclick="hideModal()">Cancel</button>
     <button class="modal-button" onclick="submitForm()">Submit</button>
     </div>

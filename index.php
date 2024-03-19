@@ -212,9 +212,9 @@ footer {
     </style>
 </head>
 <body>
-<!-- <div class="preloader">
+ <div class="preloader">
   <div class="loader"></div>
-</div> -->
+</div> 
 
     
     <div class="container">
@@ -248,6 +248,18 @@ footer {
         </div>
             
     </div>
+    
+     <script>
+
+function load(){
+    const preloader = document.querySelector('.preloader');
+    preloader.style.display = 'none';
+}
+
+window.addEventListener('load', load);
+
+</script>
+
     
 
 </body>

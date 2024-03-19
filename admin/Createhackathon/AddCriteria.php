@@ -251,9 +251,10 @@ if(isset($_SESSION['H_added_criteria'])){
             <button id="redirectButton">Submit</button>
             <button name = "discard" formaction="../discard.php">Discard </button>
         </div>
+
     </form>
-</body>
-<!--Modified by Harsh-->
+
+    <!--Modified by Harsh-->
 <script>
     // calculate the sum of weights
     function calculateSum() {
@@ -270,6 +271,24 @@ if(isset($_SESSION['H_added_criteria'])){
         return sum;
     }
 
+    // validate each weight to ensure it's at least 5
+    function validateWeights() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var weights = document.querySelectorAll('input[type="number"]');
+        
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                var weightValue = parseInt(weights[i].value) || 0;
+                if (weightValue < 5) {
+                    alert("Minimum weight for each criteria should be 5.");
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     // validate the sum of weights
     function validateSum() {
         var sum = calculateSum();
@@ -280,13 +299,16 @@ if(isset($_SESSION['H_added_criteria'])){
         return true;
     }
 
-    // prevent submission
-    document.getElementById('criteriaForm').addEventListener('submit', function(event) {
-        if (!validateSum()) {
-            event.preventDefault(); 
-        }
-    });
+    // prevent submission if weights are invalid
+   document.getElementById('redirectButton').addEventListener('click', function(event) {
+    if (!validateWeights() || !validateSum()) {
+        event.preventDefault(); 
+    }
+});
 </script>
+
+    
+</body>
 
 <footer>
 
